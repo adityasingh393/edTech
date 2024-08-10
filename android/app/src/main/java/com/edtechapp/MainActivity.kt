@@ -1,4 +1,4 @@
-package com.edtechapp
+package com.adityasingh
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
