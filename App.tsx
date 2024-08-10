@@ -1,28 +1,15 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import ScreenLanding from './src/Screens/ScreenLanding/ScreenLanding';
-import ScreenHome from './src/Screens/ScreenHome/ScreenHome';
-
-
-const Stack = createStackNavigator();
-
-
-const App: React.FC = () => {
-  
+import Routes from './src/Routes/Routes';
+import { Provider } from 'react-redux';
+import store from './src/Redux/store';
+function App(): React.JSX.Element {
   return (
-      <NavigationContainer>
-        <Stack.Navigator 
-        screenOptions={{
-          headerShown: false
-        }}
-      initialRouteName="Landing">
-          <Stack.Screen name="Landing" component={ScreenLanding} />
-          <Stack.Screen name="Home" component={ScreenHome} />
+<Provider store={store}>
 
-        </Stack.Navigator>
-      </NavigationContainer>
+  <Routes/>
+</Provider>
+
   );
-};
+}
 
 export default App;
