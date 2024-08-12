@@ -11,7 +11,6 @@ export interface AuthState {
     isAuthenticated: boolean;
     user: User | null;
 }
-
 export type AuthStackParamList = {
     Signup: undefined;
     Login: undefined;
