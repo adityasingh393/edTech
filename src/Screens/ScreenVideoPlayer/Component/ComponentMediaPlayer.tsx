@@ -3,12 +3,12 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Video, { OnProgressData } from 'react-native-video';
 import Slider from '@react-native-community/slider';
 import Orientation from 'react-native-orientation-locker';
-import styles from './StylesVideoPlayer';
-import { heightPercentageToDP as hp } from '../../utils/Dimensions';
-import { ForwardButton, BackButton, PlayButton, PauseButton, MinimiseButton,FullScreenButton } from '../../Assets/constants';
-import { ProgressState,VideoPlayerProps } from './utils/interface';
+import styles from './StylesMediaPlayer';
+import { heightPercentageToDP as hp } from '../../../utils/Dimensions';
+import { ForwardButton, BackButton, PlayButton, PauseButton, MinimiseButton,FullScreenButton } from '../../../Assets/constants';
+import { ProgressState,VideoPlayerProps } from '../utils/interface';
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUri }) => {
+const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri }) => {
   const [clicked, setClicked] = useState<boolean>(false);
   const [paused, setPaused] = useState<boolean>(false);
   const [progress, setProgress] = useState<ProgressState>({ currentTime: 0, seekableDuration: 0 });
@@ -96,4 +96,4 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUri }) => {
   );
 };
 
-export default VideoPlayer;
+export default MediaPlayer;

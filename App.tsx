@@ -9,7 +9,6 @@ function App(): React.JSX.Element {
   return (
     
 <Provider store={store}>
-
   <Routes/>
 </Provider>
 
