@@ -1,34 +1,26 @@
-// HomeScreen.tsx
-import React from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
-import Card, { CardContainerProps, CardData } from './Components/CardComponent';
-import { useNavigation } from '@react-navigation/native';
-import { ScreenHomeNavigationProp } from './Utils/Types';
-import { cardsData } from './Utils/Constants';
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { fetchDataRequest } from './Redux/Slices/HomeSlice';
+import Header from './Components/ComponentHeader';
+import CardList from './Components/ComponentCardVideosList';
+import { styles } from './StylesHome';
+import HardcodedCardList from './Components/ComponentCardCourseList';
 
 const HomeScreen: React.FC = () => {
-  const navigation = useNavigation<ScreenHomeNavigationProp>();
+  const dispatch = useDispatch();
 
-  
+  useEffect(() => {
+    dispatch(fetchDataRequest());
+  }, [dispatch]);
+
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {cardsData.map((card, index) => (
-        <Card
-          key={index}
-          Images={card.Images}
-          CourseTitle={card.CourseTitle}
-          CourseDescription={card.CourseDescription}
-          NoOfEnrollments={card.NoOfEnrollments}
-        />
-      ))}
-    </ScrollView>
+    <View style={styles.container}>
+      <Header />
+    <  HardcodedCardList/>
+      <CardList />
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-  },
-});
 
 export default HomeScreen;

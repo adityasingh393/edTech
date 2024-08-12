@@ -11,7 +11,7 @@ import { AuthStackParamList, AppStackParamList } from '../utils/interfaces/types
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser } from '../Screens/redux/authSlice';
 import { ActivityIndicator } from 'react-native';
-// import Loader from '../screens/ScreenHome/component/Loader/Loader';
+import ScreenLanding from '../Screens/ScreenLanding/ScreenLanding';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
@@ -60,9 +60,11 @@ const Routes = () => {
           <AppStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         </AppStack.Navigator>
       ) : (
-        <AuthStack.Navigator initialRouteName="Login">
+        <AuthStack.Navigator initialRouteName="Landing">
+          <AuthStack.Screen name ="Landing" component={ScreenLanding} options={{ headerShown: false }}/>
           <AuthStack.Screen name="Login" component={Login} />
           <AuthStack.Screen name="Signup" component={Signup} />
+          
         </AuthStack.Navigator>
       )}
     </NavigationContainer>

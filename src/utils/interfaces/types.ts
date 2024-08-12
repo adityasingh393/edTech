@@ -1,10 +1,4 @@
 
-export type RootStackParamList = {
-    Landing: undefined;
-    Login: undefined;
-    Register:undefined;
-    Home:undefined;
-  };
 
 import { StackScreenProps } from '@react-navigation/stack';
 
@@ -21,14 +15,16 @@ export interface AuthState {
 }
 
 export type AuthStackParamList = {
+    Landing:undefined;
     Signup: undefined;
     Login: undefined;
+    
 };
 
 export type AppStackParamList = {
     Home: undefined;
 };
-
+export type LandingScreenProps = StackScreenProps<AuthStackParamList, 'Landing'>;
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
 export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
