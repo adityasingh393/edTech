@@ -19,12 +19,14 @@ export type AuthStackParamList = {
 
 export type AppStackParamList = {
     Home: undefined;
+    History:undefined;
 };
 
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
 export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
-export interface VideoHistory {
+export type HistoryScreenProps = StackScreenProps<AppStackParamList,'History'>
+export interface Watchlist {
     id: string;
     title: string;
     thumbnailUrl: string;
@@ -36,5 +38,21 @@ export interface VideoHistory {
     description: string;
     subscriber: string;
     lastWatchedTime: number;
-  }
-  
+}
+
+
+
+
+
+  //fake data
+  import { StackNavigationProp } from '@react-navigation/stack';
+
+type RootStackParamList = {
+  SaveVideo: undefined;
+  HistoryScreen: undefined;
+};
+
+type SaveVideoScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'SaveVideo'
+>;

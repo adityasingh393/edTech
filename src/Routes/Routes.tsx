@@ -11,6 +11,7 @@ import { AuthStackParamList, AppStackParamList } from '../utils/interfaces/types
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser } from '../Screens/redux/authSlice';
 import { ActivityIndicator } from 'react-native';
+import HistoryScreen from '../Screens/ScreenHistory/WatchlistScreen';
 // import Loader from '../screens/ScreenHome/component/Loader/Loader';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
@@ -57,7 +58,8 @@ const Routes = () => {
     <NavigationContainer>
       {isAuthenticated ? (
         <AppStack.Navigator initialRouteName="Home">
-          <AppStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+          {/* <AppStack.Screen name="Home" component={Home} options={{ headerShown: false }} /> */}
+          <AppStack.Screen name='History' component={HistoryScreen} options={{headerShown:false}}/>
         </AppStack.Navigator>
       ) : (
         <AuthStack.Navigator initialRouteName="Login">

@@ -1,15 +1,15 @@
 import SQLite, { SQLiteDatabase } from 'react-native-sqlite-storage';
-import { VideoHistory } from '../interfaces/types';
+import { Watchlist } from '../interfaces/types';
 
 SQLite.enablePromise(true);
 
 export const getDBConnection = async (): Promise<SQLiteDatabase> => {
-  return SQLite.openDatabase({ name: 'videoHistory.db', location: 'default' });
+  return SQLite.openDatabase({ name: 'watchlist.db', location: 'default' });
 };
 
 export const createTable = async (db: SQLiteDatabase): Promise<void> => {
   const query = `
-    CREATE TABLE IF NOT EXISTS video_history (
+    CREATE TABLE IF NOT EXISTS watchlist (
       id TEXT PRIMARY KEY,
       title TEXT NOT NULL,
       thumbnailUrl TEXT,
@@ -23,41 +23,57 @@ export const createTable = async (db: SQLiteDatabase): Promise<void> => {
       lastWatchedTime REAL NOT NULL
     );`;
 
-  await db.executeSql(query);
+  try {
+    await db.executeSql(query);
+    console.log('Table watchlist created successfully');
+  } catch (error) {
+    console.error('Error creating watchlist table:', error);
+  }
 };
 
-export const insertVideoHistory = async (
+export const insertWatchlist = async (
   db: SQLiteDatabase,
-  video: VideoHistory
+  video: Watchlist
 ): Promise<void> => {
   const insertQuery = `
-    INSERT OR REPLACE INTO video_history (id, title, thumbnailUrl, duration, uploadTime, views, author, videoUrl, description, subscriber, lastWatchedTime) 
+    INSERT OR REPLACE INTO watchlist (id, title, thumbnailUrl, duration, uploadTime, views, author, videoUrl, description, subscriber, lastWatchedTime) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
 
-  await db.executeSql(insertQuery, [
-    video.id,
-    video.title,
-    video.thumbnailUrl,
-    video.duration,
-    video.uploadTime,
-    video.views,
-    video.author,
-    video.videoUrl,
-    video.description,
-    video.subscriber,
-    video.lastWatchedTime,
-  ]);
+  try {
+    await db.executeSql(insertQuery, [
+      video.id,
+      video.title,
+      video.thumbnailUrl,
+      video.duration,
+      video.uploadTime,
+      video.views,
+      video.author,
+      video.videoUrl,
+      video.description,
+      video.subscriber,
+      video.lastWatchedTime,
+    ]);
+    console.log('Video inserted successfully');
+  } catch (error) {
+    console.error('Error inserting video into watchlist:', error);
+  }
 };
 
-export const getVideoHistory = async (
+
+export const getWatchlist = async (
   db: SQLiteDatabase
-): Promise<VideoHistory[]> => {
-  const history: VideoHistory[] = [];
-  const results = await db.executeSql('SELECT * FROM video_history ORDER BY lastWatchedTime DESC;');
-  results.forEach((result) => {
-    for (let i = 0; i < result.rows.length; i++) {
-      history.push(result.rows.item(i));
-    }
-  });
-  return history;
+): Promise<Watchlist[]> => {
+  const watchlist: Watchlist[] = [];
+  try {
+    const results = await db.executeSql('SELECT * FROM watchlist ORDER BY lastWatchedTime DESC;');
+    results.forEach((result) => {
+      for (let i = 0; i < result.rows.length; i++) {
+        watchlist.push(result.rows.item(i));
+      }
+    });
+    console.log('Fetched watchlist:', watchlist);
+  } catch (error) {
+    console.error('Error fetching watchlist:', error);
+  }
+  return watchlist;
 };
