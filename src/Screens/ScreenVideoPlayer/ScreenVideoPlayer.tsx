@@ -5,6 +5,7 @@ import { downloadVideo } from '../utils/storage/storageFunctions';
 import { DownloadButton } from '../../Assets/constants';
 import styles from './StyleVideoPlayer';
 import { VideoScreenProps } from '../../utils/interfaces/types';
+import { downloadPdf } from '../utils/storage/pdfDownloadFucntion';
 
 const VideoPlayer: React.FC<VideoScreenProps> = ({ navigation , route}) => {
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
@@ -12,6 +13,9 @@ const VideoPlayer: React.FC<VideoScreenProps> = ({ navigation , route}) => {
 
     const handleFullScreenToggle = (fullScreen: boolean) => {
         setIsFullScreen(fullScreen);
+    };
+    const handleDownloadPdf = async () => {
+        await downloadPdf(); 
     };
 
     const handleDownloadVideo = async () => {
@@ -41,7 +45,7 @@ const VideoPlayer: React.FC<VideoScreenProps> = ({ navigation , route}) => {
             {!isFullScreen && (
                 <View style={styles.detailsContainer}>
                     <View style={styles.downloadContainer}>
-                        <TouchableOpacity style={styles.downloadButton}>
+                        <TouchableOpacity style={styles.downloadButton} onPress={handleDownloadPdf}>
                             <Image source={DownloadButton} style={styles.downloadIcon} />
                             <Text style={styles.downloadText}>PDF</Text>
                         </TouchableOpacity>
