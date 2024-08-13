@@ -6,6 +6,7 @@ import { RootState } from '../Redux/store';
 import Signup from '../Screens/ScreenSignup/ScreenSignup';
 import Login from '../Screens/ScreenLogin/ScreenLogin';
 import Home from '../Screens/ScreenHome/ScreenHome';
+import DownloadedVideosScreen from '../Screens/ScreenDownloads/ScreenDownloads'; 
 import auth from '@react-native-firebase/auth';
 import { AuthStackParamList, AppStackParamList } from '../utils/interfaces/types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -52,7 +53,7 @@ const Routes = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <ActivityIndicator/>; 
+    return <ActivityIndicator />;
   }
 
   return (
@@ -62,6 +63,7 @@ const Routes = () => {
           <AppStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
           <AppStack.Screen name="Video" component={ScreenVideoPlayer} options={{ headerShown: false }} />
 
+          <AppStack.Screen name="Downloads" component={DownloadedVideosScreen} options={{ headerTitle: 'Downloads' }} />
         </AppStack.Navigator>
       ) : (
         <AuthStack.Navigator initialRouteName="Landing">

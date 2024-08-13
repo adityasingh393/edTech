@@ -19,9 +19,6 @@ const styles = StyleSheet.create({
       marginBottom: hp('2%'),
       overflow: 'hidden', 
     },
-//     fullScreenConatiner:{
-// height:hp('45%')
-//     },
     detailsContainer: {
       padding: wp('6%'),
       backgroundColor: 'white',
@@ -37,7 +34,7 @@ const styles = StyleSheet.create({
     downloadButton: {
       flexDirection: 'row',
       alignItems: 'center',
-      backgroundColor: '#C5705D',
+      backgroundColor: colors.secondary,
       paddingVertical: hp('1.5%'),
       paddingHorizontal: wp('4%'),
       borderRadius: 8,
@@ -60,7 +57,7 @@ const styles = StyleSheet.create({
     },
     descriptionText: {
       fontSize: wp('4%'),
-      color: '#555',
+      color: colors.textColor,
       letterSpacing: 0.5,
       lineHeight: hp('3%'),
     },

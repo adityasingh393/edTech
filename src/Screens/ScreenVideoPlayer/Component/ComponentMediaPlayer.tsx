@@ -50,7 +50,7 @@ const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri, onFullScreenToggle 
           source={{ uri: videoUri }}
           ref={videoRef}
           onProgress={handleProgress}
-          muted
+          volume={1.0}
           style={[styles.video, { height: fullScreen ? '100%' : hp('25%') }]}
           resizeMode="contain"
         />
