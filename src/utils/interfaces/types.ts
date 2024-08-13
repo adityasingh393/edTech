@@ -1,7 +1,4 @@
-
-
 import { StackScreenProps } from '@react-navigation/stack';
-
 export interface User {
     email: string;
     name: string;
@@ -18,7 +15,6 @@ export type AuthStackParamList = {
     Login: undefined;
     
 };
-
 export type AppStackParamList = {
     Home: undefined;
     Video:undefined;
@@ -37,8 +33,7 @@ export interface ProgressState {
 export interface VideoPlayerProps {
     videoUri: string;
     onFullScreenToggle: (fullScreen: boolean) => void;
-}
-  
+} 
 
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
 export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;

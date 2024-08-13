@@ -6,7 +6,6 @@ const PDF_FILE_NAME = 'document.pdf';
 
 export async function downloadPdf() {
   try {
-
     const { config, fs } = RNFetchBlob;
     const downloads = fs.dirs.DownloadDir;
     const filePath = `${downloads}/${PDF_FILE_NAME}`;

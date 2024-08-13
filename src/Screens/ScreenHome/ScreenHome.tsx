@@ -6,8 +6,15 @@ import CombinedCardList from './Components/CombinedCardList';
 import NavbarComponent from '../CommonComponents/NavbarComponent';
 import { styles } from './StylesHome';
 import Header from './Components/ComponentHeader';
+import CardList from './Components/ComponentCardVideosList';
+import { styles } from './StylesHome';
+import MediaPlayer from '../ScreenVideoPlayer/Component/ComponentMediaPlayer';
+import VideoPlayer from '../ScreenVideoPlayer/ScreenVideoPlayer';
+import { HomeScreenProps } from '../../utils/interfaces/types';
+import HardcodedCardList from './Components/ComponentCardCourseList';
+import { FullScreenButton } from '../../Assets/constants';
 
-const HomeScreen: React.FC = () => {
+const HomeScreen: React.FC<HomeScreenProps> = ({navigation, route}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,6 +27,12 @@ const HomeScreen: React.FC = () => {
       <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
       <Header/>
       <CombinedCardList />
+      {/* <Header />
+      < HardcodedCardList/>
+      <CardList /> 
+   */}
+   {/* <MediaPlayer videoUri='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' onFullScreenToggle={FullScreenButton}/> */}
+      <VideoPlayer navigation={navigation} route={route}/>
     </View>
   );
 };
