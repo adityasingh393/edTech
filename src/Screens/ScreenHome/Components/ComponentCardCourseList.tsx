@@ -1,36 +1,27 @@
 import React from 'react';
-import { FlatList, View, Text, Image } from 'react-native';
-import { CardContainerProps } from '../Utils/Types';
-import { cardsData } from '../Utils/Constants';
+import { View, Text, Image, FlatList } from 'react-native';
+import { CardContainerProps, CardCourseProps, CardData } from '../Utils/Types';
 import { styles } from './StylsCardCourse';
+import FetchedItem from './ComponentCardVideosList';
 
-const HardcodedCardList: React.FC = () => {
-  const renderItem = ({ item }: { item: CardContainerProps }) => (
-    <View style={styles.CardCoursecontainer}>
-      <Image source={item.Images} style={styles.CardCourseImage} />
-      <Text style={styles.CardCourseTitle}>{item.CourseTitle}</Text>
-      <Text style = {styles.CardDescriptionHeading}>Description :</Text>
-      <Text style={styles.CardCourseDescription}> {item.CourseDescription}</Text>
-      
-      <Text style = {styles.CardEnrollmentHeading}>Enrollments :</Text>
 
-      <Text style={styles.CardCourseEnrollments}> {item.NoOfEnrollments}</Text>
-     
-    </View>
-  );
+const CardCourse: React.FC<CardCourseProps> = ({ item }) => (
+  <View style={styles.CardCoursecontainer}>
+    <Image source={item.Images} style={styles.CardCourseImage} />
+    <Text style={styles.CardCourseTitle}>{item.CourseTitle}</Text>
+    <View style={styles.separator} />
+    
+    {item.fetchedItems.length > 0 && (
+      <FlatList
+        data={item.fetchedItems}
+        renderItem={({ item }) => <FetchedItem item={item} />}
+        keyExtractor={(fetchedItem, index) => index.toString()}
+        style={styles.fetchedItemsList}
+        showsVerticalScrollIndicator={false}
+        nestedScrollEnabled
+      />
+    )}
+  </View>
+);
 
-  return (
-    <FlatList
-      data={cardsData}
-      renderItem={renderItem}
-      keyExtractor={(item, index) => index.toString()}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      pagingEnabled
-      snapToAlignment="center"
-      decelerationRate="fast"
-    />
-  );
-};
-
-export default HardcodedCardList;
+export default CardCourse;

@@ -19,6 +19,13 @@ export interface CardData {
         CourseDescription:string,
         NoOfEnrollments:number,
   }
+  export interface CardCourseProps {
+    item: CardContainerProps & { fetchedItems: CardData[] };
+  }
 
-export type ScreenHomeNavigationProp =  NativeStackNavigationProp<AppStackParamList, 'Home'>;
+export interface FetchedItemProps {
+  item: CardData;
+}
+
   
+  export type ScreenVideoNavigationProp =  NativeStackNavigationProp<AppStackParamList, 'Video'>;

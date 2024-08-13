@@ -12,6 +12,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser } from '../Screens/redux/authSlice';
 import { ActivityIndicator } from 'react-native';
 import ScreenLanding from '../Screens/ScreenLanding/ScreenLanding';
+import Video from 'react-native-video';
+import ScreenVideoPlayer from '../Screens/ScreenVideoPlayer/ScreenVideoPlayer';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
@@ -58,6 +60,8 @@ const Routes = () => {
       {isAuthenticated ? (
         <AppStack.Navigator initialRouteName="Home">
           <AppStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+          <AppStack.Screen name="Video" component={ScreenVideoPlayer} options={{ headerShown: false }} />
+
         </AppStack.Navigator>
       ) : (
         <AuthStack.Navigator initialRouteName="Landing">
