@@ -6,7 +6,8 @@ import {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-    },
+      height:hp('40%')
+          },
     videoContainer: {
       width: '100%',
     },

@@ -1,14 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Video, { OnProgressData } from 'react-native-video';
 import Slider from '@react-native-community/slider';
 import Orientation from 'react-native-orientation-locker';
 import styles from './StylesMediaPlayer';
 import { heightPercentageToDP as hp } from '../../../utils/Dimensions';
-import { ForwardButton, BackButton, PlayButton, PauseButton, MinimiseButton,FullScreenButton } from '../../../Assets/constants';
-import { ProgressState,VideoPlayerProps } from '../utils/interface';
+import { ForwardButton, BackButton, PlayButton, PauseButton, MinimiseButton, FullScreenButton } from '../../../Assets/constants';
+import { ProgressState, VideoPlayerProps } from '../utils/interface';
 
-const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri }) => {
+const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri, onFullScreenToggle }) => {
   const [clicked, setClicked] = useState<boolean>(false);
   const [paused, setPaused] = useState<boolean>(false);
   const [progress, setProgress] = useState<ProgressState>({ currentTime: 0, seekableDuration: 0 });
@@ -27,6 +27,16 @@ const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri }) => {
 
   const handleSeek = (time: number): void => {
     videoRef.current?.seek(time);
+  };
+
+  const toggleFullScreen = () => {
+    if (fullScreen) {
+      Orientation.lockToPortrait();
+    } else {
+      Orientation.lockToLandscape();
+    }
+    setFullScreen(!fullScreen);
+    onFullScreenToggle(!fullScreen); 
   };
 
   return (
@@ -73,16 +83,7 @@ const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri }) => {
               <Text style={styles.timeText}>{formatTime(progress.seekableDuration)}</Text>
             </View>
             <View style={styles.fullScreenToggleContainer}>
-              <TouchableOpacity
-                onPress={() => {
-                  if (fullScreen) {
-                    Orientation.lockToPortrait();
-                  } else {
-                    Orientation.lockToLandscape();
-                  }
-                  setFullScreen(!fullScreen);
-                }}
-              >
+              <TouchableOpacity onPress={toggleFullScreen}>
                 <Image
                   source={fullScreen ? MinimiseButton : FullScreenButton}
                   style={styles.icon}
