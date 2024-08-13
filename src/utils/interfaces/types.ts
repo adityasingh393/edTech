@@ -1,4 +1,6 @@
-import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
+
+
+import { StackScreenProps } from '@react-navigation/stack';
 
 export interface User {
     email: string;
@@ -13,32 +15,18 @@ export interface AuthState {
 }
 
 export type AuthStackParamList = {
-  Login: undefined;
-  Signup: undefined;
+    Landing:undefined;
+    Signup: undefined;
+    Login: undefined;
+    
 };
 
 
 export type AppStackParamList = {
-  Home: undefined;
- 
+    Home: undefined;
 };
-
-export type RootStackParamList = {
-  WelcomePageSub:undefined;
-  ScreenSubscription: undefined;
-  
-};
-
-
-
+export type LandingScreenProps = StackScreenProps<AuthStackParamList, 'Landing'>;
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
 export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login'>;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
-export type WelcomePageProps = StackScreenProps<RootStackParamList, 'WelcomePageSub'>;
-export type SubscriptionPageNavigationProp = StackScreenProps<RootStackParamList, 'ScreenSubscription'>;
-
-
-
-
-
 

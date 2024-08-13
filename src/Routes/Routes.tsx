@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../Redux/store';
 import Signup from '../Screens/ScreenSignup/ScreenSignup';
 import Login from '../Screens/ScreenLogin/ScreenLogin';
-import HomePageSub from '../Screens/ScreenSubscription/HomePageSub';
-import SubscriptionPage from '../Screens/ScreenSubscription/ScreenSubscription';
+import Home from '../Screens/ScreenHome/ScreenHome';
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser } from '../Screens/redux/authSlice';
@@ -15,6 +14,7 @@ import { ActivityIndicator } from 'react-native';
 import { AppStackParamList, AuthStackParamList, RootStackParamList } from '../utils/interfaces/types';
 import WelcomePage from '../Screens/ScreenWelcome/ScreenWelcome';
 import { db } from '../utils/storage/db';
+import ScreenLanding from '../Screens/ScreenLanding/ScreenLanding';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
@@ -76,21 +76,16 @@ const Routes = () => {
 
   return (
     <NavigationContainer>
-      {isAuthenticated && (
-        isSubscribed ? (
-          <AppStack.Navigator initialRouteName="Home">
-            <AppStack.Screen name="Home" component={HomePageSub} options={{ headerShown: false }} />
-          </AppStack.Navigator>
-        ) : (
-          <SubStack.Navigator initialRouteName="WelcomePageSub">
-            <SubStack.Screen name="WelcomePageSub" component={WelcomePage} options={{ headerShown: false }} />
-            <SubStack.Screen name="ScreenSubscription" component={SubscriptionPage} options={{ headerShown: false }} />
-          </SubStack.Navigator>
-        )
-      ) || (
-        <AuthStack.Navigator initialRouteName="Login">
+      {isAuthenticated ? (
+        <AppStack.Navigator initialRouteName="Home">
+          <AppStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        </AppStack.Navigator>
+      ) : (
+        <AuthStack.Navigator initialRouteName="Landing">
+          <AuthStack.Screen name ="Landing" component={ScreenLanding} options={{ headerShown: false }}/>
           <AuthStack.Screen name="Login" component={Login} />
           <AuthStack.Screen name="Signup" component={Signup} />
+          
         </AuthStack.Navigator>
       )}
     </NavigationContainer>
