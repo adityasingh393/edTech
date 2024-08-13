@@ -3,6 +3,7 @@ import { View, Text, Button } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../utils/firebaseAuthentication';
 import styles from './StylesHeader';
+import UserProfile from '../../../Assets/ImagesData.tsx/UserProfileLogo';
 
 const Header: React.FC = ({  }) => {
   const dispatch = useDispatch();
@@ -11,8 +12,10 @@ const Header: React.FC = ({  }) => {
   };
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>Hello, </Text>
-      <Button title="Logout" onPress={handleLogout} />
+      <Text style={styles.headerText}>Hey! Aakansha </Text>
+      <View style = {styles.UserProfile}>
+      <UserProfile/>
+      </View>
     </View>
   );
 };

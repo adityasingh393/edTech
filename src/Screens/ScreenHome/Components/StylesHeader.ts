@@ -5,10 +5,20 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: 10,
-      backgroundColor: '#f8f8f8',
+      backgroundColor: '#6177EE',
+      height:100,
     },
     headerText: {
-      fontSize: 18,
+      fontSize: 28,
+      color:'#fff',
+      fontWeight:'700',
+      top:15,
     },
+    
+    UserProfile:{
+      top:15,
+      right:10,
+      
+    }
   });
   export default styles;

@@ -21,27 +21,18 @@ export type AuthStackParamList = {
 };
 
 
-export type AppStackParamList = {
-  Home: undefined;
- 
-};
-
 export type RootStackParamList = {
   WelcomePageSub:undefined;
   ScreenSubscription: undefined;
   
 };
-
-
-
+export type AppStackParamList = {
+    Home: undefined;
+    Video:undefined;
+};
+export type LandingScreenProps = StackScreenProps<AuthStackParamList, 'Landing'>;
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
-export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login'>;
+export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
-export type WelcomePageProps = StackScreenProps<RootStackParamList, 'WelcomePageSub'>;
-export type SubscriptionPageNavigationProp = StackScreenProps<RootStackParamList, 'ScreenSubscription'>;
-
-
-
-
-
+export type VideosScreenProps = StackScreenProps<AppStackParamList, 'Video'>;
 

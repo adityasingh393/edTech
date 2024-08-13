@@ -15,6 +15,8 @@ import { AppStackParamList, AuthStackParamList, RootStackParamList } from '../ut
 import WelcomePage from '../Screens/ScreenWelcome/ScreenWelcome';
 import { db } from '../utils/storage/db';
 import ScreenLanding from '../Screens/ScreenLanding/ScreenLanding';
+import Video from 'react-native-video';
+import ScreenVideoPlayer from '../Screens/ScreenVideoPlayer/ScreenVideoPlayer';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
@@ -79,6 +81,8 @@ const Routes = () => {
       {isAuthenticated ? (
         <AppStack.Navigator initialRouteName="Home">
           <AppStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+          <AppStack.Screen name="Video" component={ScreenVideoPlayer} options={{ headerShown: false }} />
+
         </AppStack.Navigator>
       ) : (
         <AuthStack.Navigator initialRouteName="Landing">
