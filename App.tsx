@@ -1,25 +1,28 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import SaveVideoComponent from './src/Screens/ScreenHistory/SaveVideoComponent';
-import WatchlistScreen from './src/Screens/ScreenHistory/WatchlistScreen';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
 
-type RootStackParamList = {
-  SaveVideo: undefined;
-  WatchlistScreen: undefined;
-};
+import React, { useEffect } from 'react';
+import Routes from './src/Routes/Routes';
+import { Provider } from 'react-redux';
+import store from './src/Redux/store';
+import { createTables } from './src/utils/storage/db';
+function App(): React.JSX.Element {
 
-const Stack = createStackNavigator<RootStackParamList>();
+  useEffect(() => {
+    createTables();
+  }, []);
 
-const App: React.FC = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="SaveVideo">
-        <Stack.Screen name="SaveVideo" component={SaveVideoComponent} />
-        <Stack.Screen name="WatchlistScreen" component={WatchlistScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+<Provider store={store}>
+
+  <Routes/>
+</Provider>
+
   );
-};
+}
 
 export default App;

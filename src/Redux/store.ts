@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '../Screens/redux/authSlice';
-
+import subscriptionReducer from '../Screens/ScreenSubscription/redux/subscriptionSlice'; 
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-  },
+    subscription: subscriptionReducer, 
+  }
 });
 
 

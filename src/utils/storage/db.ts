@@ -1,79 +1,46 @@
-import SQLite, { SQLiteDatabase } from 'react-native-sqlite-storage';
-import { Watchlist } from '../interfaces/types';
 
-SQLite.enablePromise(true);
+import SQLite from 'react-native-sqlite-storage';
 
-export const getDBConnection = async (): Promise<SQLiteDatabase> => {
-  return SQLite.openDatabase({ name: 'watchlist.db', location: 'default' });
-};
+export const db = SQLite.openDatabase(
+  { name: 'Subscription.db', location: 'default' },
+  () => console.log('Database opened'),
+  (error) => console.error('Error opening database: ', error)
+);
 
-export const createTable = async (db: SQLiteDatabase): Promise<void> => {
-  const query = `
-    CREATE TABLE IF NOT EXISTS watchlist (
-      id TEXT PRIMARY KEY,
-      title TEXT NOT NULL,
-      thumbnailUrl TEXT,
-      duration TEXT,
-      uploadTime TEXT,
-      views TEXT,
-      author TEXT,
-      videoUrl TEXT,
-      description TEXT,
-      subscriber TEXT,
-      lastWatchedTime REAL NOT NULL
-    );`;
+export const createTables = () => {
+  db.transaction((txn) => {
+    txn.executeSql(
+      `CREATE TABLE IF NOT EXISTS plans (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        price REAL
+      );`,
+      [],
+      () => {
+        console.log('Plans table created');
+        txn.executeSql('SELECT COUNT(*) as count FROM plans', [], (txn, results) => {
+          const count = results.rows.item(0).count;
+          if (count === 0) {
+            txn.executeSql('INSERT INTO plans (name, price) VALUES (?, ?)', ['Monthly', 9.99]);
+            txn.executeSql('INSERT INTO plans (name, price) VALUES (?, ?)', ['Annual', 99.99]);
+          }
+        });
+      },
+      (error) => console.error('Error creating plans table: ', error)
+    );
 
-  try {
-    await db.executeSql(query);
-    console.log('Table watchlist created successfully');
-  } catch (error) {
-    console.error('Error creating watchlist table:', error);
-  }
-};
-
-export const insertWatchlist = async (
-  db: SQLiteDatabase,
-  video: Watchlist
-): Promise<void> => {
-  const insertQuery = `
-    INSERT OR REPLACE INTO watchlist (id, title, thumbnailUrl, duration, uploadTime, views, author, videoUrl, description, subscriber, lastWatchedTime) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
-
-  try {
-    await db.executeSql(insertQuery, [
-      video.id,
-      video.title,
-      video.thumbnailUrl,
-      video.duration,
-      video.uploadTime,
-      video.views,
-      video.author,
-      video.videoUrl,
-      video.description,
-      video.subscriber,
-      video.lastWatchedTime,
-    ]);
-    console.log('Video inserted successfully');
-  } catch (error) {
-    console.error('Error inserting video into watchlist:', error);
-  }
-};
-
-
-export const getWatchlist = async (
-  db: SQLiteDatabase
-): Promise<Watchlist[]> => {
-  const watchlist: Watchlist[] = [];
-  try {
-    const results = await db.executeSql('SELECT * FROM watchlist ORDER BY lastWatchedTime DESC;');
-    results.forEach((result) => {
-      for (let i = 0; i < result.rows.length; i++) {
-        watchlist.push(result.rows.item(i));
-      }
-    });
-    console.log('Fetched watchlist:', watchlist);
-  } catch (error) {
-    console.error('Error fetching watchlist:', error);
-  }
-  return watchlist;
+    txn.executeSql(
+      `CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        uid TEXT UNIQUE,  
+        email TEXT,
+        name TEXT,
+        subscribed_plan_id INTEGER,
+        FOREIGN KEY(subscribed_plan_id) REFERENCES plans(id)
+      );`,
+      [],
+      () => console.log('Users table created'),
+      (error) => console.error('Error creating users table: ', error)
+    );
+  });
 };

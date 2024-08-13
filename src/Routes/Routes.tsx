@@ -5,21 +5,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../Redux/store';
 import Signup from '../Screens/ScreenSignup/ScreenSignup';
 import Login from '../Screens/ScreenLogin/ScreenLogin';
-import Home from '../Screens/ScreenHome/ScreenHome';
+import HomePageSub from '../Screens/ScreenSubscription/HomePageSub';
+import SubscriptionPage from '../Screens/ScreenSubscription/ScreenSubscription';
 import auth from '@react-native-firebase/auth';
-import { AuthStackParamList, AppStackParamList } from '../utils/interfaces/types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser } from '../Screens/redux/authSlice';
+import { subscribe } from '../Screens/ScreenSubscription/redux/subscriptionSlice';
 import { ActivityIndicator } from 'react-native';
-import HistoryScreen from '../Screens/ScreenHistory/WatchlistScreen';
-// import Loader from '../screens/ScreenHome/component/Loader/Loader';
+import { AppStackParamList, AuthStackParamList, RootStackParamList } from '../utils/interfaces/types';
+import WelcomePage from '../Screens/ScreenWelcome/ScreenWelcome';
+import { db } from '../utils/storage/db';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
+const SubStack = createStackNavigator<RootStackParamList>();
 
 const Routes = () => {
   const [isLoading, setIsLoading] = useState(true);
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+  const isSubscribed = useSelector((state: RootState) => state.subscription.isSubscribed);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +33,22 @@ const Routes = () => {
         if (token) {
           const currentUser = auth().currentUser;
           if (currentUser) {
+          
+            db.transaction((txn) => {
+              txn.executeSql(
+                'SELECT subscribed_plan_id FROM users WHERE uid = ?',
+                [currentUser.uid],
+                (txn, results) => {
+                  if (results.rows.length > 0) {
+                    const subscribedPlanId = results.rows.item(0).subscribed_plan_id;
+                    if (subscribedPlanId) {
+                      dispatch(subscribe(subscribedPlanId)); 
+                    }
+                  }
+                }
+              );
+            });
+
             const user = {
               email: currentUser.email!,
               name: currentUser.displayName!,
@@ -51,17 +71,23 @@ const Routes = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <ActivityIndicator/>; 
+    return <ActivityIndicator />;
   }
 
   return (
     <NavigationContainer>
-      {isAuthenticated ? (
-        <AppStack.Navigator initialRouteName="Home">
-          {/* <AppStack.Screen name="Home" component={Home} options={{ headerShown: false }} /> */}
-          <AppStack.Screen name='History' component={HistoryScreen} options={{headerShown:false}}/>
-        </AppStack.Navigator>
-      ) : (
+      {isAuthenticated && (
+        isSubscribed ? (
+          <AppStack.Navigator initialRouteName="Home">
+            <AppStack.Screen name="Home" component={HomePageSub} options={{ headerShown: false }} />
+          </AppStack.Navigator>
+        ) : (
+          <SubStack.Navigator initialRouteName="WelcomePageSub">
+            <SubStack.Screen name="WelcomePageSub" component={WelcomePage} options={{ headerShown: false }} />
+            <SubStack.Screen name="ScreenSubscription" component={SubscriptionPage} options={{ headerShown: false }} />
+          </SubStack.Navigator>
+        )
+      ) || (
         <AuthStack.Navigator initialRouteName="Login">
           <AuthStack.Screen name="Login" component={Login} />
           <AuthStack.Screen name="Signup" component={Signup} />

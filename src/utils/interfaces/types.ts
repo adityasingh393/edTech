@@ -1,4 +1,4 @@
-import { StackScreenProps } from '@react-navigation/stack';
+import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
 
 export interface User {
     email: string;
@@ -11,47 +11,34 @@ export interface AuthState {
     isAuthenticated: boolean;
     user: User | null;
 }
+
 export type AuthStackParamList = {
-    Signup: undefined;
-    Login: undefined;
+  Login: undefined;
+  Signup: undefined;
 };
+
 
 export type AppStackParamList = {
-    Home: undefined;
-    History:undefined;
+  Home: undefined;
+ 
 };
+
+export type RootStackParamList = {
+  WelcomePageSub:undefined;
+  ScreenSubscription: undefined;
+  
+};
+
+
 
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
-export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;
+export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login'>;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
-export type HistoryScreenProps = StackScreenProps<AppStackParamList,'History'>
-export interface Watchlist {
-    id: string;
-    title: string;
-    thumbnailUrl: string;
-    duration: string;
-    uploadTime: string;
-    views: string;
-    author: string;
-    videoUrl: string;
-    description: string;
-    subscriber: string;
-    lastWatchedTime: number;
-}
+export type WelcomePageProps = StackScreenProps<RootStackParamList, 'WelcomePageSub'>;
+export type SubscriptionPageNavigationProp = StackScreenProps<RootStackParamList, 'ScreenSubscription'>;
 
 
 
 
 
-  //fake data
-  import { StackNavigationProp } from '@react-navigation/stack';
 
-type RootStackParamList = {
-  SaveVideo: undefined;
-  HistoryScreen: undefined;
-};
-
-type SaveVideoScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'SaveVideo'
->;
