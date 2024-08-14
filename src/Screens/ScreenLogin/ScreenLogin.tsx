@@ -11,6 +11,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { styles } from './StylesLogin';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import GradientCircles from '../../Assets/ImagesData.tsx/StyleLogo';
+import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradient
 
 const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
   <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
@@ -36,12 +37,11 @@ const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
   };
 
   return (
-    
     <View style={[styles.container, styles.card]}>
-      <View style = {styles.StyleIcon}>
-      <GradientCircles/>
+      <View style={styles.StyleIcon}>
+        <GradientCircles />
       </View>
-      <Text style = {styles.WelcomeText}>Welcome Back</Text>
+      <Text style={styles.WelcomeText}>Welcome Back</Text>
       <Text style={styles.Headingtext}>Login</Text>
       <Controller
         control={control}
@@ -74,9 +74,15 @@ const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
       />
       {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
 
-      <TouchableOpacity style={styles.Loginbutton} onPress={handleSubmit(onSubmit)}>
-        <Text style={styles.LoginbuttonText}>Login</Text>
-      </TouchableOpacity>
+      <LinearGradient
+        colors={['#C72FF8', '#6177EE', '#6177EE']}
+        start={{ x: 0.9, y: -0.3 }}
+        style={styles.Loginbutton} // Apply the gradient to the button
+      >
+        <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+          <Text style={styles.LoginbuttonText}>Login</Text>
+        </TouchableOpacity>
+      </LinearGradient>
 
       <Button title="Signup" onPress={() => navigation.navigate('Signup')} />
 
@@ -88,3 +94,4 @@ const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
 };
 
 export default Login;
+
