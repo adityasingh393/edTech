@@ -7,14 +7,13 @@ import NavbarComponent from '../CommonComponents/NavbarComponent';
 import { styles } from './StylesHome';
 import Header from './Components/ComponentHeader';
 import CardList from './Components/ComponentCardVideosList';
-import { styles } from './StylesHome';
 import MediaPlayer from '../ScreenVideoPlayer/Component/ComponentMediaPlayer';
 import VideoPlayer from '../ScreenVideoPlayer/ScreenVideoPlayer';
-import { HomeScreenProps } from '../../utils/interfaces/types';
+import { VideosScreenProps } from '../../utils/interfaces/types';
 import HardcodedCardList from './Components/ComponentCardCourseList';
 import { FullScreenButton } from '../../Assets/constants';
 
-const HomeScreen: React.FC<HomeScreenProps> = ({navigation, route}) => {
+const HomeScreen: React.FC<VideosScreenProps> = ({navigation, route}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,8 +24,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation, route}) => {
     <View style={styles.container}>
      
       <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
-      <Header/>
-      <CombinedCardList />
+      {/* <Header/>
+      <CombinedCardList /> */}
       {/* <Header />
       < HardcodedCardList/>
       <CardList /> 

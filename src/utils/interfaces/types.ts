@@ -38,5 +38,5 @@ export interface VideoPlayerProps {
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
 export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
-export type VideosScreenProps = StackScreenProps<AppStackParamList, 'Video'>;
+export type VideosScreenProps = StackScreenProps<AppStackParamList, 'Video'| 'Home'>;
 

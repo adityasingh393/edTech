@@ -4,10 +4,10 @@ import MediaPlayer from './Component/ComponentMediaPlayer';
 import { downloadVideo } from '../utils/storage/storageFunctions';
 import { DownloadButton } from '../../Assets/constants';
 import styles from './StyleVideoPlayer';
-import { VideoScreenProps } from '../../utils/interfaces/types';
+import { VideosScreenProps } from '../../utils/interfaces/types';
 import { downloadPdf } from '../utils/storage/pdfDownloadFucntion';
 
-const VideoPlayer: React.FC<VideoScreenProps> = ({ navigation , route}) => {
+const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation , route}) => {
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
     const [isDownloading, setIsDownloading] = useState<boolean>(false);
 

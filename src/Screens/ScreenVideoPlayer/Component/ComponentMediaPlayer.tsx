@@ -52,8 +52,7 @@ const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri, onFullScreenToggle 
           onProgress={handleProgress}
           volume={1.0}
           style={[styles.video, { height: fullScreen ? '100%' : hp('25%') }]}
-          resizeMode="contain"
-        />
+          resizeMode="contain"        />
         {clicked && (
           <View style={styles.overlay}>
             <View style={styles.controlsRow}>
