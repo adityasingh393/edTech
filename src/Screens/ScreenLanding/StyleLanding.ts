@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp,heightPercentageToDP as hp  } from "../../Responsive/Responsive"
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "../../Responsive/Responsive";
 
 export const styles = StyleSheet.create({
   container: {
     alignContent: 'center',
     alignItems: 'center',
     flex: 1,
-    backgroundColor:'#F8EDE3',
+    backgroundColor: '#6177EE',
   },
   card: {
     backgroundColor: '#F6F5F5',
@@ -29,25 +29,31 @@ export const styles = StyleSheet.create({
     color: '#2D0C57',
   },
   button: {
-    width: wp('91%'),
+    width: wp('80%'),
     height: hp('7.3%'),
-    backgroundColor: '#C5705D',
-    borderRadius: wp('2%'),
-    left: wp('4.8%'),
+    borderRadius: wp('12%'),
+    left: wp('9.8%'),
     top: hp('13.5%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  gradientButton: {
+    width: '100%',
+    height: '100%',
+    borderRadius: wp('2%'),
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonText: {
     color: '#fff',
     fontSize: wp('5.3%'),
-    paddingVertical: hp('1.2%'),
     textAlign: 'center',
-    top: hp('0.9%'),
   },
   infotext: {
     textAlign: 'center',
     top: hp('7%'),
-    lineHeight:hp('3%'),
-    fontSize: wp('4.4%'),
+    lineHeight: hp('3.3%'),
+    fontSize: wp('4.7%'),
   },
   dismissText: {
     textAlign: 'center',
@@ -56,18 +62,16 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: wp('4.3%'),
   },
-  
-  LandingImage:{
-top:hp('8%'),
-width: wp('100%'),
-
+  LandingImage: {
+    top: hp('8%'),
+    width: wp('100%'),
   },
-  BrandHeader:{
+  BrandHeader: {
     top: hp('3.7%'),
     fontSize: wp('10%'),
     fontWeight: 'bold',
     marginBottom: hp('1.2%'),
     textAlign: 'center',
-    color: '#C5705D',
+    color: '#6177EE',
   },
 });

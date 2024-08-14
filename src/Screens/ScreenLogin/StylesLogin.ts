@@ -5,10 +5,14 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor:'#FAFOE6'
+  },
+  WelcomeText:{
+fontWeight:'700',
+fontSize:18,
+color:'black',
+bottom:350,
   },
   LoginInput: {
-    backgroundColor: ' #FFFFFF',
     marginTop: 30,
     borderRadius: 12,
     borderWidth: 1.5,
@@ -40,7 +44,7 @@ export const styles = StyleSheet.create({
     
   },
   Loginbutton: {
-    backgroundColor: '#9400D3', 
+    backgroundColor: 'black', 
     padding: 15,
     borderRadius: 12,
     alignItems: 'center',
@@ -54,7 +58,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   card:{
-    backgroundColor: '#FAE6FA',
+    backgroundColor: '#fff',
     borderRadius: 30,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -100,5 +104,8 @@ bottom:23
      height:290,
      
   },
+  StyleIcon:{
+    top:-10,
+  }
 
 });

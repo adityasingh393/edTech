@@ -7,17 +7,22 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingVertical: 12,
         borderTopWidth: 1,
-        borderTopColor: '#ccc',
-        bottom:5,
+        borderTopColor: '#ddd',
+        bottom:170,
         height:60,
       },
       navbarBottomIcons: {
         padding: 5,
-        bottom:500,
+        
       },
-      // navbarDownloadIcon:{
-      //   bottom:700,
-      //   right:300,
-      // },
+      MoneyIcon:{
+        bottom:398,
+      },
+      DownloadIcon:{
+        bottom:385,
+      },
+      HomeIcon:{
+        bottom:385,
+      }
 })
 

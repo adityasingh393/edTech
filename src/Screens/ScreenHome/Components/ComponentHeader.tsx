@@ -5,20 +5,26 @@ import { logoutUser } from '../../utils/firebaseAuthentication';
 import styles from './StylesHeader';
 import UserProfile from '../../../Assets/ImagesData.tsx/UserProfileLogo';
 
-const Header: React.FC = ({  }) => {
+const Header: React.FC = () => {
   const dispatch = useDispatch();
+
   const handleLogout = () => {
     logoutUser(dispatch);
   };
+
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>Hey! Aakansha </Text>
-      <View style = {styles.UserProfile}>
-      <UserProfile/>
+      <Text style={styles.headerText}>Hey! Aakansha</Text>
+      <View style={styles.UserProfile}>
+        <UserProfile />
       </View>
+      <Button 
+        onPress={handleLogout} 
+        title="Logout" 
+        color="#841584"  
+      />
     </View>
   );
 };
-
 
 export default Header;
