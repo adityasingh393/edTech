@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { fetchDataRequest } from './Redux/Slices/HomeSlice';
-import CombinedCardList from './Components/CombinedCardList';
-import NavbarComponent from '../CommonComponents/NavbarComponent';
-import { styles } from './StylesHome';
 import Header from './Components/ComponentHeader';
+import CardList from './Components/ComponentCardVideosList';
+import { styles } from './StylesHome';
+import HardcodedCardList from './Components/ComponentCardCourseList';
 
 const HomeScreen: React.FC = () => {
   const dispatch = useDispatch();

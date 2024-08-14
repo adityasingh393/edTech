@@ -28,4 +28,3 @@ const FetchedItem: React.FC<FetchedItemProps> = ({ item}) => {
 };
 
 export default FetchedItem;
-

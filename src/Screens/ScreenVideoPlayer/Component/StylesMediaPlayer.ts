@@ -2,11 +2,12 @@ import { StyleSheet } from 'react-native';
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
-  } from '../../utils/Dimensions';
+  } from '../../../utils/Dimensions';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-    },
+      height:hp('40%')
+          },
     videoContainer: {
       width: '100%',
     },
