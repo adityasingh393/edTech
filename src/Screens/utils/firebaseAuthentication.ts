@@ -74,6 +74,7 @@ export const loginWithGoogle = async (dispatch: AppDispatch) => {
 export const logoutUser = async (dispatch: AppDispatch) => {
   try {
     await auth().signOut();
+    await GoogleSignin.signOut();
     await AsyncStorage.removeItem('authorisationToken');
     dispatch(setUser(null));
   } catch (error) {

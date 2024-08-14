@@ -11,7 +11,7 @@ export const checkAvailableStorage = async (requiredSpaceMB: number): Promise<bo
     const availableSpaceBytes = parseInt(stat.internal_free, 10); 
     if (isNaN(availableSpaceBytes)) {
       console.error('Failed to parse available space:', stat);
-      Alert.alert('Error', 'Unable to retrieve disk space information.');
+      Alert.alert('Error', 'Unable to retrieve storage  information.');
       return false;
     }
 
@@ -27,7 +27,7 @@ export const checkAvailableStorage = async (requiredSpaceMB: number): Promise<bo
 };
 
 export const downloadVideo = async (
-  contentId: string,
+  contentId: number,
   videoUrl: string,
   title: string,
   thumbnailUrl: string,
@@ -63,7 +63,7 @@ export const downloadVideo = async (
 };
 
 const saveDownloadMetadata = async (
-  contentId: string,
+  contentId: number,
   title: string,
   thumbnailUrl: string,
   videoPath: string

@@ -17,11 +17,18 @@ export type AuthStackParamList = {
 };
 export type AppStackParamList = {
     Home: undefined;
-    Video:undefined;
+    Video: {
+        videoUri: string;
+        title: string;
+        contentId:number,
+        thumbnailUrl: string;
+        description:string;
+    };
     Downloads: undefined;
 };
+
 export interface VideoMetadata {
-    contentId: string;
+    contentId: number;
     title: string;
     thumbnailUrl: string;
     videoPath: string;
@@ -38,5 +45,5 @@ export interface VideoPlayerProps {
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
 export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
-export type VideosScreenProps = StackScreenProps<AppStackParamList, 'Video'| 'Home'>;
-
+  
+export interface VideosScreenProps extends StackScreenProps<AppStackParamList, 'Video'> {}

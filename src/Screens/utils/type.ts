@@ -1,5 +1,5 @@
 export interface DownloadedVideo {
-    contentId: string;
+    contentId: number;
     source: string;
     artistName: string;
     songName: string;
@@ -8,7 +8,7 @@ export interface DownloadedVideo {
     isAudio: boolean;
   }  
   export interface DownloadProgress {
-    contentId: string;
+    contentId: number;
     source: string;
     artistName: string;
     songName: string;

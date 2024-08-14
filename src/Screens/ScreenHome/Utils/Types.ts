@@ -5,7 +5,10 @@ export interface CardData {
     thumbnailUrl: string;
     views: number;
     duration: string;
+    videoUrl: string; 
     title: string;
+    id:number,
+    description:string
   }
   
   export interface HomeState {
