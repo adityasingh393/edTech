@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { fetchDataRequest } from './Redux/Slices/HomeSlice';
-import CombinedCardList from './Components/CombinedCardList';
-import { styles } from './StylesHome';
 import Header from './Components/ComponentHeader';
-import { VideosScreenProps } from '../../utils/interfaces/types';
+import CardList from './Components/ComponentCardVideosList';
+import { styles } from './StylesHome';
+import HardcodedCardList from './Components/ComponentCardCourseList';
 
-const HomeScreen: React.FC<VideosScreenProps> = ({navigation, route}) => {
+const HomeScreen: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,10 +16,9 @@ const HomeScreen: React.FC<VideosScreenProps> = ({navigation, route}) => {
 
   return (
     <View style={styles.container}>
-     
-      <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
-      <Header/>
-      <CombinedCardList />  
+      <Header />
+    <  HardcodedCardList/>
+      <CardList />
     </View>
   );
 };

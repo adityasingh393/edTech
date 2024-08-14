@@ -1,34 +1,28 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { FetchedItemProps, ScreenVideoNavigationProp } from '../Utils/Types';
-import { styles } from './StylsCardCourse';
+import { FlatList, ActivityIndicator, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../Redux/store';
+import CardComponent from './ComponentCard';
+import { CardData } from '../Utils/Types';
+import { styles } from '../StylesHome';
 
-const FetchedItem: React.FC<FetchedItemProps> = ({ item }) => {
-  const navigation = useNavigation<ScreenVideoNavigationProp>();
+const CardList: React.FC = () => {
+  const { data, loading, error } = useSelector((state: RootState) => state.home);
 
-  const handlePress = () => {
-    navigation.navigate('Video', { 
-      videoUri: item.videoUrl,
-      title: item.title,
-      contentId: item.id,
-      thumbnailUrl: item.thumbnailUrl,
-      description: item.description,
-    });
-  };
+  const renderItem = ({ item }: { item: CardData }) => <CardComponent item={item} />;
 
   return (
-    <TouchableOpacity onPress={handlePress}>
-      <View style={styles.fetchedDataContainer}>
-        <Image source={{ uri: item.thumbnailUrl }} style={styles.thumbnail} />
-        <View style={styles.fetchedTextContainer}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.text}>Duration: {item.duration}</Text>
-          <Text style={styles.text}>Views: {item.views}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>
+    <View style={styles.cardcontainer}>
+      {loading && <ActivityIndicator size="large" color="#0000ff" />}
+      {error && <Text style={styles.error}>Error: {error}</Text>}
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
+
+      />
+    </View>
   );
 };
 
-export default FetchedItem;
+export default CardList;
