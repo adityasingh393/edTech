@@ -16,7 +16,7 @@ const CombinedCardList: React.FC = () => {
       <FlatList
         data={cardsData.map((item, index) => ({
           ...item,
-          fetchedItems: fetchedData.slice(index * 6, index * 6 + 6),
+          fetchedItems: fetchedData.slice(index * 5, index * 5 + 5),
         }))}
         renderItem={({ item }) => <CardCourse item={item} />}
         keyExtractor={(item, index) => index.toString()}

@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
 import { CardData, FetchedItemProps, ScreenVideoNavigationProp } from '../Utils/Types';
 import { styles } from './StylsCardCourse';
-import { ScreenLandingNavigationProp } from '../../ScreenLanding/utils/types';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const FetchedItem: React.FC<FetchedItemProps> = ({ item}) => {
   const navigation = useNavigation<ScreenVideoNavigationProp>();
@@ -13,6 +13,7 @@ const FetchedItem: React.FC<FetchedItemProps> = ({ item}) => {
   };
 
   return (
+    
     <TouchableOpacity onPress={handlePress}>
       <View style={styles.fetchedDataContainer}>
         <Image source={{ uri: item.thumbnailUrl }} style={styles.thumbnail} />

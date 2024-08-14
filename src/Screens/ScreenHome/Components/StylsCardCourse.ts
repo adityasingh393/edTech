@@ -11,8 +11,8 @@ export const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 3,
     height: 1250,  
-    margin: 4,
-    width: 400,
+    margin: 20,
+    width: 430,
    
   },
   CardCourseImage: {
@@ -82,7 +82,6 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
   },
   fetchedDataContainer: {
-    // height:'100%',
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
@@ -92,16 +91,16 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
   },
   fetchedItemsList: {
-    maxHeight: 400, 
+    maxHeight: 500, 
     paddingHorizontal: 10,
+
   },
   EnrollmentIcon:{
-    marginLeft:16,
-    bottom:384,
-width:25,
+    marginBottom:500,
+    width:10,
   },
   DescriptionIcon:{
     bottom:1295,
 marginLeft:13,
-  }
+  },
 });

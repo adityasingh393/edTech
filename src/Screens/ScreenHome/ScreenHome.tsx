@@ -16,10 +16,10 @@ const HomeScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-     
       <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
       <Header/>
       <CombinedCardList />
+      <NavbarComponent/>
     </View>
   );
 };

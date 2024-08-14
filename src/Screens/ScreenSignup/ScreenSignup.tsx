@@ -10,6 +10,7 @@ import { SignupScreenProps } from '../../utils/interfaces/types';
 import styles from './StylesSingup';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
+
 const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<User>({
     resolver: yupResolver(schema),
