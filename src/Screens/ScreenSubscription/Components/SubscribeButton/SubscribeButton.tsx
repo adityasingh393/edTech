@@ -1,6 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { styles } from './StylesSubscribeButton';
+import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import { localStyles } from './StylesSubscribeButton';
 
 interface SubscribeButtonProps {
   onPress: () => void;
@@ -8,11 +9,15 @@ interface SubscribeButtonProps {
 
 const SubscribeButton: React.FC<SubscribeButtonProps> = ({ onPress }) => {
   return (
-    <TouchableOpacity style={styles.subscribeButton} onPress={onPress}>
-      <Text style={styles.subscribeButtonText}>Subscribe Now</Text>
-    </TouchableOpacity>
+    <LinearGradient
+      colors={['#C72FF8', '#6177EE', '#6177EE']}
+      start={{ x: 0.9, y: -0.3 }}
+      style={localStyles.subscribeButton}
+    >
+      <TouchableOpacity onPress={onPress} style={localStyles.gradientButton}>
+        <Text style={localStyles.subscribeButtonText}>Subscribe Now</Text>
+      </TouchableOpacity>
+    </LinearGradient>
   );
 };
-
 export default SubscribeButton;
-

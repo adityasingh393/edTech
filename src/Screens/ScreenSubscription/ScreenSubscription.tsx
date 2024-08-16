@@ -17,12 +17,12 @@ const SubscriptionPage: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // createTables();
+    createTables();
     fetchPlans();
   }, []);
 
   const fetchPlans = async () => {
-    (await db).transaction(txn => {
+    db.transaction(txn => {
       txn.executeSql('SELECT * FROM plans', [], (txn, results) => {
         const rows = results.rows;
         const plansArray: Plan[] = [];
@@ -43,13 +43,13 @@ const SubscriptionPage: React.FC = () => {
     const currentUser = auth().currentUser;
 
     if (currentUser) {
-      (await db).transaction((txn) => {
+      db.transaction((txn) => {
         txn.executeSql(
           `INSERT OR REPLACE INTO users (uid, email, name, subscribed_plan_id)
            VALUES (?, ?, ?, ?)`,
           [currentUser.uid, currentUser.email, currentUser.displayName, selectedPlan],
           async () => {
-            await AsyncStorage.setItem('hasSubscribed', 'true');
+            // await AsyncStorage.setItem('hasSubscribed', 'true');
             dispatch(subscribe(selectedPlan));
             Alert.alert('Subscription successful');
           },

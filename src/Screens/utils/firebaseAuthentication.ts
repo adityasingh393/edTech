@@ -5,6 +5,7 @@ import { setUser } from '../redux/authSlice';
 import { User } from '../../utils/interfaces/types';
 import { Alert } from 'react-native';
 import { AppDispatch } from '../../Redux/store';
+import { unsubscribe } from '../ScreenSubscription/redux/subscriptionSlice';
 
 export const signupUser = async (user: User, dispatch: AppDispatch) => {
   try {
@@ -76,6 +77,8 @@ export const logoutUser = async (dispatch: AppDispatch) => {
     await auth().signOut();
     await AsyncStorage.removeItem('authorisationToken');
     dispatch(setUser(null));
+    dispatch(unsubscribe());
+    console.log("logged out")
   } catch (error) {
     Alert.alert('Cannot log you out, please try again.');
   }

@@ -1,13 +1,27 @@
-import React from 'react';
-import { View } from 'react-native';
-import VideoPlayer from '../ScreenVideoPlayer/ScreenVideoPlayer'; // Import the VideoPlayer component
+import React, { useEffect } from 'react';
+import { StatusBar, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { fetchDataRequest } from './Redux/Slices/HomeSlice';
+import CombinedCardList from './Components/CombinedCardList';
+import NavbarComponent from '../CommonComponents/NavbarComponent';
+import { styles } from './StylesHome';
+import Header from './Components/ComponentHeader';
 
-const App: React.FC = () => {
+const HomeScreen: React.FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchDataRequest());
+  }, [dispatch]);
+
   return (
-    <View style={{ flex: 1 }}>
-      <VideoPlayer videoUri="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+    <View style={styles.container}>
+     
+      <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
+      <Header/>
+      <CombinedCardList />
     </View>
   );
 };
 
-export default App;
+export default HomeScreen;
