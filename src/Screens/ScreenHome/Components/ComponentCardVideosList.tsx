@@ -1,15 +1,20 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
-import { CardData, FetchedItemProps, ScreenVideoNavigationProp } from '../Utils/Types';
+import { useNavigation } from '@react-navigation/native';
+import { FetchedItemProps, ScreenVideoNavigationProp } from '../Utils/Types';
 import { styles } from './StylsCardCourse';
-import { ScreenLandingNavigationProp } from '../../ScreenLanding/utils/types';
 
-const FetchedItem: React.FC<FetchedItemProps> = ({ item}) => {
+const FetchedItem: React.FC<FetchedItemProps> = ({ item }) => {
   const navigation = useNavigation<ScreenVideoNavigationProp>();
 
   const handlePress = () => {
-    navigation.navigate('Video'); 
+    navigation.navigate('Video', { 
+      videoUri: item.videoUrl,
+      title: item.title,
+      contentId: item.id,
+      thumbnailUrl: item.thumbnailUrl,
+      description: item.description,
+    });
   };
 
   return (
@@ -22,9 +27,8 @@ const FetchedItem: React.FC<FetchedItemProps> = ({ item}) => {
           <Text style={styles.text}>Views: {item.views}</Text>
         </View>
       </View>
-     </TouchableOpacity>
+    </TouchableOpacity>
   );
 };
 
 export default FetchedItem;
-

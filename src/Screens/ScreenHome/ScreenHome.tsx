@@ -3,11 +3,11 @@ import { StatusBar, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { fetchDataRequest } from './Redux/Slices/HomeSlice';
 import CombinedCardList from './Components/CombinedCardList';
-import NavbarComponent from '../CommonComponents/NavbarComponent';
 import { styles } from './StylesHome';
 import Header from './Components/ComponentHeader';
+import { HomeScreenProps, VideosScreenProps } from '../../utils/interfaces/types';
 
-const HomeScreen: React.FC = () => {
+const HomeScreen: React.FC<HomeScreenProps> = ({navigation, route}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const HomeScreen: React.FC = () => {
      
       <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
       <Header/>
-      <CombinedCardList />
+      <CombinedCardList />  
     </View>
   );
 };

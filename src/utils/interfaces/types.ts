@@ -6,7 +6,6 @@ export interface User {
     phone: string;
     password: string;
 }
-
 export interface AuthState {
     isAuthenticated: boolean;
     user: User | null;
@@ -18,11 +17,16 @@ export type AuthStackParamList = {
     Login: undefined;
     
 };
-
-
 export type AppStackParamList = {
-  Home: undefined;
-  Video:undefined;
+    Home: undefined;
+    Video: {
+        videoUri: string;
+        title: string;
+        contentId:number,
+        thumbnailUrl: string;
+        description:string;
+    };
+    Downloads: undefined;
 };
 
 export type RootStackParamList = {
@@ -31,11 +35,26 @@ export type RootStackParamList = {
   
 };
 
-export type LandingScreenProps = StackScreenProps<AuthStackParamList, 'Landing'>;
+
+export interface VideoMetadata {
+    contentId: number;
+    title: string;
+    thumbnailUrl: string;
+    videoPath: string;
+}
+export interface ProgressState {
+    currentTime: number;
+    seekableDuration: number;
+}
+export interface VideoPlayerProps {
+    videoUri: string;
+    onFullScreenToggle: (fullScreen: boolean) => void;
+} 
+
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
 export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login'>;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
 export type WelcomePageProps = StackScreenProps<RootStackParamList, 'WelcomePageSub'>;
 export type SubscriptionPageNavigationProp = StackScreenProps<RootStackParamList, 'ScreenSubscription'>;
-export type VideosScreenProps = StackScreenProps<AppStackParamList, 'Video'>;
-
+  
+export interface VideosScreenProps extends StackScreenProps<AppStackParamList, 'Video'> {}

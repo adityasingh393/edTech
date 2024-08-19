@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, StatusBar } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
@@ -10,8 +10,11 @@ import { LoginScreenProps } from '../../utils/interfaces/types';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { styles } from './StylesLogin';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import GradientCircles from '../../Assets/ImagesData.tsx/StyleLogo';
 
 const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
+  <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
+
   const { control, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
     resolver: yupResolver(schema),
   });
@@ -33,7 +36,12 @@ const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
   };
 
   return (
+    
     <View style={[styles.container, styles.card]}>
+      <View style = {styles.StyleIcon}>
+      <GradientCircles/>
+      </View>
+      <Text style = {styles.WelcomeText}>Welcome Back</Text>
       <Text style={styles.Headingtext}>Login</Text>
       <Controller
         control={control}

@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Image, Modal, Alert, ScrollView } from 'react-native';
-import Video from 'react-native-video';
-import { styles } from '../StylesWelcome';
+import { View, Text, TouchableOpacity, Image, Modal, ScrollView } from 'react-native';
+import MediaPlayer from '../../ScreenVideoPlayer/Component/ComponentMediaPlayer';
+import { styles } from './DmeoStyles';
 
 const DemoVideoSection = () => {
   const [videoVisible, setVideoVisible] = useState<boolean>(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
 
   const handleVideoPress = (videoUrl: string) => {
     setSelectedVideo(videoUrl);
     setVideoVisible(true);
   };
 
+  const handleFullScreenToggle = (isFullScreen: boolean) => {
+    setIsFullScreen(isFullScreen);
+  };
+
   return (
     <View>
       <ScrollView contentContainerStyle={styles.videoCardContainer}>
+       
         <TouchableOpacity
           style={styles.videoCard}
           onPress={() => handleVideoPress('https://www.w3schools.com/html/mov_bbb.mp4')}
@@ -28,6 +34,7 @@ const DemoVideoSection = () => {
           <Text style={styles.videoButtonText}>Watch Demo Video 1</Text>
         </TouchableOpacity>
 
+       
         <TouchableOpacity
           style={styles.videoCard}
           onPress={() => handleVideoPress('https://www.w3schools.com/html/mov_bbb.mp4')}
@@ -40,24 +47,25 @@ const DemoVideoSection = () => {
         </TouchableOpacity>
       </ScrollView>
 
-      <Modal visible={videoVisible} transparent={true} animationType="slide">
-        <View style={styles.modalContainer}>
-          <TouchableOpacity style={styles.closeButton} onPress={() => setVideoVisible(false)}>
-            <Text style={styles.closeButtonText}>Close</Text>
-          </TouchableOpacity>
-          {selectedVideo && (
-            <Video
-              source={{ uri: selectedVideo }}
-              style={styles.video}
-              controls={true}
-              onError={(error) => {
-                console.error('Video Error:', error);
-                Alert.alert('Error', 'Failed to load video');
-              }}
-            />
-          )}
+      <Modal visible={videoVisible} transparent={false} animationType="slide">
+  <View style={[styles.modalContainer, { flex: 1 }]}>
+    <TouchableOpacity style={styles.closeButton} onPress={() => setVideoVisible(false)}>
+      <Text style={styles.closeButtonText}>Close</Text>
+    </TouchableOpacity>
+
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      {selectedVideo && (
+        <View style={styles.mediaPlayerContainer}> 
+          <MediaPlayer
+            videoUri={selectedVideo}
+            onFullScreenToggle={handleFullScreenToggle}
+          />
         </View>
-      </Modal>
+      )}
+    </View>
+  </View>
+</Modal>
+
     </View>
   );
 };

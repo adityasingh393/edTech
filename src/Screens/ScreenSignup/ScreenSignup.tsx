@@ -11,6 +11,7 @@ import styles from './StylesSingup';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import {  unsubscribe } from '../ScreenSubscription/redux/subscriptionSlice';
 
+
 const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<User>({
     resolver: yupResolver(schema),

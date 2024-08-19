@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
 
 export const styles = StyleSheet.create({
   safeArea: {
@@ -10,44 +11,44 @@ export const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: 10,
-    marginTop: 100,
-    paddingHorizontal: 20,
+    paddingTop: hp('2%'),
+    marginTop: hp('10%'),
+    paddingHorizontal: wp('5%'),
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: wp('6%'),
+    marginBottom: hp('2%'),
     textAlign: 'center',
     fontWeight: 'bold',
     color: 'black',
   },
   text: {
-    fontSize: 18,
-    marginBottom: 20,
+    fontSize: wp('4.5%'),
+    marginBottom: hp('2%'),
     textAlign: 'center',
     color: 'black',
   },
   subTitle: {
-    fontSize: 20,
-    marginBottom: 10,
+    fontSize: wp('5%'),
+    marginBottom: hp('1%'),
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'black',
   },
   subscribeButton: {
-    borderRadius: 10,
+    borderRadius: wp('2%'),
     overflow: 'hidden',
-    marginBottom: 30,
+    marginBottom: hp('3%'),
   },
   gradientButton: {
-    padding: 15,
+    padding: hp('2%'),
     alignItems: 'center',
   },
   subscribeButtonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: wp('4%'),
     fontWeight: 'bold',
   },
   videoCardContainer: {
@@ -56,10 +57,10 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   videoCard: {
-    padding: 15,
-    borderRadius: 10,
+    padding: hp('2%'),
+    borderRadius: wp('2%'),
     backgroundColor: '#fff',
-    marginBottom: 15,
+    marginBottom: hp('2%'),
     alignItems: 'center',
     shadowColor: '#888',
     shadowOpacity: 0.3,
@@ -68,20 +69,20 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ddd',
     flexDirection: 'row',
-    width: '90%',
-    height: 150,
+    width: wp('90%'),
+    height: hp('20%'),
   },
   videoButtonText: {
-    fontSize: 16,
+    fontSize: wp('4%'),
     color: 'black',
-    marginLeft: 10,
+    marginLeft: wp('2.5%'),
     flex: 1,
     textAlign: 'center',
   },
   thumbnail: {
-    width: 120,
-    height: 90,
-    borderRadius: 8,
+    width: wp('30%'),
+    height: hp('12%'),
+    borderRadius: wp('2%'),
   },
   modalContainer: {
     flex: 1,
@@ -90,18 +91,18 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   closeButton: {
-    padding: 10,
+    padding: hp('1.5%'),
     backgroundColor: '#6177EE',
-    borderRadius: 5,
-    marginBottom: 20,
+    borderRadius: wp('2%'),
+    marginBottom: hp('2%'),
   },
   closeButtonText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: wp('4%'),
   },
   video: {
-    width: '90%',
-    height: 200,
+    width: wp('90%'),
+    height: hp('25%'),
   },
 });
