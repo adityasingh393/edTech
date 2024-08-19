@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signupUser, loginWithGoogle } from '../utils/firebaseAuthentication';
 import { User } from './utils/interface';
 import schema from './utils/validation';
 import { SignupScreenProps } from '../../utils/interfaces/types';
 import styles from './StylesSingup';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import {  unsubscribe } from '../ScreenSubscription/redux/subscriptionSlice';
 
 
 const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
@@ -26,6 +27,7 @@ const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
 
   const onSubmit = (data: User) => {
     signupUser(data, dispatch);
+    dispatch(unsubscribe());
   };
 
   const handleGoogleSignup = () => {

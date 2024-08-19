@@ -1,4 +1,5 @@
-import { StackScreenProps } from '@react-navigation/stack';
+import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
+
 export interface User {
     email: string;
     name: string;
@@ -9,6 +10,7 @@ export interface AuthState {
     isAuthenticated: boolean;
     user: User | null;
 }
+
 export type AuthStackParamList = {
     Landing:undefined;
     Signup: undefined;
@@ -27,6 +29,13 @@ export type AppStackParamList = {
     Downloads: undefined;
 };
 
+export type RootStackParamList = {
+  WelcomePageSub:undefined;
+  ScreenSubscription: undefined;
+  
+};
+
+
 export interface VideoMetadata {
     contentId: number;
     title: string;
@@ -43,7 +52,9 @@ export interface VideoPlayerProps {
 } 
 
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
-export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;
+export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login'>;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
+export type WelcomePageProps = StackScreenProps<RootStackParamList, 'WelcomePageSub'>;
+export type SubscriptionPageNavigationProp = StackScreenProps<RootStackParamList, 'ScreenSubscription'>;
   
 export interface VideosScreenProps extends StackScreenProps<AppStackParamList, 'Video'> {}
