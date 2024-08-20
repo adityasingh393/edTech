@@ -71,7 +71,18 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
           <Text style={styles.descriptionText}>{description}</Text>
         </View>
       )}
-      <Button title="Downloads" onPress={() => navigation.navigate('Downloads')} />
+     
+      {!isFullScreen && (
+        <LinearGradient
+          colors={['#C72FF8', '#6177EE', '#6177EE']}
+          start={{ x: 0.9, y: -0.3 }}
+          style={styles.downloadButton}
+        >
+          <TouchableOpacity onPress={() => navigation.navigate('Downloads')}>
+            <Text style={styles.downloadText}>Downloads</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+      )}
     </View>
   );
 };

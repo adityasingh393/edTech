@@ -33,15 +33,15 @@ const styles = StyleSheet.create({
     downloadButton: {
       flexDirection: 'row',
       alignItems: 'center',
-      backgroundColor: colors.secondary,
       paddingVertical: hp('1.5%'),
       paddingHorizontal: wp('4%'),
       borderRadius: wp('7%'),
+    
     },
     downloadText: {
       fontSize: wp('4%'),
       color: '#fff',
-      marginRight: wp('2%'),
+      textAlign:'center',
     },
     downloadIcon: {
       width: wp('6%'),
