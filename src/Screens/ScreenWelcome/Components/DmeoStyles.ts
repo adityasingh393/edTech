@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     videoButtonText: {
       marginTop: hp('1%'),
       fontSize: wp('4%'),
-      color: colors.secondary,
+      color: colors.textColor,
       textAlign: 'center',
     },
     modalContainer: {
