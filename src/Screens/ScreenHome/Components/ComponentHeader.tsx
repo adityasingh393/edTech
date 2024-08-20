@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './StylesHeader';
 import UserProfile from '../../../Assets/ImagesData.tsx/UserProfileLogo';
 import { useDispatch } from 'react-redux';
@@ -14,15 +14,16 @@ const Header: React.FC = () => {
 
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>Hey! Aakansha</Text>
+      <Text style={styles.headerText}>Hey!</Text>
       <View style={styles.UserProfile}>
         <UserProfile />
       </View>
-      <Button 
-        onPress={handleLogout} 
-        title="Logout" 
-        color="#841584"  
-      />
+      <TouchableOpacity 
+        style={styles.logoutButton} 
+        onPress={handleLogout}
+      >
+        <Text style={styles.logoutButtonText}>Logout</Text>
+      </TouchableOpacity>
     </View>
   );
 };

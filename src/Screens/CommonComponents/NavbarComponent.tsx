@@ -4,35 +4,26 @@ import { useNavigation } from '@react-navigation/native';
 import NavbarIconHome from '../../Assets/ImagesData.tsx/HomeLogo';
 import MoneyIcon from '../../Assets/ImagesData.tsx/MoneyIcon';
 import NavbarDownloadIcon from '../../Assets/ImagesData.tsx/DownLoadIcon';
-import { styles } from './StylesNavbar';
 import { AppStackParamList } from '../../utils/interfaces/types';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { styles } from './StylesNavbar';
 
-type NavigationProp = StackNavigationProp<AppStackParamList, 'Downloads'>;
+type NavigationProp = StackNavigationProp<AppStackParamList>;
 
 const NavbarComponent: React.FC = () => {
   const navigation = useNavigation<NavigationProp>();
 
   return (
     <View style={styles.navbarContainer}>
-      <View style={styles.MoneyIcon}>
-        <TouchableOpacity style={styles.navbarBottomIcons}>
-          <MoneyIcon />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.HomeIcon}>
-        <TouchableOpacity style={styles.navbarBottomIcons}>
-          <NavbarIconHome />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.DownloadIcon}>
-        <TouchableOpacity
-          style={styles.navbarBottomIcons}
-          onPress={() => navigation.navigate('Downloads')}
-        >
-          <NavbarDownloadIcon />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.iconContainer}>
+        <MoneyIcon />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate('Home')}>
+        <NavbarIconHome />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate('Downloads')}>
+        <NavbarDownloadIcon />
+      </TouchableOpacity>
     </View>
   );
 };
