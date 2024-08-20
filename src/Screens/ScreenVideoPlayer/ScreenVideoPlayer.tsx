@@ -10,12 +10,7 @@ import { downloadPdf } from '../utils/storage/pdfDownloadFucntion';
 
 const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
   const { videoUri, title, contentId, thumbnailUrl, description } = route.params;
-  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
-
-  const handleFullScreenToggle = (fullScreen: boolean) => {
-    setIsFullScreen(fullScreen);
-  };
 
   const handleDownloadPdf = async () => {
     await downloadPdf();
@@ -35,12 +30,8 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.mediaPlayerContainer}>
-        <MediaPlayer
-          videoUri={videoUri} 
-          onFullScreenToggle={handleFullScreenToggle}
-        />
+        <MediaPlayer videoUri={videoUri} />
       </View>
-      {!isFullScreen && (
         <View style={styles.detailsContainer}>
           <View style={styles.downloadContainer}>
             <LinearGradient
@@ -70,9 +61,7 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
           <Text style={styles.descriptionTitle}>About Course</Text>
           <Text style={styles.descriptionText}>{description}</Text>
         </View>
-      )}
      
-      {!isFullScreen && (
         <LinearGradient
           colors={['#C72FF8', '#6177EE', '#6177EE']}
           start={{ x: 0.9, y: -0.3 }}
@@ -82,7 +71,6 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
             <Text style={styles.downloadText}>Downloads</Text>
           </TouchableOpacity>
         </LinearGradient>
-      )}
     </View>
   );
 };

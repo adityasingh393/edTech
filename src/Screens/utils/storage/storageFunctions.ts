@@ -44,6 +44,7 @@ export const downloadVideo = async (
 
     RNFetchBlob.config({
       path: videoPath,
+      
     })
       .fetch('GET', videoUrl)
       .progress({ interval: 100 }, (received, total) => {
