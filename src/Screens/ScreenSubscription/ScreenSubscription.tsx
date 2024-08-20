@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Alert, StyleSheet, StatusBar, SafeAreaView, ScrollView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import auth from '@react-native-firebase/auth';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { subscribe } from './redux/subscriptionSlice';
 import { createTables } from '../../utils/storage/db';
 import { db } from '../../utils/storage/db';
@@ -49,7 +48,6 @@ const SubscriptionPage: React.FC = () => {
            VALUES (?, ?, ?, ?)`,
           [currentUser.uid, currentUser.email, currentUser.displayName, selectedPlan],
           async () => {
-            // await AsyncStorage.setItem('hasSubscribed', 'true');
             dispatch(subscribe(selectedPlan));
             Alert.alert('Subscription successful');
           },

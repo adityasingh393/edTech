@@ -1,6 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
-import { Plan, PlanItemProps } from '../../utils/interfaces';
+import { TouchableOpacity, Text,View } from 'react-native';
+import { PlanItemProps } from '../../utils/interfaces';
 import { styles } from './StylesPlanItem';
 
 

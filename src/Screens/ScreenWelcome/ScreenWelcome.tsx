@@ -20,10 +20,10 @@ const WelcomePage = () => {
     <SafeAreaView style={styles.safeArea}>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.container}>
-          <Text style={styles.title}>Welcome to Our Service</Text>
-          <Text style={styles.text}>
-            Subscribe to our service to access exclusive content and premium features!
+        <View style={styles.WelcomeContainer}>
+          <Text style={styles.WelcomeTitle}>Welcome to edTech</Text>
+          <Text style={styles.WelcomeText}>
+            Unlock a world of knowledge with edTech. Subscribe now to access exclusive courses, interactive lessons, and premium educational content!
           </Text>
 
           <LinearGradient
@@ -34,7 +34,7 @@ const WelcomePage = () => {
             <GradientButton text="Choose Your Plans" onPress={handleSubscriptionPress} />
           </LinearGradient>
 
-          <Text style={styles.subTitle}>Demo Videos</Text>
+          <Text style={styles.subTitle}>Explore Demo Lessons</Text>
 
           <DemoVideoSection />
         </View>

@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
       padding: wp('2%'),
       marginVertical: hp('2%'),
     },
-    thumbnail: {
+    DemoThumbnail: {
       width: '90%', 
       height: hp('20%'),
       borderRadius: 10,
