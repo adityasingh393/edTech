@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
   },
-  container: {
+  WelcomeContainer: {
     flex: 1,
     paddingTop: hp('2%'),
     marginTop: hp('10%'),
@@ -17,14 +17,14 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
-  title: {
+  WelcomeTitle: {
     fontSize: wp('6%'),
     marginBottom: hp('2%'),
     textAlign: 'center',
     fontWeight: 'bold',
     color: 'black',
   },
-  text: {
+  WelcomeText: {
     fontSize: wp('4.5%'),
     marginBottom: hp('2%'),
     textAlign: 'center',

@@ -13,8 +13,8 @@ const DemoVideoSection = () => {
     setVideoVisible(true);
   };
 
-  const handleFullScreenToggle = (isFullScreen: boolean) => {
-    setIsFullScreen(isFullScreen);
+  const handleFullScreenToggle = (fullScreen: boolean) => {
+    setIsFullScreen(fullScreen);
   };
 
   return (
@@ -29,11 +29,11 @@ const DemoVideoSection = () => {
             source={{
               uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png',
             }}
-            style={styles.thumbnail}
+            style={styles.DemoThumbnail}
           />
-          <Text style={styles.videoButtonText}>Watch Demo Video 1</Text>
+          <Text style={styles.videoButtonText}>Watch Introduction to edTech</Text>
         </TouchableOpacity>
-
+       
        
         <TouchableOpacity
           style={styles.videoCard}
@@ -41,31 +41,30 @@ const DemoVideoSection = () => {
         >
           <Image
             source={{ uri: 'https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp' }}
-            style={styles.thumbnail}
+            style={styles.DemoThumbnail}
           />
-          <Text style={styles.videoButtonText}>Watch Demo Video 2</Text>
+          <Text style={styles.videoButtonText}>Discover Our Learning Modules</Text>
         </TouchableOpacity>
       </ScrollView>
 
       <Modal visible={videoVisible} transparent={false} animationType="slide">
-  <View style={[styles.modalContainer, { flex: 1 }]}>
-    <TouchableOpacity style={styles.closeButton} onPress={() => setVideoVisible(false)}>
-      <Text style={styles.closeButtonText}>Close</Text>
-    </TouchableOpacity>
+        <View style={[styles.modalContainer, { flex: 1 }]}>
+          <TouchableOpacity style={styles.closeButton} onPress={() => setVideoVisible(false)}>
+            <Text style={styles.closeButtonText}>Close</Text>
+          </TouchableOpacity>
 
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      {selectedVideo && (
-        <View style={styles.mediaPlayerContainer}> 
-          <MediaPlayer
-            videoUri={selectedVideo}
-            onFullScreenToggle={handleFullScreenToggle}
-          />
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            {selectedVideo && (
+              <View style={styles.mediaPlayerContainer}> 
+                <MediaPlayer
+                  videoUri={selectedVideo}
+                  onFullScreenToggle={handleFullScreenToggle}
+                />
+              </View>
+            )}
+          </View>
         </View>
-      )}
-    </View>
-  </View>
-</Modal>
-
+      </Modal>
     </View>
   );
 };

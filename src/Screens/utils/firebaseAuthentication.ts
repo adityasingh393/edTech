@@ -66,21 +66,43 @@ export const loginWithGoogle = async (dispatch: AppDispatch) => {
       dispatch(setUser(user));
     }
   } catch (error) {
-    console.error("Google Sign-In Error: ", error);
-    Alert.alert('Error occurred, cannot log you in with Google. Please try again.');
+    // console.error("Google Sign-In Error: ", error);
+    Alert.alert('Cannot log you in , please try again!!');
   }
 };
 
 
 export const logoutUser = async (dispatch: AppDispatch) => {
   try {
-    await auth().signOut();
-    await GoogleSignin.signOut();
-    await AsyncStorage.removeItem('authorisationToken');
-    dispatch(setUser(null));
-    dispatch(unsubscribe());
-    console.log("logged out")
-  } catch (error) {
-    Alert.alert('Cannot log you out, please try again.');
+ 
+  const currentUser = auth().currentUser;
+  
+  if (currentUser) {
+  console.log("User currently signed in:", currentUser.email);
+  
+
+  await auth().signOut();
+  await AsyncStorage.removeItem('authorisationToken');
+  dispatch(setUser(null));
+  console.log("User signed out successfully.");
+  } 
+  
+
+  const isGoogleSignedIn = await GoogleSignin.getCurrentUser();
+  
+
+  if (isGoogleSignedIn) {
+  await GoogleSignin.signOut();
+  await AsyncStorage.removeItem('authorisationToken');
+  dispatch(setUser(null));
+  console.log("Google user signed out.");
   }
-};
+  
+ 
+  console.log("User signed out successfully.");
+  } catch (error) {
+  console.error("Error logging out:", error);
+  Alert.alert('Cannot log you out, please try again.');
+  }
+  };
+  

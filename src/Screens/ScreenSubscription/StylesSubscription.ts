@@ -1,26 +1,26 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
 
 export const styles = StyleSheet.create({
-    safeArea: {
-      flex: 1,
-      backgroundColor: '#f9f9f9',
-    },
-    scrollViewContent: {
-      marginTop:40,
-      paddingHorizontal: 20,
-      paddingVertical: 10,
-    },
-    subscriptionContainer: {
-      flex: 1,
-      paddingVertical: 20,
-    },
-    title: {
-      fontSize: 28,
-      fontWeight: 'bold',
-      color: '#6177EE',
-      marginBottom: 20,
-      textAlign: 'center',
-      letterSpacing: 1,
-    },
-  });
-  
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#f9f9f9',
+  },
+  scrollViewContent: {
+    marginTop: hp('5%'), 
+    paddingHorizontal: wp('5%'), 
+    paddingVertical: hp('2%'), 
+  },
+  subscriptionContainer: {
+    flex: 1,
+    paddingVertical: hp('3%'), 
+  },
+  title: {
+    fontSize: wp('7%'), 
+    fontWeight: 'bold',
+    color: '#6177EE',
+    marginBottom: hp('3%'), 
+    textAlign: 'center',
+    letterSpacing: wp('0.3%'),
+  },
+});
