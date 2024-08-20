@@ -71,7 +71,6 @@ export const loginWithGoogle = async (dispatch: AppDispatch) => {
   }
 };
 
-
 export const logoutUser = async (dispatch: AppDispatch) => {
   try {
  

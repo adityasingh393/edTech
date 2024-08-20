@@ -1,17 +1,18 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import Video, { OnProgressData } from 'react-native-video';
 import Slider from '@react-native-community/slider';
 import Orientation from 'react-native-orientation-locker';
-import styles from './StylesMediaPlayer';
-import { heightPercentageToDP as hp } from '../../../utils/Dimensions';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from '../../../utils/Dimensions';
 import { ForwardButton, BackButton, PlayButton, PauseButton, MinimiseButton, FullScreenButton } from '../../../Assets/constants';
-import { ProgressState, VideoPlayerProps } from '../utils/interface';
-
-const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri, onFullScreenToggle }) => {
+import styles from './StylesMediaPlayer';
+const MediaPlayer: React.FC<{ videoUri: string }> = ({ videoUri }) => {
   const [clicked, setClicked] = useState<boolean>(false);
   const [paused, setPaused] = useState<boolean>(false);
-  const [progress, setProgress] = useState<ProgressState>({ currentTime: 0, seekableDuration: 0 });
+  const [progress, setProgress] = useState<{ currentTime: number; seekableDuration: number }>({
+    currentTime: 0,
+    seekableDuration: 0,
+  });
   const [fullScreen, setFullScreen] = useState<boolean>(false);
   const videoRef = useRef<any>(null);
 
@@ -36,11 +37,10 @@ const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri, onFullScreenToggle 
       Orientation.lockToLandscape();
     }
     setFullScreen(!fullScreen);
-    onFullScreenToggle(!fullScreen); 
   };
 
   return (
-    <View style={styles.container}>
+    <View style={fullScreen ? styles.fullScreenContainer : styles.container}>
       <TouchableOpacity
         style={[styles.videoContainer, { height: fullScreen ? '100%' : hp('25%') }]}
         onPress={() => setClicked(!clicked)}
@@ -52,7 +52,8 @@ const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri, onFullScreenToggle 
           onProgress={handleProgress}
           volume={1.0}
           style={[styles.video, { height: fullScreen ? '100%' : hp('25%') }]}
-          resizeMode="contain"        />
+          resizeMode="contain"
+        />
         {clicked && (
           <View style={styles.overlay}>
             <View style={styles.controlsRow}>
@@ -60,10 +61,7 @@ const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri, onFullScreenToggle 
                 <Image source={BackButton} style={styles.icon} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => setPaused(!paused)}>
-                <Image
-                  source={paused ? PlayButton : PauseButton}
-                  style={[styles.icon, styles.playPauseIcon]}
-                />
+                <Image source={paused ? PlayButton : PauseButton} style={[styles.icon, styles.playPauseIcon]} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => handleSeek(progress.currentTime + 10)}>
                 <Image source={ForwardButton} style={styles.icon} />
@@ -83,10 +81,7 @@ const MediaPlayer: React.FC<VideoPlayerProps> = ({ videoUri, onFullScreenToggle 
             </View>
             <View style={styles.fullScreenToggleContainer}>
               <TouchableOpacity onPress={toggleFullScreen}>
-                <Image
-                  source={fullScreen ? MinimiseButton : FullScreenButton}
-                  style={styles.icon}
-                />
+                <Image source={fullScreen ? MinimiseButton : FullScreenButton} style={styles.icon} />
               </TouchableOpacity>
             </View>
           </View>
