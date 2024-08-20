@@ -6,8 +6,9 @@ import CombinedCardList from './Components/CombinedCardList';
 import { styles } from './StylesHome';
 import Header from './Components/ComponentHeader';
 import { VideosScreenProps } from '../../utils/interfaces/types';
+import NavbarComponent from '../CommonComponents/NavbarComponent';
 
-const HomeScreen: React.FC<VideosScreenProps> = ({navigation, route}) => {
+const HomeScreen: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const HomeScreen: React.FC<VideosScreenProps> = ({navigation, route}) => {
       <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
       <Header/>
       <CombinedCardList />  
+      <NavbarComponent/>
     </View>
   );
 };

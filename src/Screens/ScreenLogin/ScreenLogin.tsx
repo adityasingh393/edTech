@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, TextInput, Button, StatusBar } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
@@ -11,11 +11,12 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { styles } from './StylesLogin';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import GradientCircles from '../../Assets/ImagesData.tsx/StyleLogo';
-import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradient
+import LinearGradient from 'react-native-linear-gradient';
+import GoogleIcon from '../../Assets/ImagesData.tsx/ImageGoogle';
+import FacebookIcon from '../../Assets/ImagesData.tsx/ImageFacebook';
+import PhoneIcon from '../../Assets/ImagesData.tsx/ImagePhone';
 
 const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
-  <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
-
   const { control, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
     resolver: yupResolver(schema),
   });
@@ -77,21 +78,38 @@ const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
       <LinearGradient
         colors={['#C72FF8', '#6177EE', '#6177EE']}
         start={{ x: 0.9, y: -0.3 }}
-        style={styles.Loginbutton} // Apply the gradient to the button
+        style={styles.Loginbutton} 
       >
         <TouchableOpacity onPress={handleSubmit(onSubmit)}>
-          <Text style={styles.LoginbuttonText}>Login</Text>
+          <Text style={styles.LoginbuttonText}>Log in</Text>
         </TouchableOpacity>
       </LinearGradient>
 
-      <Button title="Signup" onPress={() => navigation.navigate('Signup')} />
+      <LinearGradient
+        colors={['#C72FF8', '#6177EE', '#6177EE']}
+        start={{ x: 0.9, y: -0.3 }}
+        style={styles.Signupbutton} 
+      >
+        <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+          <Text style={styles.SignupbuttonText}>Sign up</Text>
+        </TouchableOpacity>
+      </LinearGradient>
 
-      <TouchableOpacity style={styles.Iconcard} onPress={handleGoogleLogin}>
-        <Text style={styles.GoogleIcon}>Login with Google</Text>
-      </TouchableOpacity>
+      <View style={styles.Iconcard}>
+        <TouchableOpacity  onPress={handleGoogleLogin}>
+          <GoogleIcon />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <FacebookIcon />
+        </TouchableOpacity>
+
+        <TouchableOpacity >
+          <PhoneIcon />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 export default Login;
-
