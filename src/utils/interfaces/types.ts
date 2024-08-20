@@ -3,7 +3,7 @@ import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
 export interface User {
     email: string;
     name: string;
-    phone: string;
+    // phone: string;
     password: string;
 }
 export interface AuthState {
