@@ -6,22 +6,22 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: '#fff',
-    paddingVertical: hp('1.5'), 
+    paddingVertical: hp('1.5%'), 
     borderTopWidth: 1,
     borderTopColor: '#ddd',
-    bottom: hp('6'), 
-    height: hp('7.5'), 
+    bottom: hp('9%'), 
+    height: hp('7.5%'), 
   },
   navbarBottomIcons: {
-    padding: wp('1.5'), 
+    padding: wp('1.5%'), 
   },
   MoneyIcon: {
-    bottom: hp('44'), 
+    bottom: hp('42.5%'), 
   },
   DownloadIcon: {
-    bottom: hp('42.5'), 
+    bottom: hp('41%'), 
   },
   HomeIcon: {
-    bottom: hp('42.5'), 
+    bottom: hp('40.5%'), 
   }
 });

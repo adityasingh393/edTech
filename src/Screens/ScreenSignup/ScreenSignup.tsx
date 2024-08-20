@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, KeyboardAvoidingView } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,13 +8,14 @@ import { User } from './utils/interface';
 import { SignupScreenProps } from '../../utils/interfaces/types';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import LinearGradient from 'react-native-linear-gradient';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {  TouchableOpacity } from 'react-native-gesture-handler';
 import GoogleIcon from '../../Assets/ImagesData.tsx/ImageGoogle';
 import FacebookIcon from '../../Assets/ImagesData.tsx/ImageFacebook';
 import PhoneIcon from '../../Assets/ImagesData.tsx/ImagePhone';
 import { styles } from './StylesSingup';
 import { schema } from './utils/validation';
 import GradientCircles from '../../Assets/ImagesData.tsx/StyleLogo';
+import { unsubscribe } from '../ScreenSubscription/redux/subscriptionSlice';
 
 const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<User>({
@@ -40,10 +41,11 @@ const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
 
   return (
     <View style={[styles.container, styles.card]}>
+            <KeyboardAvoidingView behavior='padding'></KeyboardAvoidingView>
+
        <View style={styles.StyleIcon}>
         <GradientCircles />
       </View>
-      <Text style={styles.WelcomeText}>Create Account</Text>
       <Text style={styles.Headingtext}>Sign Up</Text>
       
       <Controller

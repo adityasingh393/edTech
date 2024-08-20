@@ -7,21 +7,14 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  WelcomeText: {
+  
+  Headingtext: {
     fontWeight: '400',
-    fontSize: wp('9%'), 
+    fontSize: wp('11%'), 
     color: '#FFFFFF',
     position: 'absolute',
-    top: hp('10%'), 
-    left: wp('3%'), 
-  },
-  Headingtext: {
-    color: colors.primary,
-    fontWeight: 'bold',
-    fontSize: wp('12%'), 
-    position: 'absolute',
-    top: hp('40%'), 
-    left: wp('10%'), 
+    top: hp('11%'), 
+    left: wp('3%'),
   },
   LoginInput: {
     borderRadius: 12,
@@ -31,11 +24,11 @@ export const styles = StyleSheet.create({
     width: wp('80%'), 
     alignSelf: 'center',
     borderColor: colors.primary,
-    bottom: hp('5%'),
+    bottom: hp('10%'),
   },
   errorText: {
     color: colors.ErrorColor,
-    bottom: hp('5%'), 
+    bottom: hp('10.5%'), 
     marginLeft: wp('7%'), 
   },
   Loginbutton: {
@@ -45,7 +38,7 @@ export const styles = StyleSheet.create({
     width: wp('80%'), 
     alignSelf: 'center',
    
-    bottom: hp('2%'), 
+    bottom: hp('5%'), 
   },
   LoginbuttonText: {
     color: colors.white,
@@ -57,6 +50,7 @@ export const styles = StyleSheet.create({
     borderRadius: wp('7%'), 
     width: wp('80%'), 
     alignSelf: 'center',
+    bottom:hp('3%')
   },
   SignupbuttonText: {
     color: colors.white,
@@ -73,10 +67,11 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    height: hp('75%'), 
+    height: hp('110%'), 
     width: wp('100%'), 
     alignSelf: 'center',
     padding: wp('5%'), 
+    position:'absolute',
   },
   Iconcard: {
     backgroundColor: colors.IconCardColor,
@@ -90,11 +85,12 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginTop: hp('3%'), 
+    marginTop: hp('1%'), 
   },
   StyleIcon: {
-    bottom: hp('6%'), 
-    width: wp('2.5%'), 
+    width: wp('10.5%'), 
     right: wp('5%'), 
+    marginTop:hp('-22.2%')
+
   },
 });

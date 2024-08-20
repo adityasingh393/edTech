@@ -7,21 +7,14 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  WelcomeText: {
+ 
+  Headingtext: {
     fontWeight: '400',
-    fontSize: wp('8%'), 
+    fontSize: wp('11%'), 
     color: colors.white,
     position: 'absolute',
-    top: hp('10%'), 
-    left: wp('3%'), 
-  },
-  Headingtext: {
-    color: colors.primary,
-    fontWeight: 'bold',
-    fontSize: wp('12%'), 
-    position: 'absolute',
-    top: hp('33%'), 
-    left: wp('10%'), 
+    top: hp('12%'), 
+    left: wp('5%'), 
   },
   SignupInput: {
     borderRadius: 12,
@@ -31,11 +24,11 @@ export const styles = StyleSheet.create({
     width: wp('80%'), 
     alignSelf: 'center',
     borderColor: colors.primary,
-    bottom: hp('8%'),
+    bottom: hp('9%'),
   },
   errorText: {
     color: colors.ErrorColor,
-    bottom: hp('8.3%'), 
+    bottom: hp('9.5%'), 
     marginLeft: wp('7%'), 
   },
   Signupbutton: {
@@ -43,7 +36,7 @@ export const styles = StyleSheet.create({
     borderRadius: wp('7%'), 
     width: wp('80%'), 
     alignSelf: 'center',
-    bottom: hp('5%'), 
+    bottom: hp('4.6%'), 
     alignItems: 'center',
   },
   SignupbuttonText: {
@@ -61,8 +54,9 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: hp('0.5%') }, 
     shadowOpacity: 0.25,
     shadowRadius: 4,
+    position:'absolute',
     elevation: 5,
-    height: hp('75%'), 
+    height: hp('105%'), 
     width: wp('100%'), 
     alignSelf: 'center',
     padding: wp('5%'), 
@@ -79,11 +73,12 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-bottom:hp('2%')
+bottom:hp('-1%')
   },
   StyleIcon: {
-    bottom: hp('6%'), 
-    width: wp('3.5%'), 
-    right: wp('7%'), 
+    width: wp('10.5%'), 
+    right: wp('5%'), 
+    marginTop:hp('-19.2%')
+
   },
 });
