@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "../../../utils/Dimensions";
+import colors from "../../../utils/Theme";
 
 export const styles = StyleSheet.create({
   CardCoursecontainer: {
@@ -11,12 +12,12 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 20,
-    height: hp('87%'),  
+    height: hp('81.5%'), 
     marginHorizontal: wp('2.5%'),
     marginBottom: hp('2.5%'),
     width: wp('87.5%'), 
     padding: wp('3.75%'),
-    margin: wp('2.5%'),
+    paddingBottom: hp('5%'), 
   },
   CardCourseImage: {
     width: '100%',
@@ -36,7 +37,7 @@ export const styles = StyleSheet.create({
     marginVertical: hp('1%'),
   },
   fetchedItemsList: {
-    maxHeight: hp('90%'),  
+    maxHeight: hp('50%'), 
     paddingHorizontal: wp('1.25%'),
   },
   text: {
@@ -65,7 +66,7 @@ export const styles = StyleSheet.create({
     marginLeft: wp('1.25%'),
   },
   error: {
-    color: 'red',
+    color: colors.ErrorColor,
   },
   durationContainer: {
     flexDirection: 'row',

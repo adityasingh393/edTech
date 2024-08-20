@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions'; 
+import colors from '../../utils/Theme';
 
 export const styles = StyleSheet.create({
   navbarContainer: {
@@ -7,7 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-around', 
     alignItems: 'center',
     height: hp('7%'), 
-    backgroundColor: '#fff', 
+    backgroundColor: colors.IconCardColor, 
     paddingHorizontal: wp('2%'), 
     position: 'absolute',
     bottom: hp('0.3%'), 
