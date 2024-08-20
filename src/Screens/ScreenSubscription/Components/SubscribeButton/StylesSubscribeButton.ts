@@ -1,17 +1,19 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
-    subscribeButton: {
-      padding: 20,
-      backgroundColor: '#6177EE',
-      borderRadius: 10,
-      marginTop: 30,
-      alignItems: 'center',
-    },
-    subscribeButtonText: {
-      color: 'white',
-      fontSize: 18,
-      fontWeight: '600',
-    },
-  });
-  
+export const localStyles = StyleSheet.create({
+  subscribeButton: {
+    borderRadius: 10,
+    overflow: 'hidden',
+    marginTop: 30,
+    alignItems: 'center',
+  },
+  gradientButton: {
+    padding: 15,
+    alignItems: 'center',
+  },
+  subscribeButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+});

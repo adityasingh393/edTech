@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { signupUser, loginWithGoogle } from '../utils/firebaseAuthentication';
 import { User } from './utils/interface';
-import schema from './utils/validation';
 import { SignupScreenProps } from '../../utils/interfaces/types';
-import styles from './StylesSingup';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import {  unsubscribe } from '../ScreenSubscription/redux/subscriptionSlice';
+import LinearGradient from 'react-native-linear-gradient';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import GoogleIcon from '../../Assets/ImagesData.tsx/ImageGoogle';
+import FacebookIcon from '../../Assets/ImagesData.tsx/ImageFacebook';
+import PhoneIcon from '../../Assets/ImagesData.tsx/ImagePhone';
+import { styles } from './StylesSingup';
+import { schema } from './utils/validation';
+import GradientCircles from '../../Assets/ImagesData.tsx/StyleLogo';
 
 const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<User>({
@@ -19,7 +24,7 @@ const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
 
   useEffect(() => {
     GoogleSignin.configure({
-        offlineAccess:true,
+      offlineAccess: true,
       webClientId: '565978315125-fafv1cnccofkjm1r7fe4lok2r7oseqti.apps.googleusercontent.com',
     });
   }, []);
@@ -34,14 +39,19 @@ const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Signup Page</Text>
+    <View style={[styles.container, styles.card]}>
+       <View style={styles.StyleIcon}>
+        <GradientCircles />
+      </View>
+      <Text style={styles.WelcomeText}>Create Account</Text>
+      <Text style={styles.Headingtext}>Sign Up</Text>
+      
       <Controller
         control={control}
         name="email"
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
+            style={styles.SignupInput}
             placeholder="Email"
             onBlur={onBlur}
             onChangeText={onChange}
@@ -49,14 +59,14 @@ const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
           />
         )}
       />
-      {errors.email && <Text style={styles.error}>{errors.email.message}</Text>}
+      {errors.email && <Text style={styles.errorText}>{errors.email.message}</Text>}
 
       <Controller
         control={control}
         name="name"
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
+            style={styles.SignupInput}
             placeholder="Name"
             onBlur={onBlur}
             onChangeText={onChange}
@@ -64,14 +74,14 @@ const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
           />
         )}
       />
-      {errors.name && <Text style={styles.error}>{errors.name.message}</Text>}
+      {errors.name && <Text style={styles.errorText}>{errors.name.message}</Text>}
 
       <Controller
         control={control}
         name="password"
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
+            style={styles.SignupInput}
             placeholder="Password"
             onBlur={onBlur}
             onChangeText={onChange}
@@ -80,26 +90,34 @@ const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
           />
         )}
       />
-      {errors.password && <Text style={styles.error}>{errors.password.message}</Text>}
+      {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
 
-      <Controller
-        control={control}
-        name="phone"
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-            style={styles.input}
-            placeholder="Phone"
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-          />
-        )}
-      />
-      {errors.phone && <Text style={styles.error}>{errors.phone.message}</Text>}
+     
+      <LinearGradient
+        colors={['#C72FF8', '#6177EE', '#6177EE']}
+        start={{ x: 0.9, y: -0.3 }}
+        style={styles.Signupbutton} 
+      >
+        <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+          <Text style={styles.SignupbuttonText}>Sign Up</Text>
+        </TouchableOpacity>
+      </LinearGradient>
 
-      <Button title="Signup" onPress={handleSubmit(onSubmit)} />
-      <Button title="Login" onPress={() => navigation.navigate('Login')} />
-      <Button title="Signup with Google" onPress={handleGoogleSignup} />
+      
+
+      <View style={styles.Iconcard}>
+        <TouchableOpacity onPress={handleGoogleSignup}>
+          <GoogleIcon />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <FacebookIcon />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <PhoneIcon />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

@@ -1,99 +1,91 @@
-import React, { useRef, useState } from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-import Video, { OnProgressData } from 'react-native-video';
-import Slider from '@react-native-community/slider';
-import Orientation from 'react-native-orientation-locker';
-import styles from './StylesVideoPlayer';
-import { heightPercentageToDP as hp } from '../../utils/Dimensions';
-import { ForwardButton, BackButton, PlayButton, PauseButton, MinimiseButton,FullScreenButton } from '../../Assets/constants';
-import { ProgressState,VideoPlayerProps } from './utils/interface';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, Alert, Image, Button } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import MediaPlayer from './Component/ComponentMediaPlayer';
+import { downloadVideo } from '../utils/storage/storageFunctions';
+import { DownloadButton } from '../../Assets/constants';
+import styles from './StyleVideoPlayer';
+import { VideosScreenProps } from '../../utils/interfaces/types';
+import { downloadPdf } from '../utils/storage/pdfDownloadFucntion';
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUri }) => {
-  const [clicked, setClicked] = useState<boolean>(false);
-  const [paused, setPaused] = useState<boolean>(false);
-  const [progress, setProgress] = useState<ProgressState>({ currentTime: 0, seekableDuration: 0 });
-  const [fullScreen, setFullScreen] = useState<boolean>(false);
-  const videoRef = useRef<any>(null);
+const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
+  const { videoUri, title, contentId, thumbnailUrl, description } = route.params;
+  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
 
-  const formatTime = (seconds: number): string => {
-    const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
-    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
-    return `${mins}:${secs}`;
+  const handleFullScreenToggle = (fullScreen: boolean) => {
+    setIsFullScreen(fullScreen);
   };
 
-  const handleProgress = (data: OnProgressData): void => {
-    setProgress({ currentTime: data.currentTime, seekableDuration: data.seekableDuration });
+  const handleDownloadPdf = async () => {
+    await downloadPdf();
   };
 
-  const handleSeek = (time: number): void => {
-    videoRef.current?.seek(time);
+  const handleDownloadVideo = async () => {
+    setIsDownloading(true);
+    downloadVideo(contentId, videoUri, title, thumbnailUrl, () => {
+      setIsDownloading(false);
+      Alert.alert("Success", "Video downloaded successfully.");
+    }).catch(() => {
+      setIsDownloading(false);
+      Alert.alert("Error", "Failed to download video.");
+    });
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={[styles.videoContainer, { height: fullScreen ? '100%' : hp('25%') }]}
-        onPress={() => setClicked(!clicked)}
-      >
-        <Video
-          paused={paused}
-          source={{ uri: videoUri }}
-          ref={videoRef}
-          onProgress={handleProgress}
-          muted
-          style={[styles.video, { height: fullScreen ? '100%' : hp('25%') }]}
-          resizeMode="contain"
+      <View style={styles.mediaPlayerContainer}>
+        <MediaPlayer
+          videoUri={videoUri} 
+          onFullScreenToggle={handleFullScreenToggle}
         />
-        {clicked && (
-          <View style={styles.overlay}>
-            <View style={styles.controlsRow}>
-              <TouchableOpacity onPress={() => handleSeek(progress.currentTime - 10)}>
-                <Image source={BackButton} style={styles.icon} />
+      </View>
+      {!isFullScreen && (
+        <View style={styles.detailsContainer}>
+          <View style={styles.downloadContainer}>
+            <LinearGradient
+              colors={['#C72FF8', '#6177EE', '#6177EE']}
+              start={{ x: 0.9, y: -0.3 }}
+              style={styles.downloadButton}
+            >
+              <TouchableOpacity onPress={handleDownloadPdf}>
+                <View style={styles.buttonContent}>
+                  <Image source={DownloadButton} style={styles.downloadIcon} />
+                  <Text style={styles.downloadText}>PDF</Text>
+                </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => setPaused(!paused)}>
-                <Image
-                  source={paused ? PlayButton : PauseButton}
-                  style={[styles.icon, styles.playPauseIcon]}
-                />
+            </LinearGradient>
+            <LinearGradient
+              colors={['#C72FF8', '#6177EE', '#6177EE']}
+              start={{ x: 0.9, y: -0.3 }}
+              style={styles.downloadButton}
+            >
+              <TouchableOpacity onPress={handleDownloadVideo} disabled={isDownloading}>
+                <Text style={styles.downloadText}>
+                  {isDownloading ? "Downloading..." : "Download Video"}
+                </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleSeek(progress.currentTime + 10)}>
-                <Image source={ForwardButton} style={styles.icon} />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.sliderContainer}>
-              <Text style={styles.timeText}>{formatTime(progress.currentTime)}</Text>
-              <Slider
-                style={styles.slider}
-                minimumValue={0}
-                maximumValue={progress.seekableDuration}
-                minimumTrackTintColor="#FFFFFF"
-                maximumTrackTintColor="#FFFFFF"
-                onValueChange={handleSeek}
-              />
-              <Text style={styles.timeText}>{formatTime(progress.seekableDuration)}</Text>
-            </View>
-            <View style={styles.fullScreenToggleContainer}>
-              <TouchableOpacity
-                onPress={() => {
-                  if (fullScreen) {
-                    Orientation.lockToPortrait();
-                  } else {
-                    Orientation.lockToLandscape();
-                  }
-                  setFullScreen(!fullScreen);
-                }}
-              >
-                <Image
-                  source={fullScreen ? MinimiseButton : FullScreenButton}
-                  style={styles.icon}
-                />
-              </TouchableOpacity>
-            </View>
+            </LinearGradient>
           </View>
-        )}
-      </TouchableOpacity>
+          <Text style={styles.descriptionTitle}>About Course</Text>
+          <Text style={styles.descriptionText}>{description}</Text>
+        </View>
+      )}
+     
+      {!isFullScreen && (
+        <LinearGradient
+          colors={['#C72FF8', '#6177EE', '#6177EE']}
+          start={{ x: 0.9, y: -0.3 }}
+          style={styles.downloadButton}
+        >
+          <TouchableOpacity onPress={() => navigation.navigate('Downloads')}>
+            <Text style={styles.downloadText}>Downloads</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+      )}
     </View>
   );
 };
 
 export default VideoPlayer;
+

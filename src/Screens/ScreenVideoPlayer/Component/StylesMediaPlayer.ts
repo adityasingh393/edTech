@@ -2,11 +2,13 @@ import { StyleSheet } from 'react-native';
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
-  } from '../../utils/Dimensions';
+  } from '../../../utils/Dimensions';
+import colors from '../../../utils/Theme';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-    },
+      height:hp('40%')
+          },
     videoContainer: {
       width: '100%',
     },
@@ -28,7 +30,7 @@ const styles = StyleSheet.create({
     icon: {
       width: wp("8"),
       height: wp("8"),
-      tintColor: 'white',
+      tintColor: colors.white,
     },
     playPauseIcon: {
       marginLeft: wp("10"),
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
       height: hp("5"),
     },
     timeText: {
-      color: 'white',
+      color: colors.white,
     },
     fullScreenToggleContainer: {
       position: 'absolute',
