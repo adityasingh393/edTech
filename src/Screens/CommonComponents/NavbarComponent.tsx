@@ -15,9 +15,6 @@ const NavbarComponent: React.FC = () => {
 
   return (
     <View style={styles.navbarContainer}>
-      <TouchableOpacity style={styles.iconContainer}>
-        <MoneyIcon />
-      </TouchableOpacity>
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate('Home')}>
         <NavbarIconHome />
       </TouchableOpacity>
