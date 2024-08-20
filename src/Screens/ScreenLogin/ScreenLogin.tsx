@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, KeyboardAvoidingView } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
@@ -38,12 +38,15 @@ const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
   };
 
   return (
+    
     <View style={[styles.container, styles.card]}>
+      <KeyboardAvoidingView behavior='padding'></KeyboardAvoidingView>
+
+
       <View style={styles.StyleIcon}>
         <GradientCircles />
       </View>
-      <Text style={styles.WelcomeText}>Welcome Back</Text>
-      <Text style={styles.Headingtext}>Login</Text>
+      <Text style={styles.Headingtext}>Sign-In</Text>
       <Controller
         control={control}
         name="email"

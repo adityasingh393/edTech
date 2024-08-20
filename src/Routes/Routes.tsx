@@ -110,6 +110,8 @@ const Routes = () => {
           <AuthStack.Screen name ="Landing" component={ScreenLanding} options={{ headerShown: false }}/>
           <AuthStack.Screen name="Login" component={Login}  options={{ headerShown: false }}/>
           <AuthStack.Screen name="Signup" component={Signup}  options={{ headerShown: false }}/>
+         
+
         </AuthStack.Navigator>
       )}
     </NavigationContainer>
