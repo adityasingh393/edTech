@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { FetchedItemProps, ScreenVideoNavigationProp } from '../Utils/Types';
+import { useNavigation } from '@react-navigation/native'; 
+import { CardData, FetchedItemProps, ScreenVideoNavigationProp } from '../Utils/Types';
 import { styles } from './StylsCardCourse';
 
 const FetchedItem: React.FC<FetchedItemProps> = ({ item }) => {
