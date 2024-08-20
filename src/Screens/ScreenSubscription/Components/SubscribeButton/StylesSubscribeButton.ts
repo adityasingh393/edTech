@@ -1,19 +1,24 @@
 import { StyleSheet } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../../../utils/Dimensions';
 
 export const localStyles = StyleSheet.create({
   subscribeButton: {
-    borderRadius: 10,
+    borderRadius: wp('2%'),
     overflow: 'hidden',
-    marginTop: 30,
+    marginTop: hp('3%'),
     alignItems: 'center',
+    width: wp('90%'), 
+    alignSelf: 'center',
   },
   gradientButton: {
-    padding: 15,
+    paddingVertical: hp('2%'),
+    paddingHorizontal: wp('5%'), 
     alignItems: 'center',
+    width: '100%', 
   },
   subscribeButtonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: wp('4.5%'), 
     fontWeight: '600',
   },
 });

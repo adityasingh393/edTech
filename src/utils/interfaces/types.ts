@@ -52,7 +52,7 @@ export interface VideoPlayerProps {
 } 
 export type LandingScreenProps = StackScreenProps<AuthStackParamList,'Landing'>
 export type SignupScreenProps = StackScreenProps<AuthStackParamList, 'Signup'>;
-export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login'>;
+export type LoginScreenProps = StackScreenProps<AuthStackParamList, 'Login' >;
 export type HomeScreenProps = StackScreenProps<AppStackParamList, 'Home'>;
 export type WelcomePageProps = StackScreenProps<RootStackParamList, 'WelcomePageSub'>;
 export type SubscriptionPageNavigationProp = StackScreenProps<RootStackParamList, 'ScreenSubscription'>;

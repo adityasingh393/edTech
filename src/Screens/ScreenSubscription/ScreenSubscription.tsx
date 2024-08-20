@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Alert, StyleSheet, StatusBar, SafeAreaView, ScrollView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import auth from '@react-native-firebase/auth';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { subscribe } from './redux/subscriptionSlice';
 import { createTables } from '../../utils/storage/db';
 import { db } from '../../utils/storage/db';
@@ -10,6 +9,8 @@ import PlanItem from './Components/PlanItem/PlanItem';
 import SubscribeButton from './Components/SubscribeButton/SubscribeButton';
 import { Plan } from './utils/interfaces';
 import { styles } from './StylesSubscription';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
 
 const SubscriptionPage: React.FC = () => {
   const [plans, setPlans] = useState<Plan[]>([]);
@@ -33,33 +34,48 @@ const SubscriptionPage: React.FC = () => {
       });
     });
   };
-
   const subscribeToPlan = async () => {
     if (selectedPlan === null) {
-      Alert.alert('Please select a plan first.');
-      return;
+    Alert.alert('Please select a plan first.');
+    return;
     }
-
+    
     const currentUser = auth().currentUser;
-
+    const googleUser = GoogleSignin.getCurrentUser();
+    console.log("reg",googleUser?.user.email);
+    
+    let uid, email, name;
+    
     if (currentUser) {
-      db.transaction((txn) => {
-        txn.executeSql(
-          `INSERT OR REPLACE INTO users (uid, email, name, subscribed_plan_id)
-           VALUES (?, ?, ?, ?)`,
-          [currentUser.uid, currentUser.email, currentUser.displayName, selectedPlan],
-          async () => {
-            // await AsyncStorage.setItem('hasSubscribed', 'true');
-            dispatch(subscribe(selectedPlan));
-            Alert.alert('Subscription successful');
-          },
-          (error) => {
-            console.error('Error subscribing to plan: ', error);
-          }
-        );
-      });
+    uid = currentUser.uid;
+    email = currentUser.email;
+    name = currentUser.displayName;
+    } else if (googleUser) {
+    uid = googleUser.user.id;
+    email = googleUser.user.email;
+    name = googleUser.user.name;
+    console.log(name);
+    } else {
+    Alert.alert('User not signed in.');
+    return;
     }
-  };
+    
+    
+    db.transaction((txn) => {
+    txn.executeSql(
+    `INSERT OR REPLACE INTO users (uid, email, name, subscribed_plan_id)
+    VALUES (?, ?, ?, ?)`,
+    [uid, email, name, selectedPlan],
+    async () => {
+    dispatch(subscribe(selectedPlan));
+    Alert.alert('Subscription successful');
+    },
+    (error) => {
+    console.error('Error subscribing to plan: ', error);
+    }
+    );
+    });
+    };
 
   return (
     <SafeAreaView style={styles.safeArea}>
