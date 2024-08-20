@@ -3,6 +3,7 @@ import { View, Text, FlatList, TouchableOpacity, Alert } from 'react-native';
 import MediaPlayer from '../ScreenVideoPlayer/Component/ComponentMediaPlayer';
 import { fetchDownloadedVideos, deleteVideo } from '../utils/storage/storageFunctions';
 import styles from './StylesDownload';
+import NavbarComponent from '../CommonComponents/NavbarComponent';
 
 const DownloadedVideosScreen: React.FC = () => {
   const [downloadedVideos, setDownloadedVideos] = useState<any[]>([]);
@@ -26,6 +27,8 @@ const DownloadedVideosScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
+                    <NavbarComponent/>
+
       {downloadedVideos.length === 0 ? (
         <Text style={styles.noVideosText}>No videos downloaded</Text>
       ) : (
@@ -40,6 +43,7 @@ const DownloadedVideosScreen: React.FC = () => {
                 <TouchableOpacity onPress={() => handleDeleteVideo(item.contentId)}>
                   <Text style={styles.deleteButton}>Delete</Text>
                 </TouchableOpacity>
+
               </View>
             </View>
           )}

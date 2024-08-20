@@ -33,6 +33,7 @@ const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {
   const onSubmit = (data: User) => {
     signupUser(data, dispatch);
     dispatch(unsubscribe());
+    
   };
 
   const handleGoogleSignup = () => {
