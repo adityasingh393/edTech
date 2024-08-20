@@ -8,12 +8,10 @@ import colors from '../../utils/Theme';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      // marginTop:20,
-      backgroundColor: colors.primary,
+      backgroundColor: colors.white,
     },
     mediaPlayerContainer: {
       margin: 10,
-      borderColor: colors.secondary,
       borderWidth: 4,
       borderRadius: 20,
       height: hp('25%'),
@@ -22,7 +20,7 @@ const styles = StyleSheet.create({
     },
     detailsContainer: {
       padding: wp('6%'),
-      backgroundColor: 'white',
+      backgroundColor: colors.white,
       borderRadius: 20,
       margin: 10,
     },
@@ -35,15 +33,15 @@ const styles = StyleSheet.create({
     downloadButton: {
       flexDirection: 'row',
       alignItems: 'center',
-      backgroundColor: colors.secondary,
       paddingVertical: hp('1.5%'),
       paddingHorizontal: wp('4%'),
-      borderRadius: 8,
+      borderRadius: wp('7%'),
+    
     },
     downloadText: {
       fontSize: wp('4%'),
       color: '#fff',
-      marginRight: wp('2%'),
+      textAlign:'center',
     },
     downloadIcon: {
       width: wp('6%'),
@@ -61,6 +59,10 @@ const styles = StyleSheet.create({
       color: colors.textColor,
       letterSpacing: 0.5,
       lineHeight: hp('3%'),
+    },
+    buttonContent: {
+      flexDirection: 'row',
+      alignItems: 'center',
     },
   });
   

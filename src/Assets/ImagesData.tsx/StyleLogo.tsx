@@ -15,11 +15,11 @@ const GradientCircles: React.FC<SvgProps> = ({ width = 550, height = 480, style 
         <Stop offset="100%" stopColor="#C72FF8" stopOpacity="0.919792" />
       </LinearGradient>
       <LinearGradient id="paint1_linear_15_111" x1="-533.921" y1="-346.972" x2="42.0915" y2="557.164" gradientUnits="userSpaceOnUse">
-        <Stop offset="0%" stopColor="#C630F8" stopOpacity="0" />
+        <Stop offset="0%" stopColor="#2F56F8" stopOpacity="0" />
         <Stop offset="100%" stopColor="#2F56F8" />
       </LinearGradient>
       <LinearGradient id="paint2_linear_15_111" x1="-559.081" y1="-411.888" x2="177.401" y2="274.297" gradientUnits="userSpaceOnUse">
-        <Stop offset="0%" stopColor="#5264F9" />
+        <Stop offset="0%" stopColor="#2F56F8" />
         <Stop offset="100%" stopColor="#3AF9EF" />
       </LinearGradient>
     </Defs>

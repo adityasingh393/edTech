@@ -1,15 +1,16 @@
 import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "../../Responsive/Responsive";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "../../utils/Dimensions";
+import colors from "../../utils/Theme";
 
 export const styles = StyleSheet.create({
   container: {
     alignContent: 'center',
     alignItems: 'center',
     flex: 1,
-    backgroundColor: '#6177EE',
+    backgroundColor: colors.primary,
   },
   card: {
-    backgroundColor: '#F6F5F5',
+    backgroundColor: colors.white,
     borderRadius: wp('7.2%'),
     shadowColor: '#000',
     shadowOffset: { width: 0, height: hp('0.24%') },
@@ -26,7 +27,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: hp('1.2%'),
     textAlign: 'center',
-    color: '#2D0C57',
+    color: colors.secondary,
   },
   button: {
     width: wp('80%'),
@@ -45,7 +46,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: wp('5.3%'),
     textAlign: 'center',
   },
@@ -55,13 +56,7 @@ export const styles = StyleSheet.create({
     lineHeight: hp('3.3%'),
     fontSize: wp('4.7%'),
   },
-  dismissText: {
-    textAlign: 'center',
-    top: hp('28.6%'),
-    color: '#9586A8',
-    fontWeight: 'bold',
-    fontSize: wp('4.3%'),
-  },
+ 
   LandingImage: {
     top: hp('8%'),
     width: wp('100%'),
@@ -72,6 +67,6 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: hp('1.2%'),
     textAlign: 'center',
-    color: '#6177EE',
+    color: colors.primary,
   },
 });

@@ -17,6 +17,7 @@ import WelcomePage from '../Screens/ScreenWelcome/ScreenWelcome';
 import { createTables, db } from '../utils/storage/db';
 import ScreenLanding from '../Screens/ScreenLanding/ScreenLanding';
 import ScreenVideoPlayer from '../Screens/ScreenVideoPlayer/ScreenVideoPlayer';
+import HomeScreen from '../Screens/ScreenHome/ScreenHome';
 import Home from '../Screens/ScreenHome/ScreenHome';
 
 
@@ -106,6 +107,9 @@ const Routes = () => {
         )
       ) : (
         <AuthStack.Navigator initialRouteName="Landing">
+          <AuthStack.Screen name ="Landing" component={ScreenLanding} options={{ headerShown: false }}/>
+          <AuthStack.Screen name="Login" component={Login}  options={{ headerShown: false }}/>
+          <AuthStack.Screen name="Signup" component={Signup}  options={{ headerShown: false }}/>
           <AuthStack.Screen name="Landing" component={ScreenLanding} options={{ headerShown: false }} />
           <AuthStack.Screen name="Login" component={Login} />
           <AuthStack.Screen name="Signup" component={Signup} />

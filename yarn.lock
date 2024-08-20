@@ -2173,20 +2173,30 @@
   resolved "https://registry.npmjs.org/@react-native-community/slider/-/slider-4.5.2.tgz"
   integrity sha512-DbFyCyI7rwl0FkBkp0lzEVp+5mNfS5qU/nM2sK2aSguWhj0Odkt1aKHP2iW/ljruOhgS/O4dEixXlne4OdZJDQ==
 
-"@react-native-firebase/app@^20.3.0", "@react-native-firebase/app@20.3.0":
-  version "20.3.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-20.3.0.tgz"
-  integrity sha512-vmlu3g59wk0C8SmunLOg+6fC99kUe+ZlfBc7h9zdcFbnK+/6XScqKkG8B0yP3ANjrk9ZqWL1+M705m/uoo/WCQ==
+"@react-native-firebase/app@^20.4.0", "@react-native-firebase/app@20.4.0":
+  version "20.4.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-20.4.0.tgz"
+  integrity sha512-I3YswH5tq0kSezyFwyV0d3J+lnH+N/SdznFZ70Lr671X0YlrbEBb6BK7FzEiwq8rKeIPh+pbgnbYwzj/k9uEnQ==
   dependencies:
     firebase "10.12.2"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^20.3.0":
-  version "20.3.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-20.3.0.tgz"
-  integrity sha512-pG8s1z7XgxYiwe9TS4PB0LmnyAdZIBFFI3Sh9L/LsipTJshDmxHLDU3BLuV2KyF7XxFj6jdnvmYi+4QTNzIKpg==
+"@react-native-firebase/auth@^20.4.0":
+  version "20.4.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-20.4.0.tgz"
+  integrity sha512-LUmlS9m62QdDoqJKxPyZIBLne1O7ZznY3QjGh5tfU1QVk4DM/b1iG4wR06nyEK9PqzFY5BdqWwWAKbquXl78HQ==
   dependencies:
     plist "^3.1.0"
+
+"@react-native-firebase/firestore@^20.4.0":
+  version "20.4.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-20.4.0.tgz"
+  integrity sha512-///YWJmZxCbDKM9QxaWnnEqvclIUbjsX+57hiwnzXzlNOd8dzOP1ub7EgBrzgZOT1VfybG9Fz16xTMjhxv21iQ==
+
+"@react-native-firebase/storage@^20.4.0":
+  version "20.4.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/storage/-/storage-20.4.0.tgz"
+  integrity sha512-aqrg+Uo56hOODWjdnJddzFtMXZKj344Yv07R5VYcZOF9RMCMUyYTSPemG0k2tCrPoQnwl9ESWSlPqnUOUQskRg==
 
 "@react-native-google-signin/google-signin@^12.2.1":
   version "12.2.1"
@@ -6594,6 +6604,11 @@ react-native-gesture-handler@^2.18.1, "react-native-gesture-handler@>= 1.0.0", r
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-image-picker@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.npmjs.org/react-native-image-picker/-/react-native-image-picker-7.1.2.tgz"
+  integrity sha512-b5y5nP60RIPxlAXlptn2QwlIuZWCUDWa/YPUVjgHc0Ih60mRiOg1PSzf0IjHSLeOZShCpirpvSPGnDExIpTRUg==
+
 react-native-linear-gradient@^2.8.3:
   version "2.8.3"
   resolved "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.8.3.tgz"
@@ -6744,7 +6759,7 @@ react-test-renderer@18.2.0:
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.0"
 
-react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", react@^18.0, react@^18.2.0, react@>=15.0.0, react@>=16.0, react@>=16.13.1, react@>=16.8, react@>=16.8.0, react@>=17.0.0, react@18.2.0:
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", react@^18.0, react@^18.2.0, react@>=16.0, react@>=16.13.1, react@>=16.8, react@>=16.8.0, react@>=17.0.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
