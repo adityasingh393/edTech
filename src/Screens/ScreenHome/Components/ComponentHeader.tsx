@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { logoutUser } from '../../utils/firebaseAuthentication';
+import {logoutUser} from '../../utils/firebaseAuthentication';
 import UserProfile from '../../../Assets/ImagesData/UserProfileLogo';
 import styles from './StylesHeader';
-import { RootState } from '../../../Redux/store';
+import {RootState} from '../../../Redux/store';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
@@ -47,16 +47,22 @@ const Header: React.FC = () => {
     logoutUser(dispatch);
   };
 
+  const truncateName = (name: string | null) => {
+    if (name && name.length > 7) {
+      return `${name.slice(0, 7)}...`;
+    }
+    return name;
+  };
+
   return (
     <View style={styles.headerContainer}>
       <View style={styles.userSection}>
-        <UserProfile/>
-        <Text style={styles.headerText}>Hey, {storedUserName}!</Text> 
+        <UserProfile />
+        <Text style={styles.headerText}>
+          Hey, {truncateName(storedUserName)}
+        </Text>
       </View>
-      <TouchableOpacity 
-        style={styles.logoutButton} 
-        onPress={handleLogout}
-      >
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
         <Text style={styles.logoutButtonText}>Logout</Text>
       </TouchableOpacity>
     </View>

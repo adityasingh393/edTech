@@ -1,5 +1,8 @@
-import { StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
+import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../utils/Dimensions';
 import colors from '../../utils/Theme';
 
 export const styles = StyleSheet.create({
@@ -66,7 +69,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: wp('7.5%'),
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: hp('0.5%') },
+    shadowOffset: {width: 0, height: hp('0.5%')},
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
@@ -74,11 +77,10 @@ export const styles = StyleSheet.create({
     width: wp('100%'),
     alignSelf: 'center',
     padding: wp('5%'),
-    // position: 'absolute',
   },
   Iconcard: {
     backgroundColor: colors.IconCardColor,
-    shadowOffset: { width: 0, height: hp('0.5%') },
+    shadowOffset: {width: 0, height: hp('0.5%')},
     shadowOpacity: 0.25,
     elevation: 1,
     height: hp('7%'),

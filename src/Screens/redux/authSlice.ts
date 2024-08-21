@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User } from '../ScreenSignup/utils/interface';
-import { AuthState } from '../../utils/interfaces/types';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {User} from '../ScreenSignup/utils/interface';
+import {AuthState} from '../../utils/interfaces/types';
 const initialState: AuthState = {
   isAuthenticated: false,
   user: null,
@@ -16,5 +16,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { setUser } = authSlice.actions;
+export const {setUser} = authSlice.actions;
 export default authSlice.reducer;

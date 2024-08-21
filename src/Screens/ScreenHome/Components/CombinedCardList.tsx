@@ -1,13 +1,17 @@
 import React from 'react';
-import { View, Text, FlatList, ActivityIndicator } from 'react-native';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../Redux/store';
-import { cardsData } from '../Utils/Constants';
-import { styles } from './StylsCardCourse';
+import {View, Text, FlatList, ActivityIndicator} from 'react-native';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../../Redux/store';
+import {cardsData} from '../Utils/Constants';
+import {styles} from './StylsCardCourse';
 import CardCourse from './ComponentCardCourseList';
 
 const CombinedCardList: React.FC = () => {
-  const { data: fetchedData, loading, error } = useSelector((state: RootState) => state.home);
+  const {
+    data: fetchedData,
+    loading,
+    error,
+  } = useSelector((state: RootState) => state.home);
 
   return (
     <View>
@@ -18,14 +22,14 @@ const CombinedCardList: React.FC = () => {
           ...item,
           fetchedItems: fetchedData.slice(index * 5, index * 5 + 5),
         }))}
-        renderItem={({ item }) => <CardCourse item={item} />}
+        renderItem={({item}) => <CardCourse item={item} />}
         keyExtractor={(item, index) => index.toString()}
         horizontal
         showsHorizontalScrollIndicator={false}
         pagingEnabled
         snapToAlignment="center"
         decelerationRate="fast"
-        style={{ marginBottom: 20 }}
+        style={{marginBottom: 20}}
       />
     </View>
   );

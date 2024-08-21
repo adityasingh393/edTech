@@ -18,13 +18,15 @@ export const cardsData: CardContainerProps[] = [
   {
     Images: require('../../../Assets/Images/react-native.png'),
     CourseTitle: 'React Native',
-    CourseDescription: 'React Native (also known as RN) is a popular JavaScript-based mobile app framework that allows you to build natively-rendered mobile apps for iOS and Android',
+    CourseDescription:
+      'React Native (also known as RN) is a popular JavaScript-based mobile app framework that allows you to build natively-rendered mobile apps for iOS and Android',
     NoOfEnrollments: 200,
   },
   {
     Images: require('../../../Assets/Images/Nodejs.png'),
     CourseTitle: 'Node',
-    CourseDescription: 'Node is used extensively for server-side programming, making it possible for developers to use JavaScript for client-side and server-side code without needing to learn an additional language..',
+    CourseDescription:
+      'Node is used extensively for server-side programming, making it possible for developers to use JavaScript for client-side and server-side code without needing to learn an additional language..',
     NoOfEnrollments: 200,
   },
 ];

@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import { View, Text, Image, FlatList, ViewToken } from 'react-native';
-import { CardCourseProps } from '../Utils/Types';
-import { styles } from './StylsCardCourse';
+import React, {useState} from 'react';
+import {View, Text, Image, FlatList, ViewToken} from 'react-native';
+import {CardCourseProps} from '../Utils/Types';
+import {styles} from './StylsCardCourse';
 import FetchedItem from './ComponentCardVideosList';
 
-const CardCourse: React.FC<CardCourseProps> = ({ item }) => {
+const CardCourse: React.FC<CardCourseProps> = ({item}) => {
   const [currentPage, setCurrentPage] = useState(0);
 
   const viewabilityConfig = {
-    itemVisiblePercentThreshold: 50, 
+    itemVisiblePercentThreshold: 50,
   };
 
-  const onViewableItemsChanged = ({ viewableItems }: { viewableItems: ViewToken[] }) => {
+  const onViewableItemsChanged = ({
+    viewableItems,
+  }: {
+    viewableItems: ViewToken[];
+  }) => {
     if (viewableItems.length > 0) {
       const pageIndex = viewableItems[0].index ?? 0;
       setCurrentPage(pageIndex);
@@ -26,8 +30,8 @@ const CardCourse: React.FC<CardCourseProps> = ({ item }) => {
       {item.fetchedItems.length > 0 && (
         <FlatList
           data={item.fetchedItems}
-          renderItem={({ item }) => <FetchedItem item={item} />}
-          keyExtractor={(index) => index.toString()}
+          renderItem={({item}) => <FetchedItem item={item} />}
+          keyExtractor={index => index.toString()}
           style={styles.fetchedItemsList}
           showsVerticalScrollIndicator={false}
           nestedScrollEnabled
@@ -36,7 +40,7 @@ const CardCourse: React.FC<CardCourseProps> = ({ item }) => {
         />
       )}
       <View style={styles.paginationContainer}>
-        {Array.from({ length: 4 }).map((_, index) => (
+        {Array.from({length: 4}).map((_, index) => (
           <View
             key={index}
             style={[
