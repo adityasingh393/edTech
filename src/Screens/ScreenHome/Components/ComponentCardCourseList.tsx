@@ -5,22 +5,8 @@ import {styles} from './StylsCardCourse';
 import FetchedItem from './ComponentCardVideosList';
 
 const CardCourse: React.FC<CardCourseProps> = ({item}) => {
-  const [currentPage, setCurrentPage] = useState(0);
 
-  const viewabilityConfig = {
-    itemVisiblePercentThreshold: 50,
-  };
-
-  const onViewableItemsChanged = ({
-    viewableItems,
-  }: {
-    viewableItems: ViewToken[];
-  }) => {
-    if (viewableItems.length > 0) {
-      const pageIndex = viewableItems[0].index ?? 0;
-      setCurrentPage(pageIndex);
-    }
-  };
+  
 
   return (
     <View style={styles.CardCoursecontainer}>
@@ -35,21 +21,10 @@ const CardCourse: React.FC<CardCourseProps> = ({item}) => {
           style={styles.fetchedItemsList}
           showsVerticalScrollIndicator={false}
           nestedScrollEnabled
-          onViewableItemsChanged={onViewableItemsChanged}
-          viewabilityConfig={viewabilityConfig}
+        
         />
       )}
-      <View style={styles.paginationContainer}>
-        {Array.from({length: 4}).map((_, index) => (
-          <View
-            key={index}
-            style={[
-              styles.dot,
-              index === currentPage ? styles.activeDot : styles.inactiveDot,
-            ]}
-          />
-        ))}
-      </View>
+     
     </View>
   );
 };

@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 20,
-    height: hp('85.5%'),
+    height: hp('83.5%'),
     marginHorizontal: wp('2.5%'),
     marginBottom: hp('2.5%'),
     width: wp('87.5%'),
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     marginVertical: hp('1%'),
   },
   fetchedItemsList: {
-    maxHeight: hp('50%'),
+    maxHeight: hp('55%'),
     paddingHorizontal: wp('1.25%'),
   },
   text: {
@@ -81,21 +81,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: wp('0.25%'),
   },
-  paginationContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginVertical: hp('1%'),
-  },
-  dot: {
-    width: wp('2%'),
-    height: wp('2%'),
-    borderRadius: wp('1%'),
-    marginHorizontal: wp('0.5%'),
-  },
-  activeDot: {
-    backgroundColor: '#000',
-  },
-  inactiveDot: {
-    backgroundColor: '#ccc',
-  },
+ 
+ 
 });

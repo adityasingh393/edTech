@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
 
   brandLogoContainer: {
     flex: 2,
-    top: hp('2%'),
+    top: hp('1.5%'),
     alignItems: 'center',
     justifyContent: 'center',
   },

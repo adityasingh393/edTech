@@ -54,8 +54,9 @@ export const styles = StyleSheet.create({
     top: hp('7%'),
     lineHeight: hp('3.3%'),
     fontSize: wp('4.7%'),
+    color: colors.textColor,
+    padding: 10,
   },
- 
   LandingImage: {
     top: hp('8%'),
     width: wp('100%'),

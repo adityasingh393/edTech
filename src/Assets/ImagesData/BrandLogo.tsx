@@ -4,7 +4,7 @@ import Svg, { Path, G } from 'react-native-svg';
 const BrandLogo: React.FC = () => (
   <Svg
     width="55"
-    height="130"
+    height="90"
     viewBox="0 0 1280 1280"
     preserveAspectRatio="xMidYMid meet"
   >
