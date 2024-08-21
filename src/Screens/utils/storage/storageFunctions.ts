@@ -10,14 +10,11 @@ export const checkAvailableStorage = async (requiredSpaceMB: number): Promise<bo
     console.log('Disk space information:', stat); 
     const availableSpaceBytes = parseInt(stat.internal_free, 10); 
     if (isNaN(availableSpaceBytes)) {
-      console.error('Failed to parse available space:', stat);
-      Alert.alert('Error', 'Unable to retrieve storage  information.');
+      Alert.alert('Error', 'Unable to retrieve storage information.');
       return false;
     }
 
     const availableSpaceMB = availableSpaceBytes / (1024 * 1024);
-    console.log(`Available Space: ${availableSpaceMB.toFixed(2)} MB, Required Space: ${requiredSpaceMB} MB`);
-
     return availableSpaceMB >= requiredSpaceMB;
   } catch (error) {
     console.error('Failed to check storage:', error);
@@ -25,26 +22,32 @@ export const checkAvailableStorage = async (requiredSpaceMB: number): Promise<bo
     return false;
   }
 };
-
 export const downloadVideo = async (
   contentId: number,
   videoUrl: string,
   title: string,
   thumbnailUrl: string,
-  onDownloadComplete: () => void
+  onDownloadComplete: () => void,
+  onDownloadFailed: () => void,
 ): Promise<void> => {
   const videoPath = `${STORAGE_DIR}/${contentId}.mp4`;
 
   try {
+    const existingData = await fetchDownloadedVideos();
+    const videoAlreadyDownloaded = existingData.some(video => video.contentId === contentId);
+    if (videoAlreadyDownloaded) {
+      Alert.alert('Info', 'This video has already been downloaded.');
+      onDownloadFailed();
+      return;
+    }
+
     const hasEnoughSpace = await checkAvailableStorage(2); 
     if (!hasEnoughSpace) {
       Alert.alert('Error', 'Not enough storage available.');
       return;
     }
-
     RNFetchBlob.config({
       path: videoPath,
-      
     })
       .fetch('GET', videoUrl)
       .progress({ interval: 100 }, (received, total) => {
@@ -74,6 +77,7 @@ const saveDownloadMetadata = async (
   existingData.push(metadata);
   await RNFetchBlob.fs.writeFile(`${STORAGE_DIR}/metadata.json`, JSON.stringify(existingData), 'utf8');
 };
+
 
 export const fetchDownloadedVideos = async (): Promise<any[]> => {
   const filePath = `${STORAGE_DIR}/metadata.json`;

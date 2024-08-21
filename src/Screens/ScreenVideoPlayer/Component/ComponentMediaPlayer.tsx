@@ -75,6 +75,7 @@ const MediaPlayer: React.FC<{ videoUri: string }> = ({ videoUri }) => {
                 maximumValue={progress.seekableDuration}
                 minimumTrackTintColor="#FFFFFF"
                 maximumTrackTintColor="#FFFFFF"
+                value={progress.currentTime}
                 onValueChange={handleSeek}
               />
               <Text style={styles.timeText}>{formatTime(progress.seekableDuration)}</Text>
