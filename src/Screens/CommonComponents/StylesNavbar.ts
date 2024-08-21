@@ -24,4 +24,11 @@ export const styles = StyleSheet.create({
     width: wp('15%'), 
     height: hp('6%'), 
   },
+  
+  brandLogoContainer: {
+    flex: 2,  
+    top:hp('2%'),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

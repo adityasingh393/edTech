@@ -77,5 +77,22 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: wp('0.25%'),
-  }
+  },
+  paginationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginVertical: hp('1%'),
+  },
+  dot: {
+    width: wp('2%'),
+    height: wp('2%'),
+    borderRadius: wp('1%'),
+    marginHorizontal: wp('0.5%'),
+  },
+  activeDot: {
+    backgroundColor: '#000',
+  },
+  inactiveDot: {
+    backgroundColor: '#ccc',
+  },
 });
