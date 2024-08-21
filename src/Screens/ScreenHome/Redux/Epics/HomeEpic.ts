@@ -1,19 +1,19 @@
-import { switchMap } from 'rxjs/operators';
+import { switchMap, catchError } from 'rxjs/operators';
+import { from, of } from 'rxjs';
 import axios from 'axios';
-import { fetchDataFailure, fetchDataRequest, fetchDataSuccess } from '../Slices/HomeSlice';
-import { Observable } from '@reduxjs/toolkit';
+import { fetchDataFailure, fetchDataRequest, fetchDataSuccess, HomeActions } from '../Slices/HomeSlice';
+import { Observable } from 'rxjs';
 import { ofType } from 'redux-observable';
 
 const API_URL = 'https://74453a5be21f4f0ca12748ff2e709ebc.api.mockbin.io/';
 
-export const homeEpic = (action$:any) =>
+export const homeEpic = (action$: Observable<HomeActions>) =>
   action$.pipe(
     ofType(fetchDataRequest.type),
     switchMap(() =>
-      axios.get(API_URL).then(
-        (response) => fetchDataSuccess(response.data.data),
-        (error) => fetchDataFailure(error.message)
+      from(axios.get(API_URL)).pipe(
+        switchMap((response) => of(fetchDataSuccess(response.data.data))),
+        catchError((error) => of(fetchDataFailure(error.message)))
       )
     )
   );
-

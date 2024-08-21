@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.white,
     borderRadius: wp('7.2%'),
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: hp('0.24%') },
     shadowOpacity: 0.25,
     shadowRadius: hp('0.5%'),
