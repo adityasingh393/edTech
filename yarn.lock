@@ -6594,6 +6594,13 @@ react-is@^16.7.0:
 react-is@^17.0.1:
   version "17.0.2"
 
+react-native-dots-pagination@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.npmjs.org/react-native-dots-pagination/-/react-native-dots-pagination-0.3.1.tgz"
+  integrity sha512-Z9+z6lSruQ84aNMOHsQ/wkh/K+A5IWciNuz5St+yQUp4eEyvCkA8nPkNAl+MEV4GVdO7rrh276M8in1ePJr17g==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-gesture-handler@^2.18.1, "react-native-gesture-handler@>= 1.0.0", react-native-gesture-handler@>=2.0.0:
   version "2.18.1"
   resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.18.1.tgz"

@@ -3,14 +3,14 @@ import Svg, { Path, G } from 'react-native-svg';
 
 const BrandLogo: React.FC = () => (
   <Svg
-    width="500"
-    height="180"
+    width="55"
+    height="130"
     viewBox="0 0 1280 1280"
     preserveAspectRatio="xMidYMid meet"
   >
     <G
       transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-      fill="#C5705D"
+      fill="#6177EE"
       stroke="none"
     >
       <Path d="M6355 11610 c-33 -5 -242 -45 -465 -89 -941 -187 -2566 -497 -2967

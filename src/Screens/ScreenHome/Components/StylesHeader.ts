@@ -1,34 +1,41 @@
+// src/styles/headerStyles.ts
 import { StyleSheet } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../../utils/Dimensions';
 import colors from '../../../utils/Theme';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "../../../utils/Dimensions";
 
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: wp('2.5%'), 
+    padding: wp('2.5%'),
     backgroundColor: colors.primary,
-    height: hp('12.5%'), 
+    height: hp('12.5%'),
+  },
+  userSection: {
+    marginTop:hp("3%"),
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  userProfile: {
+    width: wp('10%'),
+    height: wp('10%'),
+    borderRadius: wp('5%'),
   },
   headerText: {
-    fontSize: wp('7%'), 
+    fontSize: wp('7%'),
     color: colors.white,
     fontWeight: '700',
-    marginTop: hp('2%'), 
-    marginLeft: wp('15%'), 
-  },
-  UserProfile: {
-    marginTop: hp('2.5%'),
-    right: wp('45%'),
+    marginLeft: wp('3%'),
   },
   logoutButton: {
-    paddingVertical: hp('1.5%'), 
-    paddingHorizontal: wp('5%'), 
+    paddingVertical: hp('1.5%'),
+    paddingHorizontal: wp('5%'),
     backgroundColor: colors.white,
-    borderRadius: wp('9.5%'), 
+    borderRadius: wp('9.5%'),
     alignItems: 'center',
-    marginTop: hp('3%'),
+    marginTop:hp("3%"),
+
   },
   logoutButtonText: {
     color: colors.primary,

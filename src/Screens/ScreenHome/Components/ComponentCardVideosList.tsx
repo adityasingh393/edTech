@@ -3,8 +3,8 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 import { CardData, FetchedItemProps, ScreenVideoNavigationProp } from '../Utils/Types';
 import { styles } from './StylsCardCourse';
-import DurationIcon from '../../../Assets/ImagesData.tsx/Durationlogo';
-import EyeIcon from '../../../Assets/ImagesData.tsx/EyeIcon'; // Import EyeIcon
+import DurationIcon from '../../../Assets/ImagesData/Durationlogo';
+import EyeIcon from '../../../Assets/ImagesData/EyeIcon'; 
 
 const FetchedItem: React.FC<FetchedItemProps> = ({ item }) => {
   const navigation = useNavigation<ScreenVideoNavigationProp>();
