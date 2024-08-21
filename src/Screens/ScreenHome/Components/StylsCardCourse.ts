@@ -1,6 +1,9 @@
-import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "../../../utils/Dimensions";
-import colors from "../../../utils/Theme";
+import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../../utils/Dimensions';
+import colors from '../../../utils/Theme';
 
 export const styles = StyleSheet.create({
   CardCoursecontainer: {
@@ -8,26 +11,26 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 12,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
+    shadowOffset: {width: 0, height: 3},
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 20,
-    height: hp('81.5%'), 
+    height: hp('85.5%'),
     marginHorizontal: wp('2.5%'),
     marginBottom: hp('2.5%'),
-    width: wp('87.5%'), 
+    width: wp('87.5%'),
     padding: wp('3.75%'),
-    paddingBottom: hp('5%'), 
+    paddingBottom: hp('5%'),
   },
   CardCourseImage: {
     width: '100%',
-    height: hp('20.75%'),  
+    height: hp('20.75%'),
     borderRadius: 8,
   },
   CardCourseTitle: {
     marginLeft: wp('1.25%'),
     marginTop: hp('1.25%'),
-    fontSize: wp('5%'),  
+    fontSize: wp('5%'),
     fontWeight: '700',
     color: '#1F1F39',
   },
@@ -37,16 +40,16 @@ export const styles = StyleSheet.create({
     marginVertical: hp('1%'),
   },
   fetchedItemsList: {
-    maxHeight: hp('50%'), 
+    maxHeight: hp('50%'),
     paddingHorizontal: wp('1.25%'),
   },
   text: {
-    fontSize: wp('3.75%'),  
+    fontSize: wp('3.75%'),
     color: '#36454F',
     marginBottom: hp('0.5%'),
   },
   thumbnail: {
-    width: wp('43%'), 
+    width: wp('43%'),
     height: hp('12.5%'),
     borderRadius: 8,
   },

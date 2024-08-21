@@ -6,7 +6,7 @@ export interface DownloadedVideo {
   downloadDate: Date;
   posterImage: string;
   isAudio: boolean;
-}  
+}
 export interface DownloadProgress {
   contentId: number;
   source: string;

@@ -1,16 +1,20 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; 
-import { CardData, FetchedItemProps, ScreenVideoNavigationProp } from '../Utils/Types';
-import { styles } from './StylsCardCourse';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {
+  CardData,
+  FetchedItemProps,
+  ScreenVideoNavigationProp,
+} from '../Utils/Types';
+import {styles} from './StylsCardCourse';
 import DurationIcon from '../../../Assets/ImagesData/Durationlogo';
-import EyeIcon from '../../../Assets/ImagesData/EyeIcon'; 
+import EyeIcon from '../../../Assets/ImagesData/EyeIcon';
 
-const FetchedItem: React.FC<FetchedItemProps> = ({ item }) => {
+const FetchedItem: React.FC<FetchedItemProps> = ({item}) => {
   const navigation = useNavigation<ScreenVideoNavigationProp>();
 
   const handlePress = () => {
-    navigation.navigate('Video', { 
+    navigation.navigate('Video', {
       videoUri: item.videoUrl,
       title: item.title,
       contentId: item.id,
@@ -22,7 +26,7 @@ const FetchedItem: React.FC<FetchedItemProps> = ({ item }) => {
   return (
     <TouchableOpacity onPress={handlePress}>
       <View style={styles.fetchedDataContainer}>
-        <Image source={{ uri: item.thumbnailUrl }} style={styles.thumbnail} />
+        <Image source={{uri: item.thumbnailUrl}} style={styles.thumbnail} />
         <View style={styles.fetchedTextContainer}>
           <Text style={styles.title}>{item.title}</Text>
           <View style={styles.durationContainer}>

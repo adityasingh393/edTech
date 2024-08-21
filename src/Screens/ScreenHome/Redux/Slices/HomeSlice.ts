@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CardData, HomeState } from '../../Utils/Types';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {CardData, HomeState} from '../../Utils/Types';
 
 const initialState: HomeState = {
   data: [],
@@ -26,10 +26,10 @@ const homeSlice = createSlice({
   },
 });
 
-export const { fetchDataRequest, fetchDataSuccess, fetchDataFailure } = homeSlice.actions;
+export const {fetchDataRequest, fetchDataSuccess, fetchDataFailure} =
+  homeSlice.actions;
 export default homeSlice.reducer;
 export type HomeActions =
-| ReturnType <typeof fetchDataRequest>
-| ReturnType <typeof fetchDataSuccess>
-| ReturnType <typeof fetchDataFailure>
-
+  | ReturnType<typeof fetchDataRequest>
+  | ReturnType<typeof fetchDataSuccess>
+  | ReturnType<typeof fetchDataFailure>;

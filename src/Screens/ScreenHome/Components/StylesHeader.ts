@@ -1,6 +1,8 @@
-// src/styles/headerStyles.ts
-import { StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../../utils/Dimensions';
+import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../../utils/Dimensions';
 import colors from '../../../utils/Theme';
 
 const styles = StyleSheet.create({
@@ -13,9 +15,10 @@ const styles = StyleSheet.create({
     height: hp('12.5%'),
   },
   userSection: {
-    marginTop:hp("3%"),
+    marginTop: hp('3%'),
     flexDirection: 'row',
     alignItems: 'center',
+    marginLeft: wp('3%'),
   },
   userProfile: {
     width: wp('10%'),
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
     borderRadius: wp('5%'),
   },
   headerText: {
-    fontSize: wp('7%'),
+    fontSize: wp('5.5%'),
     color: colors.white,
     fontWeight: '700',
     marginLeft: wp('3%'),
@@ -34,8 +37,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: wp('9.5%'),
     alignItems: 'center',
-    marginTop:hp("3%"),
-
+    marginTop: hp('3%'),
   },
   logoutButtonText: {
     color: colors.primary,
