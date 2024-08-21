@@ -22,7 +22,13 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
     downloadVideo(contentId, videoUri, title, thumbnailUrl, () => {
       setIsDownloading(false);
       Alert.alert("Success", "Video downloaded successfully.");
-    }).catch(() => {
+    },
+    ()=>{
+      setIsDownloading(false);
+      Alert.alert("video has already been downloaded")
+    }
+).catch(() => {
+      
       setIsDownloading(false);
       Alert.alert("Error", "Failed to download video.");
     });

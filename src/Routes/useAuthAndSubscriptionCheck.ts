@@ -63,7 +63,7 @@ export const useAuthAndSubscriptionCheck = () => {
             const user: User = {
               email: currentUser?.email || googleUser?.user.email!,
               name: currentUser?.displayName || googleUser?.user.name!,
-              phone: '',
+              // phone: '',
               password: '',
             };
             dispatch(setUser(user));
