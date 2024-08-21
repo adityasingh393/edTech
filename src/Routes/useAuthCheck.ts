@@ -17,7 +17,7 @@ export const useAuthCheck = () => {
         if (token) {
           const currentUser = auth().currentUser;
           const googleUser = await GoogleSignin.getCurrentUser();
-
+          
           let uid: string | null = null;
 
           if (currentUser) {
