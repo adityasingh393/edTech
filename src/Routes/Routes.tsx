@@ -3,9 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from 'react-redux';
 import { RootState } from '../Redux/store';
-import { View, ActivityIndicator } from 'react-native';
-import { useAuthCheck } from './useAuthCheck';
-import { useSubscriptionCheck } from './useSubscriptionCheck';
 import Signup from '../Screens/ScreenSignup/ScreenSignup';
 import Login from '../Screens/ScreenLogin/ScreenLogin';
 import SubscriptionPage from '../Screens/ScreenSubscription/ScreenSubscription';
@@ -15,6 +12,8 @@ import ScreenLanding from '../Screens/ScreenLanding/ScreenLanding';
 import ScreenVideoPlayer from '../Screens/ScreenVideoPlayer/ScreenVideoPlayer';
 import HomeScreen from '../Screens/ScreenHome/ScreenHome';
 import { AppStackParamList, AuthStackParamList, RootStackParamList } from '../utils/interfaces/types';
+import { ActivityIndicator, View } from 'react-native';
+import { useAuthAndSubscriptionCheck } from './useAuthAndSubscriptionCheck';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
@@ -24,8 +23,7 @@ const Routes = () => {
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
   const isSubscribed = useSelector((state: RootState) => state.subscription.isSubscribed);
 
-  const isLoading = useAuthCheck();
-  const checkingSubscription = useSubscriptionCheck();
+  const { isLoading, checkingSubscription } = useAuthAndSubscriptionCheck();
 
   if (isLoading || checkingSubscription) {
     return (
@@ -34,7 +32,7 @@ const Routes = () => {
       </View>
     );
   }
-  
+
   return (
     <NavigationContainer>
       {isAuthenticated ? (
@@ -53,13 +51,12 @@ const Routes = () => {
       ) : (
         <AuthStack.Navigator initialRouteName="Landing">
           <AuthStack.Screen name="Landing" component={ScreenLanding} options={{ headerShown: false }} />
-          <AuthStack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+          <AuthStack.Screen name="Login" component={Login}  options={{ headerShown: false }} />
           <AuthStack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
         </AuthStack.Navigator>
       )}
     </NavigationContainer>
   );
-  
 };
 
 export default Routes;
