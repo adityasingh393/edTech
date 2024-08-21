@@ -17,7 +17,7 @@ export const useAuthCheck = () => {
         if (token) {
           const currentUser = auth().currentUser;
           const googleUser = await GoogleSignin.getCurrentUser();
-
+          
           let uid: string | null = null;
 
           if (currentUser) {
@@ -30,7 +30,7 @@ export const useAuthCheck = () => {
             const user: User = {
               email: currentUser?.email || googleUser?.user.email!,
               name: currentUser?.displayName || googleUser?.user.name!,
-              phone: '',
+              // phone: '',
               password: '',
             };
             dispatch(setUser(user));
@@ -50,3 +50,4 @@ export const useAuthCheck = () => {
 
   return isLoading;
 };
+
