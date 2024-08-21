@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { logoutUser } from '../../utils/firebaseAuthentication';
-import UserProfile from '../../../Assets/ImagesData.tsx/UserProfileLogo';
+import UserProfile from '../../../Assets/ImagesData/UserProfileLogo';
 import styles from './StylesHeader';
 import { RootState } from '../../../Redux/store';
 
