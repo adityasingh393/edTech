@@ -11,5 +11,5 @@ export const schema = Yup.object().shape({
         .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
         .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
         .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character'),
-    phone: Yup.string().min(8).required('Phone number is required'),
+    // phone: Yup.string().min(8).required('Phone number is required'),
 });

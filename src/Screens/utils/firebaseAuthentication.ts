@@ -15,7 +15,7 @@ export const signupUser = async (user: User, dispatch: AppDispatch) => {
     const newUser: User = {
       email: user.email,
       name: user.name,
-      phone: user.phone,
+      // phone: user.phone,
       password: user.password,
     };
     dispatch(setUser(newUser));
@@ -35,7 +35,7 @@ export const loginUser = async (email: string, password: string, dispatch: AppDi
       const user: User = {
         email: currentUser.email!,
         name: currentUser.displayName!,
-        phone: '',
+        // phone: '',
         password: '',
       };
       dispatch(setUser(user));
@@ -60,7 +60,7 @@ export const loginWithGoogle = async (dispatch: AppDispatch) => {
       const user: User = {
         email: currentUser.email!,
         name: currentUser.displayName!,
-        phone: '',
+        // phone: '',
         password: '',
       };
       dispatch(setUser(user));
