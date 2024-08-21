@@ -32,8 +32,7 @@ export const useAuthAndSubscriptionCheck = () => {
           } else if (googleUser) {
             uid = googleUser.user.id;
           }
-       console.log("user",currentUser?.email);
-       console.log('user',googleUser?.user.email);
+     
 
           if (uid) {
             setCheckingSubscription(true);
