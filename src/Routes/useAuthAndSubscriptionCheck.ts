@@ -81,7 +81,8 @@ export const useAuthAndSubscriptionCheck = () => {
     };
 
     checkAuthAndSubscription();
-  }, [dispatch, isAuthenticated]);
+  }, [dispatch,isAuthenticated]);
 
   return { isLoading, checkingSubscription };
 };
+
