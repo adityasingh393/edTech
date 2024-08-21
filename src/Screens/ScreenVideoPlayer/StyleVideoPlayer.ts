@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
       borderRadius: wp('7%'),
     
     },
+    dowloadButton:{
+      width:wp('100%'),
+      
+    },
     downloadText: {
       fontSize: wp('4%'),
       color: '#fff',

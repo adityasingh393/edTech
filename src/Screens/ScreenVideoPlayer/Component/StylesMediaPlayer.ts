@@ -6,9 +6,19 @@ import {
 import colors from '../../../utils/Theme';
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      height:hp('40%')
-          },
+      width: '100%',
+      height: hp('25%'),
+      backgroundColor: 'black',
+    },
+    fullScreenContainer: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: 9999,
+      backgroundColor: 'black',
+    },
     videoContainer: {
       width: '100%',
     },
@@ -33,32 +43,30 @@ const styles = StyleSheet.create({
       tintColor: colors.white,
     },
     playPauseIcon: {
-      marginLeft: wp("10"),
-      marginRight: wp("10"),
+      marginLeft: wp("10%"),
+      marginRight: wp("10%"),
     },
     sliderContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
       position: 'absolute',
-      bottom: hp("2"),
+      bottom: hp("2%"),
       width: '100%',
-      paddingLeft: wp("5"),
-      paddingRight: wp("5"),
+      paddingLeft: wp("5%"),
+      paddingRight: wp("5%"),
     },
     slider: {
-      width: wp("60"),
-      height: hp("5"),
+      width: wp("60%"),
+      height: hp("5%"),
     },
     timeText: {
       color: colors.white,
     },
     fullScreenToggleContainer: {
       position: 'absolute',
-      top: hp("2"),
-      right: wp("5"),
+      top: hp("2%"),
+      right: wp("5%"),
     },
   });
-  
-  export default styles;
-  
+export default styles;

@@ -58,7 +58,6 @@ const DemoVideoSection = () => {
               <View style={styles.mediaPlayerContainer}> 
                 <MediaPlayer
                   videoUri={selectedVideo}
-                  onFullScreenToggle={handleFullScreenToggle}
                 />
               </View>
             )}

@@ -5,10 +5,10 @@ import { fetchDataRequest } from './Redux/Slices/HomeSlice';
 import CombinedCardList from './Components/CombinedCardList';
 import { styles } from './StylesHome';
 import Header from './Components/ComponentHeader';
-import { VideosScreenProps } from '../../utils/interfaces/types';
+import { HomeScreenProps, VideosScreenProps } from '../../utils/interfaces/types';
 import NavbarComponent from '../CommonComponents/NavbarComponent';
 
-const HomeScreen: React.FC = () => {
+const HomeScreen: React.FC<HomeScreenProps> = ({navigation, route}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
