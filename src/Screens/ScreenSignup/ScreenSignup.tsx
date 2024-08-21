@@ -9,12 +9,12 @@ import { SignupScreenProps } from '../../utils/interfaces/types';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import LinearGradient from 'react-native-linear-gradient';
 import {  TouchableOpacity } from 'react-native-gesture-handler';
-import GoogleIcon from '../../Assets/ImagesData.tsx/ImageGoogle';
-import FacebookIcon from '../../Assets/ImagesData.tsx/ImageFacebook';
-import PhoneIcon from '../../Assets/ImagesData.tsx/ImagePhone';
+import GoogleIcon from '../../Assets/ImagesData/ImageGoogle';
+import FacebookIcon from '../../Assets/ImagesData/ImageFacebook';
+import PhoneIcon from '../../Assets/ImagesData/ImagePhone';
 import { styles } from './StylesSingup';
 import { schema } from './utils/validation';
-import GradientCircles from '../../Assets/ImagesData.tsx/StyleLogo';
+import GradientCircles from '../../Assets/ImagesData/StyleLogo';
 import { unsubscribe } from '../ScreenSubscription/redux/subscriptionSlice';
 
 const Signup: React.FC<SignupScreenProps> = ({ navigation }) => {

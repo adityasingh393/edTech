@@ -9,11 +9,11 @@ import schema from './utils/validation';
 import { LoginScreenProps } from '../../utils/interfaces/types';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { styles } from './StylesLogin';
-import GradientCircles from '../../Assets/ImagesData.tsx/StyleLogo';
+import GradientCircles from '../../Assets/ImagesData/StyleLogo';
 import LinearGradient from 'react-native-linear-gradient';
-import GoogleIcon from '../../Assets/ImagesData.tsx/ImageGoogle';
-import FacebookIcon from '../../Assets/ImagesData.tsx/ImageFacebook';
-import PhoneIcon from '../../Assets/ImagesData.tsx/ImagePhone';
+import GoogleIcon from '../../Assets/ImagesData/ImageGoogle';
+import FacebookIcon from '../../Assets/ImagesData/ImageFacebook';
+import PhoneIcon from '../../Assets/ImagesData/ImagePhone';
 
 const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<LoginFormData>({

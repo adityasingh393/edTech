@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StatusBar, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from './StyleLanding';
-import BrandLogo from '../../Assets/ImagesData.tsx/BrandLogo';
+import BrandLogo from '../../Assets/ImagesData/BrandLogo';
 import { LandingScreenProps } from '../../utils/interfaces/types';
 import LinearGradient from 'react-native-linear-gradient';
 
