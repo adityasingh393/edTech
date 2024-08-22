@@ -27,11 +27,11 @@ export const styles = StyleSheet.create({
     width: wp('80%'),
     alignSelf: 'center',
     borderColor: colors.primary,
-    top: hp('15%'),
+    top: hp('17.5%'),
   },
   errorText: {
     color: colors.ErrorColor,
-    top: hp('14.5%'),
+    top: hp('17%'),
     marginLeft: wp('7%'),
   },
   Signupbutton: {
@@ -79,9 +79,9 @@ export const styles = StyleSheet.create({
     top: hp('23%'),
   },
   StyleIcon: {
-    width: wp('9.5%'),
+    width: wp('1.5%'),
     right: wp('100%'),
-    top: hp('-16.2%'),
     position:'absolute',
+    bottom:hp('60%')
   },
 });

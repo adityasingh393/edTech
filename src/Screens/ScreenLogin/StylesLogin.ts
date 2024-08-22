@@ -31,11 +31,11 @@ export const styles = StyleSheet.create({
     width: wp('80%'),
     alignSelf: 'center',
     borderColor: colors.primary,
-    top: hp('10%'), 
+    top: hp('12.8%'), 
   },
   errorText: {
     color: colors.ErrorColor,
-    bottom: hp('-9.5%'), 
+    bottom: hp('-12%'), 
     marginLeft: wp('7%'),
   },
   Loginbutton: {
@@ -98,7 +98,7 @@ export const styles = StyleSheet.create({
   StyleIcon: {
     width: wp('10.5%'),
     right: wp('100%'),
-    bottom: hp('62.2%'),
+    bottom: hp('65.2%'),
     position:'absolute',
   },
 });
