@@ -6,6 +6,7 @@ import FetchedItem from './ComponentCardVideosList';
 
 const CardCourse: React.FC<CardCourseProps> = ({item}) => {
 
+
   
 
   return (

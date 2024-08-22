@@ -20,6 +20,7 @@ const Header: React.FC = () => {
         if (name) {
           setStoredUserName(name);
         }
+        console.log(name)
       } catch (error) {
         console.error('Failed to load user name from AsyncStorage', error);
       }

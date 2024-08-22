@@ -5,7 +5,6 @@ import {setUser} from '../redux/authSlice';
 import {User} from '../../utils/interfaces/types';
 import {Alert} from 'react-native';
 import {AppDispatch} from '../../Redux/store';
-import {unsubscribe} from '../ScreenSubscription/redux/subscriptionSlice';
 
 export const signupUser = async (user: User, dispatch: AppDispatch) => {
   try {
@@ -13,6 +12,9 @@ export const signupUser = async (user: User, dispatch: AppDispatch) => {
       user.email,
       user.password,
     );
+     await userCredential.user.updateProfile({
+      displayName: user.name,
+    });
     const idToken = await userCredential.user.getIdToken();
     await AsyncStorage.setItem('authorisationToken', idToken);
     const newUser: User = {
@@ -44,7 +46,6 @@ export const loginUser = async (
       const user: User = {
         email: currentUser.email!,
         name: currentUser.displayName!,
-        // phone: '',
         password: '',
       };
       dispatch(setUser(user));

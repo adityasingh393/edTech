@@ -60,6 +60,7 @@ export const styles = StyleSheet.create({
   LandingImage: {
     top: hp('8%'),
     width: wp('100%'),
+    height:hp('35%')
   },
   BrandHeader: {
     top: hp('3.7%'),
