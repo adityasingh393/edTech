@@ -42,7 +42,6 @@ const SubscriptionPage: React.FC = () => {
     
     const currentUser = auth().currentUser;
     const googleUser = GoogleSignin.getCurrentUser();
-    console.log("reg",googleUser?.user.email);
     
     let uid, email, name;
     
@@ -54,7 +53,6 @@ const SubscriptionPage: React.FC = () => {
     uid = googleUser.user.id;
     email = googleUser.user.email;
     name = googleUser.user.name;
-    console.log(name);
     } else {
     Alert.alert('User not signed in.');
     return;

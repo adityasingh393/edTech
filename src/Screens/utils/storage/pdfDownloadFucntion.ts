@@ -22,7 +22,6 @@ export async function downloadPdf() {
     })
       .fetch('GET', PDF_URL)
       .then(res => {
-        console.log('PDF document downloaded successfully', res.path());
         Alert.alert('Success', 'PDF downloaded successfully.');
       })
       .catch(err => {
