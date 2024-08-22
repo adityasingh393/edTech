@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Routes from './src/Routes/Routes';
 import { Provider } from 'react-redux';
 import store from './src/Redux/store';
-import Routes from './src/Routes/Routes';
 import { createTables } from './src/utils/storage/db';
 import { StatusBar } from 'react-native';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import SplashScreen from './src/Screens/ScreenSplash/SplashScreen';
 
-
 function App(): React.JSX.Element {
-  const [showSplash, setShowSplash] = useState(true);
+  const [isAppReady, setIsAppReady] = useState(false);
 
   useEffect(() => {
     GoogleSignin.configure({
       offlineAccess: true,
-      webClientId: '565978315125-fafv1cnccofkjm1r7fe4lok2r7oseqti.apps.googleusercontent.com',
+      webClientId: 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
     });
   }, []);
 
@@ -22,18 +21,17 @@ function App(): React.JSX.Element {
     createTables();
   }, []);
 
- 
-  const handleSplashTimeout = () => {
-    setShowSplash(false);
+  const handleAppReady = () => {
+    setIsAppReady(true); 
   };
 
   return (
     <Provider store={store}>
-      <StatusBar translucent backgroundColor='transparent' barStyle="light-content" />
-      {showSplash ? (
-        <SplashScreen onTimeout={handleSplashTimeout} />
+      <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
+      {!isAppReady ? (
+        <SplashScreen onAppReady={handleAppReady} />  
       ) : (
-        <Routes />
+        <Routes />  
       )}
     </Provider>
   );

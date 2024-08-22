@@ -5,6 +5,8 @@ import {setUser} from '../redux/authSlice';
 import {User} from '../../utils/interfaces/types';
 import {Alert} from 'react-native';
 import {AppDispatch} from '../../Redux/store';
+import { setCheckingSubscription, subscribe, unsubscribe } from '../ScreenSubscription/redux/subscriptionSlice';
+import { db } from '../../utils/storage/db';
 
 export const signupUser = async (user: User, dispatch: AppDispatch) => {
   try {
@@ -42,13 +44,49 @@ export const loginUser = async (
     await AsyncStorage.setItem('authorisationToken', idToken);
 
     const currentUser = auth().currentUser;
+
     if (currentUser) {
       const user: User = {
         email: currentUser.email!,
         name: currentUser.displayName!,
         password: '',
       };
+
+      
+      let uid = currentUser.uid;
+
       dispatch(setUser(user));
+
+      if (uid) {
+        dispatch(setCheckingSubscription(true)); 
+        db.transaction((txn) => {
+          txn.executeSql(
+            'SELECT subscribed_plan_id FROM users WHERE uid = ?',
+            [uid],
+            (txn, results) => {
+              if (results.rows.length > 0) {
+                const subscribedPlanId = results.rows.item(0).subscribed_plan_id;
+                if (subscribedPlanId) {
+                  dispatch(subscribe(subscribedPlanId));
+                } else {
+                  dispatch(unsubscribe());
+                }
+              } else {
+                dispatch(unsubscribe());
+              }
+              dispatch(setCheckingSubscription(false));
+            },
+            () => {
+              dispatch(unsubscribe());
+              dispatch(setCheckingSubscription(false)); 
+            }
+          );
+        });
+      } else {
+        dispatch(unsubscribe());
+      }
+    } else {
+      dispatch(setUser(null));
     }
   } catch (error) {
     dispatch(setUser(null));
@@ -58,28 +96,65 @@ export const loginUser = async (
   }
 };
 
+
+
+
 export const loginWithGoogle = async (dispatch: AppDispatch) => {
   try {
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    const googleCredential = auth.GoogleAuthProvider.credential(
-      userInfo.idToken,
-    );
+    const googleCredential = auth.GoogleAuthProvider.credential(userInfo.idToken);
     const userCredential = await auth().signInWithCredential(googleCredential);
     const idToken = await userCredential.user.getIdToken();
     await AsyncStorage.setItem('authorisationToken', idToken);
 
     const currentUser = auth().currentUser;
+
     if (currentUser) {
       const user: User = {
         email: currentUser.email!,
         name: currentUser.displayName!,
         password: '',
       };
+
+      let uid = currentUser.uid;
+
       dispatch(setUser(user));
+
+      if (uid) {
+        dispatch(setCheckingSubscription(true)); 
+        db.transaction((txn) => {
+          txn.executeSql(
+            'SELECT subscribed_plan_id FROM users WHERE uid = ?',
+            [uid],
+            (txn, results) => {
+              if (results.rows.length > 0) {
+                const subscribedPlanId = results.rows.item(0).subscribed_plan_id;
+                if (subscribedPlanId) {
+                  dispatch(subscribe(subscribedPlanId));
+                } else {
+                  dispatch(unsubscribe());
+                }
+              } else {
+                dispatch(unsubscribe());
+              }
+              dispatch(setCheckingSubscription(false));
+            },
+            () => {
+              dispatch(unsubscribe());
+              dispatch(setCheckingSubscription(false)); 
+            }
+          );
+        });
+      } else {
+        dispatch(unsubscribe());
+      }
+    } else {
+      dispatch(setUser(null));
     }
   } catch (error) {
-    Alert.alert('Cannot log you in , please try again!!');
+    dispatch(setUser(null));
+    Alert.alert('Cannot log you in, please try again!');
   }
 };
 
@@ -88,12 +163,10 @@ export const logoutUser = async (dispatch: AppDispatch) => {
     const currentUser = auth().currentUser;
 
     if (currentUser) {
-      console.log('User currently signed in:', currentUser.email);
-
       await auth().signOut();
       await AsyncStorage.removeItem('authorisationToken');
       dispatch(setUser(null));
-      console.log('User signed out successfully.');
+      dispatch(unsubscribe());
     }
 
     const isGoogleSignedIn = await GoogleSignin.getCurrentUser();
@@ -102,10 +175,9 @@ export const logoutUser = async (dispatch: AppDispatch) => {
       await GoogleSignin.signOut();
       await AsyncStorage.removeItem('authorisationToken');
       dispatch(setUser(null));
-      console.log('Google user signed out.');
+      dispatch(unsubscribe());
     }
 
-    console.log('User signed out successfully.');
   } catch (error) {
     console.error('Error logging out:', error);
     Alert.alert('Cannot log you out, please try again.');
