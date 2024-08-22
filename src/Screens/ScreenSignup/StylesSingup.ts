@@ -27,11 +27,11 @@ export const styles = StyleSheet.create({
     width: wp('80%'),
     alignSelf: 'center',
     borderColor: colors.primary,
-    bottom: hp('9%'),
+    top: hp('15%'),
   },
   errorText: {
     color: colors.ErrorColor,
-    bottom: hp('9.5%'),
+    top: hp('14.5%'),
     marginLeft: wp('7%'),
   },
   Signupbutton: {
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
     borderRadius: wp('7%'),
     width: wp('80%'),
     alignSelf: 'center',
-    bottom: hp('4.6%'),
+    top: hp('18.6%'),
     alignItems: 'center',
   },
   SignupbuttonText: {
@@ -76,11 +76,12 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    bottom: hp('-1%'),
+    top: hp('23%'),
   },
   StyleIcon: {
-    width: wp('10.5%'),
-    right: wp('5%'),
-    marginTop: hp('-19.2%'),
+    width: wp('9.5%'),
+    right: wp('100%'),
+    top: hp('-16.2%'),
+    position:'absolute',
   },
 });
