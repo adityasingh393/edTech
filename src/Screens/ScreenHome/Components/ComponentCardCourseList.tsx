@@ -6,6 +6,9 @@ import FetchedItem from './ComponentCardVideosList';
 
 const CardCourse: React.FC<CardCourseProps> = ({item}) => {
 
+
+  
+
   return (
     <View style={styles.CardCoursecontainer}>
       <Image source={item.Images} style={styles.CardCourseImage} />
