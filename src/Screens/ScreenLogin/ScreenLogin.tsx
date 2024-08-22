@@ -4,7 +4,6 @@ import {
   Text,
   TextInput,
   KeyboardAvoidingView,
-  ScrollView,
   TouchableOpacity,
 } from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
@@ -49,82 +48,82 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <KeyboardAvoidingView behavior="padding">
-        <View style={[styles.container, styles.card]}>
-          <View style={styles.StyleIcon}>
-            <GradientCircles />
-          </View>
-          <Text style={styles.Headingtext}>Sign-In</Text>
-          <Controller
-            control={control}
-            name="email"
-            render={({field: {onChange, onBlur, value}}) => (
-              <TextInput
-                style={styles.LoginInput}
-                placeholder="Email"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-              />
-            )}
-          />
-          {errors.email && (
-            <Text style={styles.errorText}>{errors.email.message}</Text>
-          )}
-
-          <Controller
-            control={control}
-            name="password"
-            render={({field: {onChange, onBlur, value}}) => (
-              <TextInput
-                style={styles.LoginInput}
-                placeholder="Password"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-                secureTextEntry
-              />
-            )}
-          />
-          {errors.password && (
-            <Text style={styles.errorText}>{errors.password.message}</Text>
-          )}
-
-          <LinearGradient
-            colors={['#C72FF8', '#6177EE', '#6177EE']}
-            start={{x: 0.9, y: -0.3}}
-            style={styles.Loginbutton}>
-            <TouchableOpacity onPress={handleSubmit(onSubmit)}>
-              <Text style={styles.LoginbuttonText}>Log in</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-
-          <LinearGradient
-            colors={['#C72FF8', '#6177EE', '#6177EE']}
-            start={{x: 0.9, y: -0.3}}
-            style={styles.Signupbutton}>
-            <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-              <Text style={styles.SignupbuttonText}>Sign up</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-
-          <View style={styles.Iconcard}>
-            <TouchableOpacity onPress={handleGoogleLogin}>
-              <GoogleIcon />
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <FacebookIcon />
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <PhoneIcon />
-            </TouchableOpacity>
-          </View>
+      <View style={[styles.container, styles.card]}>
+        <View style={styles.StyleIcon}>
+          <GradientCircles />
         </View>
-      </KeyboardAvoidingView>
-    </ScrollView>
+        <Text style={styles.Headingtext}>Sign-In</Text>
+        <KeyboardAvoidingView behavior= 'padding'>
+        <Controller
+          control={control}
+          name="email"
+          render={({field: {onChange, onBlur, value}}) => (
+            <TextInput
+              style={styles.LoginInput}
+              placeholder="Email"
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+        />
+        {errors.email && (
+          <Text style={styles.errorText}>{errors.email.message}</Text>
+        )}
+
+        <Controller
+          control={control}
+          name="password"
+          render={({field: {onChange, onBlur, value}}) => (
+            <TextInput
+              style={styles.LoginInput}
+              placeholder="Password"
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+              secureTextEntry
+            />
+          )}
+        />
+        {errors.password && (
+          <Text style={styles.errorText}>{errors.password.message}</Text>
+        )}
+
+        <LinearGradient
+          colors={['#C72FF8', '#6177EE', '#6177EE']}
+          start={{x: 0.9, y: -0.3}}
+          style={styles.Loginbutton}>
+          <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+            <Text style={styles.LoginbuttonText}>Log in</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+
+        <LinearGradient
+          colors={['#C72FF8', '#6177EE', '#6177EE']}
+          start={{x: 0.9, y: -0.3}}
+          style={styles.Signupbutton}>
+          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+            <Text style={styles.SignupbuttonText}>Sign up</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+
+        <View style={styles.Iconcard}>
+          <TouchableOpacity onPress={handleGoogleLogin}>
+            <GoogleIcon />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <FacebookIcon />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <PhoneIcon />
+          </TouchableOpacity>
+          
+        </View>
+        </KeyboardAvoidingView>
+
+      </View>
   );
 };
 

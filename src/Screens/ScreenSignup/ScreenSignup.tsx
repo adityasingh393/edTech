@@ -46,13 +46,13 @@ const Signup: React.FC<SignupScreenProps> = ({navigation}) => {
 
   return (
     <View style={[styles.container, styles.card]}>
-      <KeyboardAvoidingView behavior="padding"></KeyboardAvoidingView>
 
       <View style={styles.StyleIcon}>
         <GradientCircles />
       </View>
       <Text style={styles.Headingtext}>Sign Up</Text>
 
+      <KeyboardAvoidingView behavior="padding">
       <Controller
         control={control}
         name="email"
@@ -100,7 +100,7 @@ const Signup: React.FC<SignupScreenProps> = ({navigation}) => {
             secureTextEntry
           />
         )}
-      />
+        />
       {errors.password && (
         <Text style={styles.errorText}>{errors.password.message}</Text>
       )}
@@ -116,9 +116,9 @@ const Signup: React.FC<SignupScreenProps> = ({navigation}) => {
 
       <View style={styles.Iconcard}>
         <TouchableOpacity onPress={handleGoogleSignup}>
+
           <GoogleIcon />
         </TouchableOpacity>
-
         <TouchableOpacity>
           <FacebookIcon />
         </TouchableOpacity>
@@ -127,6 +127,7 @@ const Signup: React.FC<SignupScreenProps> = ({navigation}) => {
           <PhoneIcon />
         </TouchableOpacity>
       </View>
+          </KeyboardAvoidingView>
     </View>
   );
 };

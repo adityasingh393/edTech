@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     width: wp('6%'),
     height: wp('6%'),
     tintColor: '#fff',
-    marginRight: wp('2%'), // Adjusted to provide space between the icon and text
+    marginRight: wp('2%'), 
   },
   descriptionTitle: {
     fontSize: wp('5%'),
