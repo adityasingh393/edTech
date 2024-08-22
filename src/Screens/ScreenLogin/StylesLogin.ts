@@ -36,6 +36,7 @@ export const styles = StyleSheet.create({
   errorText: {
     color: colors.ErrorColor,
     bottom: hp('-12%'), 
+    
     marginLeft: wp('7%'),
   },
   Loginbutton: {
@@ -99,6 +100,7 @@ export const styles = StyleSheet.create({
     width: wp('10.5%'),
     right: wp('100%'),
     bottom: hp('65.2%'),
+  
     position:'absolute',
   },
 });

@@ -1,8 +1,8 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {useSelector} from 'react-redux';
-import {RootState} from '../Redux/store';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useSelector } from 'react-redux';
+import { RootState } from '../Redux/store';
 import Signup from '../Screens/ScreenSignup/ScreenSignup';
 import Login from '../Screens/ScreenLogin/ScreenLogin';
 import SubscriptionPage from '../Screens/ScreenSubscription/ScreenSubscription';
@@ -11,84 +11,77 @@ import WelcomePage from '../Screens/ScreenWelcome/ScreenWelcome';
 import ScreenLanding from '../Screens/ScreenLanding/ScreenLanding';
 import ScreenVideoPlayer from '../Screens/ScreenVideoPlayer/ScreenVideoPlayer';
 import HomeScreen from '../Screens/ScreenHome/ScreenHome';
-import {
-  AppStackParamList,
-  AuthStackParamList,
-  RootStackParamList,
-} from '../utils/interfaces/types';
-
-import { ActivityIndicator, View } from 'react-native';
+import { AppStackParamList, AuthStackParamList, RootStackParamList } from '../utils/interfaces/types';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useAuthAndSubscriptionCheck } from './useAuthAndSubscriptionCheck';
+import SplashScreen from '../Screens/ScreenSplash/SplashScreen';
+import { createSelector } from 'reselect';
+import { styles } from '../Screens/ScreenSplash/SplashStyle';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
 const SubStack = createStackNavigator<RootStackParamList>();
 
+const AuthNavigator = () => (
+  <AuthStack.Navigator initialRouteName="Landing">
+    <AuthStack.Screen name="Landing" component={ScreenLanding} options={{headerShown: false}} />
+    <AuthStack.Screen name="Login" component={Login} options={{headerShown: false}} />
+    <AuthStack.Screen name="Signup" component={Signup} options={{headerShown: false}} />
+  </AuthStack.Navigator>
+);
+
+const SubscribedNavigator = () => (
+  <AppStack.Navigator initialRouteName="Home">
+    <AppStack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+    <AppStack.Screen name="Video" component={ScreenVideoPlayer} options={{headerShown: false}} />
+    <AppStack.Screen name="Downloads" component={DownloadedVideosScreen} options={{headerTitle: 'Downloads'}} />
+  </AppStack.Navigator>
+);
+
+const UnsubscribedNavigator = () => (
+  <SubStack.Navigator initialRouteName="WelcomePageSub">
+    <SubStack.Screen name="WelcomePageSub" component={WelcomePage} options={{headerShown: false}} />
+    <SubStack.Screen name="ScreenSubscription" component={SubscriptionPage} options={{headerShown: false}} />
+  </SubStack.Navigator>
+);
+
+const selectAuth = (state: RootState) => state.auth;
+const selectSubscription = (state: RootState) => state.subscription;
+
+const selectAuthAndSubscription = createSelector(
+  [selectAuth, selectSubscription],
+  (auth, subscription) => ({
+    isAuthenticated: auth.isAuthenticated,
+    isSubscribed: subscription.isSubscribed,
+    isCheckingSubscription: subscription.isCheckingSubscription, 
+  })
+);
+
 const Routes = () => {
-  const isAuthenticated = useSelector(
-    (state: RootState) => state.auth.isAuthenticated,
-  );
-  const isSubscribed = useSelector(
-    (state: RootState) => state.subscription.isSubscribed,
-  );
+  const { isAuthenticated, isSubscribed,isCheckingSubscription } = useSelector(selectAuthAndSubscription);
 
- 
-  const { isLoading, checkingSubscription } = useAuthAndSubscriptionCheck();
-
-  if (isLoading || checkingSubscription) {
+  if (isCheckingSubscription) {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size="large" />
-       
+      <View style={styles.loaderContainer}>
+        <ActivityIndicator size="large" color="#0000ff" />
       </View>
     );
   }
-  
 
   return (
     <NavigationContainer>
       {isAuthenticated ? (
         isSubscribed ? (
-          <AppStack.Navigator initialRouteName="Home">
-            <AppStack.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{headerShown: false}}
-            />
-            <AppStack.Screen
-              name="Video"
-              component={ScreenVideoPlayer}
-              options={{headerShown: false}}
-            />
-            <AppStack.Screen
-              name="Downloads"
-              component={DownloadedVideosScreen}
-              options={{headerTitle: 'Downloads'}}
-            />
-          </AppStack.Navigator>
+          <SubscribedNavigator />
         ) : (
-          <SubStack.Navigator initialRouteName="WelcomePageSub">
-            <SubStack.Screen
-              name="WelcomePageSub"
-              component={WelcomePage}
-              options={{headerShown: false}}
-            />
-            <SubStack.Screen
-              name="ScreenSubscription"
-              component={SubscriptionPage}
-              options={{headerShown: false}}
-            />
-          </SubStack.Navigator>
+          <UnsubscribedNavigator />
         )
       ) : (
-        <AuthStack.Navigator initialRouteName="Landing">
-          <AuthStack.Screen name="Landing" component={ScreenLanding} options={{ headerShown: false }} />
-          <AuthStack.Screen name="Login" component={Login}  options={{ headerShown: false }} />
-          <AuthStack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
-        </AuthStack.Navigator>
+        <AuthNavigator />
       )}
     </NavigationContainer>
   );
 };
+
 
 export default Routes;
