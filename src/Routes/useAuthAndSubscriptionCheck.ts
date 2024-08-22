@@ -1,20 +1,17 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { subscribe, unsubscribe } from '../Screens/ScreenSubscription/redux/subscriptionSlice';
-import { setUser } from '../Screens/redux/authSlice';
-import { db } from '../utils/storage/db';
-import { RootState } from '../Redux/store';
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {subscribe, unsubscribe} from '../Screens/ScreenSubscription/redux/subscriptionSlice';
+import {setUser} from '../Screens/redux/authSlice';
+import {db} from '../utils/storage/db';
+import {RootState} from '../Redux/store';
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { User } from '../utils/interfaces/types';
-
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {User} from '../utils/interfaces/types';
 
 export const useAuthAndSubscriptionCheck = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [checkingSubscription, setCheckingSubscription] = useState(false);
-  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
-  const isSubscribed = useSelector((state: RootState) => state.subscription.isSubscribed);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,8 +29,6 @@ export const useAuthAndSubscriptionCheck = () => {
           } else if (googleUser) {
             uid = googleUser.user.id;
           }
-     
-
           if (uid) {
             setCheckingSubscription(true);
             db.transaction((txn) => {
@@ -53,7 +48,7 @@ export const useAuthAndSubscriptionCheck = () => {
                   }
                   setCheckingSubscription(false);
                 },
-                (error) => {
+                () => {
                   dispatch(unsubscribe());
                   setCheckingSubscription(false);
                 }
@@ -63,7 +58,6 @@ export const useAuthAndSubscriptionCheck = () => {
             const user: User = {
               email: currentUser?.email || googleUser?.user.email!,
               name: currentUser?.displayName || googleUser?.user.name!,
-              // phone: '',
               password: '',
             };
             dispatch(setUser(user));
@@ -75,14 +69,14 @@ export const useAuthAndSubscriptionCheck = () => {
         }
       } catch (error) {
         dispatch(setUser(null));
-      } finally {
+      }   setTimeout(() => {
         setIsLoading(false);
-      }
+      }, 1000);
     };
 
     checkAuthAndSubscription();
-  }, [dispatch,isAuthenticated]);
+  }, []);
 
-  return { isLoading, checkingSubscription };
+  return {isLoading, checkingSubscription};
 };
 

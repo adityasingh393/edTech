@@ -3,17 +3,17 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions'; 
-
+import colors from '../../utils/Theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  image: {
-    width: wp('50%'),
-    height: hp('25%'), 
-    marginBottom: hp('2%'), 
-  },
+    backgroundColor:colors.white,
+  },loaderContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  
 });

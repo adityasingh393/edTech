@@ -16,7 +16,6 @@ export const createTables = () => {
       );`,
       [],
       () => {
-        console.log('Plans table created');
         txn.executeSql(
           'SELECT COUNT(*) as count FROM plans',
           [],
@@ -48,8 +47,6 @@ export const createTables = () => {
         FOREIGN KEY(subscribed_plan_id) REFERENCES plans(id)
       );`,
       [],
-      () => console.log('Users table created'),
-      error => console.error('Error creating users table: ', error),
     );
   });
 };
