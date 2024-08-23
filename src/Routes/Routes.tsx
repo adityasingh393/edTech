@@ -17,6 +17,7 @@ import { useAuthAndSubscriptionCheck } from './useAuthAndSubscriptionCheck';
 import SplashScreen from '../Screens/ScreenSplash/SplashScreen';
 import { createSelector } from 'reselect';
 import { styles } from '../Screens/ScreenSplash/SplashStyle';
+import LottieView from 'lottie-react-native';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
@@ -63,7 +64,12 @@ const Routes = () => {
   if (isCheckingSubscription) {
     return (
       <View style={styles.loaderContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
+       <LottieView
+          source={require('../Assets/LottieJSON/LoaderLottie.json')} 
+          autoPlay
+          loop
+          style={{ width: 200, height: 200 }} 
+        />
       </View>
     );
   }

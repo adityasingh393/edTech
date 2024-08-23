@@ -74,7 +74,7 @@ export const useAuthAndSubscriptionCheck = () => {
         dispatch(setUser(null));
       }   setTimeout(() => {
         setIsLoading(false);
-      }, 1000);
+      }, 3000);
     };
 
     checkAuthAndSubscription();
