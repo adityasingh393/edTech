@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     videoCard: {
       width: wp('90%'), 
       borderRadius: 10,
-      backgroundColor: 'white',
+      backgroundColor: colors.White,
       alignItems: 'center',
       padding: wp('2%'),
       marginVertical: hp('2%'),
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     videoButtonText: {
       marginTop: hp('1%'),
       fontSize: wp('4%'),
-      color: colors.textColor,
+      color: colors.TextColor,
       textAlign: 'center',
     },
     modalContainer: {
@@ -39,12 +39,12 @@ export const styles = StyleSheet.create({
       alignSelf: 'flex-end',
       marginTop: hp('20%'),
       marginRight: wp('4%'),
-      backgroundColor: colors.secondary,
+      backgroundColor: colors.Primary,
       padding: wp('3%'),
       borderRadius: 10,
     },
     closeButtonText: {
-      color: 'white',
+      color: colors.White,
       fontSize: wp('4%'),
       textAlign: 'center',
     },

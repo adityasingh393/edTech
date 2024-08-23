@@ -6,7 +6,6 @@ import {
   deleteVideo,
 } from '../utils/storage/storageFunctions';
 import styles from './StylesDownload';
-import NavbarComponent from '../../CommonComponents/NavbarComponent';
 
 const DownloadedVideosScreen: React.FC = () => {
   const [downloadedVideos, setDownloadedVideos] = useState<any[]>([]);
@@ -32,7 +31,6 @@ const DownloadedVideosScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <NavbarComponent />
 
       {downloadedVideos.length === 0 ? (
         <Text style={styles.noVideosText}>No videos downloaded</Text>
