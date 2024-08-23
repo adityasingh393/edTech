@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     container: {
       width: '100%',
       height: hp('25%'),
-      backgroundColor: 'black',
+      backgroundColor: colors.HeadingColor,
     },
     fullScreenContainer: {
       position: 'absolute',
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
       right: 0,
       bottom: 0,
       zIndex: 9999,
-      backgroundColor: 'black',
+      backgroundColor: colors.HeadingColor,
     },
     videoContainer: {
       width: '100%',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     icon: {
       width: wp("8"),
       height: wp("8"),
-      tintColor: colors.white,
+      tintColor: colors.White,
     },
     playPauseIcon: {
       marginLeft: wp("10%"),
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
       height: hp("5%"),
     },
     timeText: {
-      color: colors.white,
+      color: colors.White,
     },
     fullScreenToggleContainer: {
       position: 'absolute',
