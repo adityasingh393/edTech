@@ -68,6 +68,7 @@ const Routes = () => {
           source={require('../Assets/LottieJSON/LoaderLottie.json')} 
           autoPlay
           loop
+          speed={2}
           style={{ width: 200, height: 200 }} 
         />
       </View>
