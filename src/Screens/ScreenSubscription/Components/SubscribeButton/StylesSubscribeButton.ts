@@ -1,5 +1,8 @@
-import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../../../utils/Dimensions';
+import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../../../utils/Dimensions';
 
 export const localStyles = StyleSheet.create({
   subscribeButton: {
@@ -7,18 +10,18 @@ export const localStyles = StyleSheet.create({
     overflow: 'hidden',
     marginTop: hp('3%'),
     alignItems: 'center',
-    width: wp('90%'), 
+    width: wp('90%'),
     alignSelf: 'center',
   },
   gradientButton: {
     paddingVertical: hp('2%'),
-    paddingHorizontal: wp('5%'), 
+    paddingHorizontal: wp('5%'),
     alignItems: 'center',
-    width: '100%', 
+    width: '100%',
   },
   subscribeButtonText: {
     color: '#fff',
-    fontSize: wp('4.5%'), 
+    fontSize: wp('4.5%'),
     fontWeight: '600',
   },
 });

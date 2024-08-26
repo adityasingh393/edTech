@@ -12,7 +12,7 @@ export const signupUser = async (user: User, dispatch: AppDispatch) => {
       user.email,
       user.password,
     );
-     await userCredential.user.updateProfile({
+    await userCredential.user.updateProfile({
       displayName: user.name,
     });
     const idToken = await userCredential.user.getIdToken();

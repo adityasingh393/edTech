@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from '../../utils/Dimensions'; 
+} from '../../utils/Dimensions';
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: wp('50%'),
-    height: hp('25%'), 
-    marginBottom: hp('2%'), 
+    height: hp('25%'),
+    marginBottom: hp('2%'),
   },
 });

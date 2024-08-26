@@ -81,6 +81,4 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: wp('0.25%'),
   },
- 
- 
 });

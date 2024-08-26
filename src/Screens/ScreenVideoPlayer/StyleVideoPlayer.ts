@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
-import colors from '../../utils/Theme'; 
+import colors from '../../utils/Theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     height: hp('25%'),
     marginBottom: hp('2%'),
-    overflow: 'hidden', 
+    overflow: 'hidden',
   },
   detailsContainer: {
     padding: wp('6%'),
@@ -69,8 +69,7 @@ const styles = StyleSheet.create({
     paddingVertical: hp('1%'),
     paddingHorizontal: wp('2%'),
     borderRadius: wp('7%'),
-    marginLeft:wp('30%')
-
+    marginLeft: wp('30%'),
   },
 });
 

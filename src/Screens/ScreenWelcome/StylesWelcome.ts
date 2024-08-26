@@ -1,5 +1,8 @@
-import { StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
+import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../utils/Dimensions';
 
 export const styles = StyleSheet.create({
   safeArea: {
@@ -64,7 +67,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: '#888',
     shadowOpacity: 0.3,
-    shadowOffset: { width: 0, height: 3 },
+    shadowOffset: {width: 0, height: 3},
     shadowRadius: 5,
     borderWidth: 1,
     borderColor: '#ddd',
