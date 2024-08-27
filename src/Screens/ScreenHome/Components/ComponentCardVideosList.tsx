@@ -2,10 +2,13 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {
-  CardData,
   FetchedItemProps,
   ScreenVideoNavigationProp,
 } from '../Utils/Types';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../../utils/Dimensions';
 import {styles} from './StylsCardCourse';
 import DurationIcon from '../../../Assets/ImagesData/Durationlogo';
 import EyeIcon from '../../../Assets/ImagesData/EyeIcon';
@@ -30,11 +33,11 @@ const FetchedItem: React.FC<FetchedItemProps> = ({item}) => {
         <View style={styles.fetchedTextContainer}>
           <Text style={styles.title}>{item.title}</Text>
           <View style={styles.durationContainer}>
-            <DurationIcon width={13} height={15} />
+            <DurationIcon width={wp('3.5%')} height={hp('2%')} />
             <Text style={styles.text}> {item.duration}</Text>
           </View>
           <View style={styles.viewsContainer}>
-            <EyeIcon width={20} height={27} />
+            <EyeIcon width={wp('5%')} height={hp('3%')} />
             <Text style={styles.text}> {item.views}</Text>
           </View>
         </View>

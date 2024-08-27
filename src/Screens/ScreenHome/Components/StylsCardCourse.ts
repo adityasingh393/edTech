@@ -15,10 +15,10 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 20,
-    height: hp('83.5%'),
-    marginHorizontal: wp('2.5%'),
+    height: wp('173.5%'),
+    marginHorizontal: wp('4.5%'),
     marginBottom: hp('2.5%'),
-    width: wp('87.5%'),
+    width: wp('90.5%'),
     padding: wp('3.75%'),
   },
   CardCourseImage: {
@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
   fetchedItemsList: {
     maxHeight: hp('55%'),
     paddingHorizontal: wp('1.25%'),
+    marginBottom:hp('5%')
   },
   text: {
     fontSize: wp('3.75%'),
@@ -80,6 +81,15 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: wp('0.25%'),
   },
-  
- 
+  dotStyle: {
+    width: wp('3%'),
+    height: hp('1.2%'),
+    borderRadius: 5,
+    marginHorizontal: 5,
+  },
+  dotContainer: {
+    position: 'absolute',
+    bottom: hp('6%'),
+    alignSelf: 'center',
+  },
 });
