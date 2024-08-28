@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StatusBar, SafeAreaView, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../utils/interfaces/types';
+import { RootStackParamList, WelcomePageProps } from '../../utils/interfaces/types';
 import { styles } from './StylesWelcome';
 import LinearGradient from 'react-native-linear-gradient';
 import DemoVideoSection from './Components/DemoVideoSection';
@@ -10,7 +10,7 @@ import GradientButton from './Components/GradientButton';
 
 type WelcomePageNavigationProp = StackNavigationProp<RootStackParamList, 'ScreenSubscription'>;
 
-const WelcomePage = () => {
+const WelcomePage:React.FC<WelcomePageProps>= () => {
   const navigation = useNavigation<WelcomePageNavigationProp>();
   const handleSubscriptionPress = () => {
     navigation.navigate('ScreenSubscription');
