@@ -10,9 +10,10 @@ import SubscribeButton from './Components/SubscribeButton/SubscribeButton';
 import { Plan } from './utils/interfaces';
 import { styles } from './StylesSubscription';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { SubscriptionPageNavigationProp } from '../../utils/interfaces/types';
 
 
-const SubscriptionPage: React.FC = () => {
+const SubscriptionPage: React.FC<SubscriptionPageNavigationProp> = () => {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [selectedPlan, setSelectedPlan] = useState<number | null>(null);
   const dispatch = useDispatch();
