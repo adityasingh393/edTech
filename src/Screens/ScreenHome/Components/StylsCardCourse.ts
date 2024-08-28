@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
   fetchedItemsList: {
     maxHeight: hp('55%'),
     paddingHorizontal: wp('1.25%'),
-    marginBottom:hp('5%')
+    marginBottom: hp('5%'),
   },
   text: {
     fontSize: wp('3.75%'),
@@ -82,8 +82,8 @@ export const styles = StyleSheet.create({
     marginLeft: wp('0.25%'),
   },
   dotStyle: {
-    width: wp('3%'),
-    height: hp('1.2%'),
+    width: wp('1%'),
+    height: hp('.7%'),
     borderRadius: 5,
     marginHorizontal: 5,
   },
