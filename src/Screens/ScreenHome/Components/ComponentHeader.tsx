@@ -6,6 +6,7 @@ import {logoutUser} from '../../utils/firebaseAuthentication';
 import UserProfile from '../../../Assets/ImagesData/UserProfileLogo';
 import styles from './StylesHeader';
 import {RootState} from '../../../Redux/store';
+import LogoutIcon from '../../../Assets/ImagesData/LogoutIcon';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
@@ -63,7 +64,9 @@ const Header: React.FC = () => {
         </Text>
       </View>
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-        <Text style={styles.logoutButtonText}>Logout</Text>
+        <Text style={styles.logoutButtonText}>
+          <LogoutIcon />
+        </Text>
       </TouchableOpacity>
     </View>
   );

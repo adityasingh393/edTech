@@ -23,7 +23,7 @@ const NavbarComponent: React.FC = () => {
       <TouchableOpacity
         style={styles.iconContainer}
         onPress={() => navigation.navigate('Home')}>
-        <NavbarIconHome stroke={isHomeActive ? 'blue' : '#6177EE'} />
+        <NavbarIconHome stroke={isHomeActive ? 'blue' : '#1b199c'} />
       </TouchableOpacity>
       <View style={styles.brandLogoContainer}>
         <BrandLogo />
@@ -31,7 +31,7 @@ const NavbarComponent: React.FC = () => {
       <TouchableOpacity
         style={styles.iconContainer}
         onPress={() => navigation.navigate('Downloads')}>
-        <NavbarDownloadIcon stroke={isDownloadsActive ? 'blue' : '#6177EE'} />
+        <NavbarDownloadIcon stroke={isDownloadsActive ? 'blue' : '#1b199c'} />
       </TouchableOpacity>
     </View>
   );

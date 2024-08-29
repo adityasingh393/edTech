@@ -21,6 +21,11 @@ export const styles = StyleSheet.create({
     width: wp('90.5%'),
     padding: wp('3.75%'),
   },
+  centerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   CardCourseImage: {
     width: '100%',
     height: hp('20.75%'),
