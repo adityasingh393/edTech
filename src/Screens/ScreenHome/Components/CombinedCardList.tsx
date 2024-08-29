@@ -29,7 +29,6 @@ const CombinedCardList: React.FC = () => {
         pagingEnabled
         snapToAlignment="center"
         decelerationRate="fast"
-        style={{marginBottom: 20}}
       />
     </View>
   );

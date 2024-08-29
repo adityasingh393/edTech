@@ -8,7 +8,7 @@ import colors from '../../../utils/Theme';
 export const styles = StyleSheet.create({
   CardCoursecontainer: {
     marginTop: hp('2.5%'),
-    backgroundColor: '#fff',
+    backgroundColor: colors.White,
     borderRadius: 12,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 3},
@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     marginBottom: hp('2.5%'),
     width: wp('87.5%'),
     padding: wp('3.75%'),
-    paddingBottom: hp('5%'),
   },
   CardCourseImage: {
     width: '100%',
@@ -32,11 +31,11 @@ export const styles = StyleSheet.create({
     marginTop: hp('1.25%'),
     fontSize: wp('5%'),
     fontWeight: '700',
-    color: '#1F1F39',
+    color: colors.HeadingColor,
   },
   separator: {
     height: hp('0.25%'),
-    backgroundColor: '#ddd',
+    backgroundColor: colors.SapratorColor,
     marginVertical: hp('1%'),
   },
   fetchedItemsList: {
@@ -45,7 +44,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: wp('3.75%'),
-    color: '#36454F',
+    color: colors.TextColor,
     marginBottom: hp('0.5%'),
   },
   thumbnail: {
@@ -56,7 +55,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: wp('4%'),
     fontWeight: 'bold',
-    color: 'black',
+    color: colors.HeadingColor,
     marginBottom: hp('1%'),
   },
   fetchedDataContainer: {
@@ -81,4 +80,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: wp('0.25%'),
   },
+  
+ 
 });

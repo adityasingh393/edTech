@@ -10,10 +10,10 @@ export const styles = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
     flex: 1,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.Primary,
   },
   card: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.White,
     borderRadius: wp('7.2%'),
     shadowOffset: {width: 0, height: hp('0.24%')},
     shadowOpacity: 0.25,
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: hp('1.2%'),
     textAlign: 'center',
-    color: colors.secondary,
+    color: colors.Secondary,
   },
   button: {
     width: wp('80%'),
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: colors.white,
+    color: colors.White,
     fontSize: wp('5.3%'),
     textAlign: 'center',
   },
@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
     top: hp('7%'),
     lineHeight: hp('3.3%'),
     fontSize: wp('4.7%'),
-    color: colors.textColor,
+    color: colors.TextColor,
     padding: 10,
   },
   LandingImage: {
@@ -71,6 +71,6 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: hp('1.2%'),
     textAlign: 'center',
-    color: colors.primary,
+    color: colors.Primary,
   },
 });

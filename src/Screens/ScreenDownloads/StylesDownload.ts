@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: hp('20%'),
     fontSize: wp('5%'),
-    color: colors.textColor,
+    color: colors.TextColor,
   },
   videoItem: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.White,
     borderRadius: 8,
     marginBottom: hp('2%'),
     padding: wp('4%'),
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   videoTitle: {
     fontSize: wp('4.5%'),
     fontWeight: '600',
-    color: colors.textColor,
+    color: colors.TextColor,
     marginBottom: hp('1%'),
   },
   actionsContainer: {
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     marginTop: hp('1%'),
   },
   deleteButton: {
-    color: colors.primary,
+    color: colors.Primary,
     fontSize: wp('4%'),
     fontWeight: '600',
   },

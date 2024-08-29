@@ -8,7 +8,7 @@ import colors from '../../utils/Theme';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.White,
     marginTop: hp('5%'),
   },
   mediaPlayerContainer: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     padding: wp('6%'),
-    backgroundColor: colors.white,
+    backgroundColor: colors.White,
     borderRadius: 20,
     margin: 10,
   },
@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
   },
   descriptionTitle: {
     fontSize: wp('5%'),
-    color: colors.secondary,
+    color: colors.Secondary,
     fontWeight: 'bold',
     marginBottom: hp('1%'),
   },
   descriptionText: {
     fontSize: wp('4%'),
-    color: colors.textColor,
+    color: colors.TextColor,
     letterSpacing: 0.5,
     lineHeight: hp('3%'),
   },

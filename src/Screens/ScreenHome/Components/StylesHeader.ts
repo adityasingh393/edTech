@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: wp('2.5%'),
-    backgroundColor: colors.primary,
+    backgroundColor: colors.Primary,
     height: hp('12.5%'),
   },
   userSection: {
@@ -27,20 +27,20 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: wp('5.5%'),
-    color: colors.white,
+    color: colors.White,
     fontWeight: '700',
     marginLeft: wp('3%'),
   },
   logoutButton: {
     paddingVertical: hp('1.5%'),
     paddingHorizontal: wp('5%'),
-    backgroundColor: colors.white,
+    backgroundColor: colors.White,
     borderRadius: wp('9.5%'),
     alignItems: 'center',
     marginTop: hp('3%'),
   },
   logoutButtonText: {
-    color: colors.primary,
+    color: colors.Primary,
     fontSize: wp('4%'),
     fontWeight: 'bold',
   },

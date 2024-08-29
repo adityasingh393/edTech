@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   Headingtext: {
     fontWeight: '400',
     fontSize: wp('11%'),
-    color: colors.white,
+    color: colors.White,
     position: 'absolute',
     top: hp('12%'), 
     left: wp('5%'), 
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     marginVertical: hp('1%'),
     width: wp('80%'),
     alignSelf: 'center',
-    borderColor: colors.primary,
+    borderColor: colors.Primary,
     top: hp('12.8%'), 
   },
   errorText: {
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   LoginbuttonText: {
-    color: colors.white,
+    color: colors.White,
     fontSize: wp('5.5%'),
     fontWeight: 'bold',
     textAlign: 'center',
@@ -61,14 +61,14 @@ export const styles = StyleSheet.create({
     top: hp('18%'),
   },
   SignupbuttonText: {
-    color: colors.white,
+    color: colors.White,
     fontSize: wp('5.5%'),
     fontWeight: 'bold',
     textAlign: 'center',
     lineHeight: hp('8%'),
   },
   card: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.White,
     borderRadius: wp('7.5%'),
     shadowColor: '#000',
     shadowOffset: {width: 0, height: hp('0.5%')},

@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
+=======
+import { StyleSheet } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
+import colors from '../../utils/Theme';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+>>>>>>> 47b28d7 (Updated styling with theme file)
 
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor:colors.White,
   },
   scrollContainer: {
     flexGrow: 1,
@@ -17,7 +24,7 @@ export const styles = StyleSheet.create({
     paddingTop: hp('2%'),
     marginTop: hp('10%'),
     paddingHorizontal: wp('5%'),
-    backgroundColor: '#fff',
+    backgroundColor: colors.White,
     justifyContent: 'center',
   },
   WelcomeTitle: {
@@ -25,20 +32,20 @@ export const styles = StyleSheet.create({
     marginBottom: hp('2%'),
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'black',
+    color: colors.HeadingColor,
   },
   WelcomeText: {
     fontSize: wp('4.5%'),
     marginBottom: hp('2%'),
     textAlign: 'center',
-    color: 'black',
+    color: colors.HeadingColor,
   },
   subTitle: {
     fontSize: wp('5%'),
     marginBottom: hp('1%'),
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'black',
+    color: colors.HeadingColor,
   },
   subscribeButton: {
     borderRadius: wp('2%'),
@@ -50,7 +57,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   subscribeButtonText: {
-    color: '#fff',
+    color: colors.White,
     fontSize: wp('4%'),
     fontWeight: 'bold',
   },
@@ -62,7 +69,7 @@ export const styles = StyleSheet.create({
   videoCard: {
     padding: hp('2%'),
     borderRadius: wp('2%'),
-    backgroundColor: '#fff',
+    backgroundColor: colors.White,
     marginBottom: hp('2%'),
     alignItems: 'center',
     shadowColor: '#888',
@@ -70,14 +77,14 @@ export const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 3},
     shadowRadius: 5,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: colors.SapratorColor,
     flexDirection: 'row',
     width: wp('90%'),
     height: hp('20%'),
   },
   videoButtonText: {
     fontSize: wp('4%'),
-    color: 'black',
+    color: colors.HeadingColor,
     marginLeft: wp('2.5%'),
     flex: 1,
     textAlign: 'center',
@@ -95,12 +102,12 @@ export const styles = StyleSheet.create({
   },
   closeButton: {
     padding: hp('1.5%'),
-    backgroundColor: '#6177EE',
+    backgroundColor: colors.Primary,
     borderRadius: wp('2%'),
     marginBottom: hp('2%'),
   },
   closeButtonText: {
-    color: '#fff',
+    color: colors.White,
     fontWeight: 'bold',
     fontSize: wp('4%'),
   },
