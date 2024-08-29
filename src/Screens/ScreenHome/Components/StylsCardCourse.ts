@@ -21,6 +21,11 @@ export const styles = StyleSheet.create({
     width: wp('90.5%'),
     padding: wp('3.75%'),
   },
+  centerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   CardCourseImage: {
     width: '100%',
     height: hp('20.75%'),
@@ -41,7 +46,8 @@ export const styles = StyleSheet.create({
   fetchedItemsList: {
     maxHeight: hp('55%'),
     paddingHorizontal: wp('1.25%'),
-    marginBottom: hp('5%'),
+
+    marginBottom: hp('1%'),
   },
   text: {
     fontSize: wp('3.75%'),

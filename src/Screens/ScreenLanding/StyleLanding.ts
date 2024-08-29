@@ -1,6 +1,9 @@
-import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "../../utils/Dimensions";
-import colors from "../../utils/Theme";
+import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../utils/Dimensions';
+import colors from '../../utils/Theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -12,7 +15,7 @@ export const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.White,
     borderRadius: wp('7.2%'),
-    shadowOffset: { width: 0, height: hp('0.24%') },
+    shadowOffset: {width: 0, height: hp('0.24%')},
     shadowOpacity: 0.25,
     shadowRadius: hp('0.5%'),
     elevation: 5,
@@ -60,7 +63,7 @@ export const styles = StyleSheet.create({
   LandingImage: {
     top: hp('8%'),
     width: wp('100%'),
-    height:hp('35%')
+    height: hp('35%'),
   },
   BrandHeader: {
     top: hp('3.7%'),

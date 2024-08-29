@@ -12,28 +12,29 @@ export const styles = StyleSheet.create({
     borderRadius: wp('2.5%'), 
     shadowColor: '#000',
     shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: hp('0.5%') }, 
-    shadowRadius: wp('2%'), 
-    width: wp('90%'), 
-    alignSelf: 'center', 
+    shadowOffset: {width: 0, height: hp('0.5%')},
+    shadowRadius: wp('2%'),
+    width: wp('90%'),
+    alignSelf: 'center',
   },
   selectedPlanButton: {
     backgroundColor: colors.DarkBlue,
     color: colors.White,
   },
   planName: {
-    fontSize: wp('5.5%'), 
+    fontSize: wp('5.5%'),
     fontWeight: '600',
     color: colors.HeadingColor,
   },
   planPrice: {
-    fontSize: wp('5%'),  
+    fontSize: wp('5%'),
     fontWeight: 'bold',
+
     color: colors.HeadingColor,
     marginVertical: hp('1%'), 
   },
   planContent: {
-    marginTop: hp('1.5%'), 
+    marginTop: hp('1.5%'),
   },
   planDetail: {
     fontSize: wp('4.5%'), 

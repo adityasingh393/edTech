@@ -7,7 +7,7 @@ import {
 } from '../utils/storage/storageFunctions';
 import styles from './StylesDownload';
 import NavbarComponent from '../../CommonComponents/NavbarComponent';
-
+import DelteIcon from '../../Assets/ImagesData/DeleteIcon';
 const DownloadedVideosScreen: React.FC = () => {
   const [downloadedVideos, setDownloadedVideos] = useState<any[]>([]);
 
@@ -46,7 +46,7 @@ const DownloadedVideosScreen: React.FC = () => {
               <View style={styles.actionsContainer}>
                 <TouchableOpacity
                   onPress={() => handleDeleteVideo(item.contentId)}>
-                  <Text style={styles.deleteButton}>Delete</Text>
+                  <Text style={styles.deleteButton}><DelteIcon/></Text>
                 </TouchableOpacity>
               </View>
             </View>

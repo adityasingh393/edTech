@@ -1,5 +1,8 @@
-import { StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
+import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../utils/Dimensions';
 
 export const styles = StyleSheet.create({
   safeArea: {
@@ -7,19 +10,19 @@ export const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   scrollViewContent: {
-    marginTop: hp('5%'), 
-    paddingHorizontal: wp('5%'), 
-    paddingVertical: hp('2%'), 
+    marginTop: hp('5%'),
+    paddingHorizontal: wp('5%'),
+    paddingVertical: hp('2%'),
   },
   subscriptionContainer: {
     flex: 1,
-    paddingVertical: hp('3%'), 
+    paddingVertical: hp('3%'),
   },
   title: {
-    fontSize: wp('7%'), 
+    fontSize: wp('7%'),
     fontWeight: 'bold',
     color: '#6177EE',
-    marginBottom: hp('3%'), 
+    marginBottom: hp('3%'),
     textAlign: 'center',
     letterSpacing: wp('0.3%'),
   },

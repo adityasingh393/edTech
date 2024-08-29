@@ -1,3 +1,4 @@
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface SubscriptionState {
   isSubscribed: boolean;
@@ -19,7 +20,7 @@ const subscriptionSlice = createSlice({
       state.isSubscribed = true;
       state.planId = action.payload;
     },
-    unsubscribe: (state) => {
+    unsubscribe: state => {
       state.isSubscribed = false;
       state.planId = null;
     },
@@ -28,6 +29,7 @@ const subscriptionSlice = createSlice({
     },
   },
 });
+
 
 export const { subscribe, unsubscribe, setCheckingSubscription } = subscriptionSlice.actions;
 

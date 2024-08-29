@@ -1,13 +1,19 @@
 import React from 'react';
-import Svg, { Path, Rect } from 'react-native-svg';
+import Svg, {Path, Rect} from 'react-native-svg';
 
 interface IconProps {
   stroke?: string;
 }
 
-const NavbarDownloadIcon: React.FC<IconProps> = ({ stroke = '#6177EE' }) => (
-  <Svg width="40px" height="40px" viewBox="0 0 24 24" id="downloads">
-    <Rect id="Rectangle_3" data-name="Rectangle 3" width="24" height="24" fill="none" />
+const NavbarDownloadIcon: React.FC<IconProps> = ({stroke = '#6177EE'}) => (
+  <Svg width="30px" height="30px" viewBox="0 0 24 24" id="downloads">
+    <Rect
+      id="Rectangle_3"
+      data-name="Rectangle 3"
+      width="24"
+      height="24"
+      fill="none"
+    />
     <Path
       id="Rectangle"
       d="M6,0V6H0"

@@ -1,11 +1,12 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 import {
-    widthPercentageToDP as wp,
-    heightPercentageToDP as hp,
-  } from '../../../utils/Dimensions';
-  import colors from '../../../utils/Theme'; 
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../../utils/Dimensions';
+import colors from '../../../utils/Theme';
 
 export const styles = StyleSheet.create({
+
     videoCardContainer: {
       padding: wp('4%'),
       flexDirection: 'column', 
@@ -58,3 +59,4 @@ export const styles = StyleSheet.create({
     },
   });
   
+

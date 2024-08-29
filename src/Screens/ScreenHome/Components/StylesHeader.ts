@@ -34,13 +34,15 @@ const styles = StyleSheet.create({
   logoutButton: {
     paddingVertical: hp('1.5%'),
     paddingHorizontal: wp('5%'),
-    backgroundColor: colors.White,
+    // backgroundColor: colors.White,
+
     borderRadius: wp('9.5%'),
     alignItems: 'center',
     marginTop: hp('3%'),
   },
   logoutButtonText: {
-    color: colors.Primary,
+    color: colors.White,
+
     fontSize: wp('4%'),
     fontWeight: 'bold',
   },
