@@ -20,8 +20,8 @@ export const styles = StyleSheet.create({
     fontSize: wp('11%'),
     color: colors.White,
     position: 'absolute',
-    top: hp('12%'),
-    left: wp('5%'),
+    top: hp('12%'), 
+    left: wp('5%'), 
   },
   LoginInput: {
     borderRadius: 12,
@@ -31,11 +31,11 @@ export const styles = StyleSheet.create({
     width: wp('80%'),
     alignSelf: 'center',
     borderColor: colors.Primary,
-    top: hp('12.8%'),
+    top: hp('12.8%'), 
   },
   errorText: {
     color: colors.ErrorColor,
-    bottom: hp('-12%'),
+    bottom: hp('-12%'), 
     marginLeft: wp('7%'),
   },
   Loginbutton: {
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
     borderRadius: wp('7%'),
     width: wp('80%'),
     alignSelf: 'center',
-    top: hp('14.6%'),
+    top: hp('14.6%'), 
     alignItems: 'center',
   },
   LoginbuttonText: {
@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
     fontSize: wp('5.5%'),
     fontWeight: 'bold',
     textAlign: 'center',
-    lineHeight: hp('7.5%'),
+    lineHeight: hp('7.5%'), 
   },
   Signupbutton: {
     height: hp('7.5%'),
@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
     width: wp('100%'),
     alignSelf: 'center',
     padding: wp('5%'),
-    position: 'absolute',
+    position:'absolute',
   },
   Iconcard: {
     backgroundColor: colors.IconCardColor,
@@ -98,7 +98,7 @@ export const styles = StyleSheet.create({
   StyleIcon: {
     width: wp('10.5%'),
     right: wp('100%'),
-    bottom: hp('65.2%'),
-    position: 'absolute',
+    bottom: hp('65.2%'),  
+    position:'absolute',
   },
 });

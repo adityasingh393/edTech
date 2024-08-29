@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
   errorText: {
     color: colors.ErrorColor,
     top: hp('17%'),
+
     marginLeft: wp('7%'),
   },
   Signupbutton: {
@@ -81,7 +82,8 @@ export const styles = StyleSheet.create({
   StyleIcon: {
     width: wp('1.5%'),
     right: wp('100%'),
-    position: 'absolute',
-    bottom: hp('60%'),
+    position:'absolute',
+    bottom:hp('60%')
+   
   },
 });

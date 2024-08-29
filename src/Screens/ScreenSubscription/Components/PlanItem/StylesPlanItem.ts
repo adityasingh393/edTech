@@ -1,18 +1,15 @@
-import {StyleSheet} from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from '../../../../utils/Dimensions';
-import colors from '../../../../utils/Theme';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { StyleSheet } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../../../utils/Dimensions';
+import colors from "../../../../utils/Theme";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export const styles = StyleSheet.create({
   planButton: {
-    padding: hp('3%'),
-    marginVertical: hp('1.5%'),
+    padding: hp('3%'), 
+    marginVertical: hp('1.5%'),  
     backgroundColor: colors.SkyBlue,
     color: colors.HeadingColor,
-    borderRadius: wp('2.5%'),
+    borderRadius: wp('2.5%'), 
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowOffset: {width: 0, height: hp('0.5%')},
@@ -34,14 +31,14 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
 
     color: colors.HeadingColor,
-    marginVertical: hp('1%'),
+    marginVertical: hp('1%'), 
   },
   planContent: {
     marginTop: hp('1.5%'),
   },
   planDetail: {
-    fontSize: wp('4.5%'),
+    fontSize: wp('4.5%'), 
     color: colors.HeadingColor,
-    marginVertical: hp('0.5%'),
+    marginVertical: hp('0.5%'),  
   },
 });

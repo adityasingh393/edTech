@@ -1,9 +1,7 @@
-import {StyleSheet} from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from '../../../../utils/Dimensions';
-import colors from '../../../../utils/Theme';
+
+import { StyleSheet } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../../../utils/Dimensions';
+import colors from "../../../../utils/Theme";
 export const localStyles = StyleSheet.create({
   subscribeButton: {
     borderRadius: wp('2%'),
@@ -21,7 +19,7 @@ export const localStyles = StyleSheet.create({
   },
   subscribeButtonText: {
     color: colors.White,
-    fontSize: wp('4.5%'),
+    fontSize: wp('4.5%'), 
     fontWeight: '600',
   },
 });

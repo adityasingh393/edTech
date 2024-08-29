@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     width: wp('6%'),
     height: wp('6%'),
     tintColor: '#fff',
-    marginRight: wp('2%'),
+
+    marginRight: wp('2%'), 
   },
   descriptionTitle: {
     fontSize: wp('5%'),

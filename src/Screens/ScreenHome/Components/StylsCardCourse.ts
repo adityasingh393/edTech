@@ -46,6 +46,7 @@ export const styles = StyleSheet.create({
   fetchedItemsList: {
     maxHeight: hp('55%'),
     paddingHorizontal: wp('1.25%'),
+
     marginBottom: hp('1%'),
   },
   text: {

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, ActivityIndicator, Animated, RefreshControl } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
@@ -5,6 +6,7 @@ import { RootState } from '../../../Redux/store';
 import { fetchDataRequest } from '../Redux/Slices/HomeSlice'; 
 import { cardsData } from '../Utils/Constants';
 import { styles } from './StylsCardCourse';
+
 import CardCourse from './ComponentCardCourseList';
 import { ExpandingDot } from 'react-native-animated-pagination-dots';
 
@@ -15,6 +17,7 @@ const CombinedCardList: React.FC = () => {
     loading,
     error,
   } = useSelector((state: RootState) => state.home);
+  const scrollX = React.useRef(new Animated.Value(0)).current;
 
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const [refreshing, setRefreshing] = useState(loading);
@@ -73,6 +76,25 @@ const CombinedCardList: React.FC = () => {
           fetchedItems: fetchedData.slice(index * 5, index * 5 + 5),
         }))}
         scrollX={scrollX}
+        renderItem={({item}) => <CardCourse item={item} />}
+        keyExtractor={(item, index) => index.toString()}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          {
+            useNativeDriver: false,
+          }
+        )}
+        pagingEnabled
+        snapToAlignment="center"
+        decelerationRate="fast"
+      />
+       <ExpandingDot
+data={cardsData.map((item, index) => ({
+  ...item,
+  fetchedItems: fetchedData.slice(index * 5, index * 5 + 5),
+}))}        scrollX={scrollX}
         inActiveDotOpacity={0.6}
         dotStyle={styles.dotStyle}
         containerStyle={styles.dotContainer}

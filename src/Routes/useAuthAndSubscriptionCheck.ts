@@ -4,6 +4,7 @@ import {
   subscribe,
   unsubscribe,
 } from '../Screens/ScreenSubscription/redux/subscriptionSlice';
+
 import {setUser} from '../Screens/redux/authSlice';
 import {db} from '../utils/storage/db';
 import {RootState} from '../Redux/store';
@@ -13,6 +14,7 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {User} from '../utils/interfaces/types';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {User} from '../utils/interfaces/types';
+
 
 export const useAuthAndSubscriptionCheck = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -75,8 +77,7 @@ export const useAuthAndSubscriptionCheck = () => {
         }
       } catch (error) {
         dispatch(setUser(null));
-      }
-      setTimeout(() => {
+      }   setTimeout(() => {
         setIsLoading(false);
       }, 3000);
     };
@@ -84,6 +85,5 @@ export const useAuthAndSubscriptionCheck = () => {
     checkAuthAndSubscription();
   }, []);
 
-  return {isLoading, checkingSubscription};
   return {isLoading, checkingSubscription};
 };
