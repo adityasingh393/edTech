@@ -5,9 +5,9 @@ const colors = {
   TextColor: '#555',
   ErrorColor: '#FF0000',
   IconCardColor: '#F6F5F5',
-  SapratorColor:'#ddd',
-  HeadingColor:'#1F1F39',
-  SkyBlue:'#CEECFE',
-  DarkBlue:'#6177EE'
+  SapratorColor: '#ddd',
+  HeadingColor: '#1F1F39',
+  SkyBlue: '#CEECFE',
+  DarkBlue: '#6177EE',
 };
 export default colors;

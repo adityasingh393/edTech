@@ -81,7 +81,7 @@ export const styles = StyleSheet.create({
   StyleIcon: {
     width: wp('1.5%'),
     right: wp('100%'),
-    position:'absolute',
-    bottom:hp('60%')
+    position: 'absolute',
+    bottom: hp('60%'),
   },
 });

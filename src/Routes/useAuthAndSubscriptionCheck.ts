@@ -1,6 +1,9 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {subscribe, unsubscribe} from '../Screens/ScreenSubscription/redux/subscriptionSlice';
+import {
+  subscribe,
+  unsubscribe,
+} from '../Screens/ScreenSubscription/redux/subscriptionSlice';
 import {setUser} from '../Screens/redux/authSlice';
 import {db} from '../utils/storage/db';
 import {RootState} from '../Redux/store';
@@ -72,7 +75,8 @@ export const useAuthAndSubscriptionCheck = () => {
         }
       } catch (error) {
         dispatch(setUser(null));
-      }   setTimeout(() => {
+      }
+      setTimeout(() => {
         setIsLoading(false);
       }, 3000);
     };

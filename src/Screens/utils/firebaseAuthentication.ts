@@ -5,8 +5,12 @@ import {setUser} from '../redux/authSlice';
 import {User} from '../../utils/interfaces/types';
 import {Alert} from 'react-native';
 import {AppDispatch} from '../../Redux/store';
-import { setCheckingSubscription, subscribe, unsubscribe } from '../ScreenSubscription/redux/subscriptionSlice';
-import { db } from '../../utils/storage/db';
+import {
+  setCheckingSubscription,
+  subscribe,
+  unsubscribe,
+} from '../ScreenSubscription/redux/subscriptionSlice';
+import {db} from '../../utils/storage/db';
 
 export const signupUser = async (user: User, dispatch: AppDispatch) => {
   try {
@@ -52,20 +56,20 @@ export const loginUser = async (
         password: '',
       };
 
-      
       let uid = currentUser.uid;
 
       dispatch(setUser(user));
 
       if (uid) {
-        dispatch(setCheckingSubscription(true)); 
-        db.transaction((txn) => {
+        dispatch(setCheckingSubscription(true));
+        db.transaction(txn => {
           txn.executeSql(
             'SELECT subscribed_plan_id FROM users WHERE uid = ?',
             [uid],
             (txn, results) => {
               if (results.rows.length > 0) {
-                const subscribedPlanId = results.rows.item(0).subscribed_plan_id;
+                const subscribedPlanId =
+                  results.rows.item(0).subscribed_plan_id;
                 if (subscribedPlanId) {
                   dispatch(subscribe(subscribedPlanId));
                 } else {
@@ -78,8 +82,8 @@ export const loginUser = async (
             },
             () => {
               dispatch(unsubscribe());
-              dispatch(setCheckingSubscription(false)); 
-            }
+              dispatch(setCheckingSubscription(false));
+            },
           );
         });
       } else {
@@ -96,14 +100,13 @@ export const loginUser = async (
   }
 };
 
-
-
-
 export const loginWithGoogle = async (dispatch: AppDispatch) => {
   try {
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    const googleCredential = auth.GoogleAuthProvider.credential(userInfo.idToken);
+    const googleCredential = auth.GoogleAuthProvider.credential(
+      userInfo.idToken,
+    );
     const userCredential = await auth().signInWithCredential(googleCredential);
     const idToken = await userCredential.user.getIdToken();
     await AsyncStorage.setItem('authorisationToken', idToken);
@@ -122,14 +125,15 @@ export const loginWithGoogle = async (dispatch: AppDispatch) => {
       dispatch(setUser(user));
 
       if (uid) {
-        dispatch(setCheckingSubscription(true)); 
-        db.transaction((txn) => {
+        dispatch(setCheckingSubscription(true));
+        db.transaction(txn => {
           txn.executeSql(
             'SELECT subscribed_plan_id FROM users WHERE uid = ?',
             [uid],
             (txn, results) => {
               if (results.rows.length > 0) {
-                const subscribedPlanId = results.rows.item(0).subscribed_plan_id;
+                const subscribedPlanId =
+                  results.rows.item(0).subscribed_plan_id;
                 if (subscribedPlanId) {
                   dispatch(subscribe(subscribedPlanId));
                 } else {
@@ -142,8 +146,8 @@ export const loginWithGoogle = async (dispatch: AppDispatch) => {
             },
             () => {
               dispatch(unsubscribe());
-              dispatch(setCheckingSubscription(false)); 
-            }
+              dispatch(setCheckingSubscription(false));
+            },
           );
         });
       } else {
@@ -177,7 +181,6 @@ export const logoutUser = async (dispatch: AppDispatch) => {
       dispatch(setUser(null));
       dispatch(unsubscribe());
     }
-
   } catch (error) {
     console.error('Error logging out:', error);
     Alert.alert('Cannot log you out, please try again.');
