@@ -140,7 +140,6 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
               </View>
             </TouchableOpacity>
           </LinearGradient>
-
         </View>
         <Text style={styles.descriptionTitle}>About Course</Text>
         <Text style={styles.descriptionText}>{description}</Text>
