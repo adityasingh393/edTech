@@ -10,6 +10,7 @@ import SplashScreen from './src/Screens/ScreenSplash/SplashScreen';
 function App(): React.JSX.Element {
   const [isAppReady, setIsAppReady] = useState(false);
 
+
   useEffect(() => {
     createTables();
   }, []);

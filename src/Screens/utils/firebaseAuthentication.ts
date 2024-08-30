@@ -14,7 +14,7 @@ export const signupUser = async (user: User, dispatch: AppDispatch) => {
       user.email,
       user.password,
     );
-     await userCredential.user.updateProfile({
+    await userCredential.user.updateProfile({
       displayName: user.name,
     });
     const idToken = await userCredential.user.getIdToken();
@@ -51,21 +51,23 @@ export const loginUser = async (
         name: currentUser.displayName!,
         password: '',
       };
-
-      
       let uid = currentUser.uid;
 
       dispatch(setUser(user));
 
       if (uid) {
+
         dispatch(setCheckingSubscription(true)); 
         db.transaction((txn) => {
+
           txn.executeSql(
             'SELECT subscribed_plan_id FROM users WHERE uid = ?',
             [uid],
             (txn, results) => {
               if (results.rows.length > 0) {
+
                 const subscribedPlanId = results.rows.item(0).subscribed_plan_id;
+
                 if (subscribedPlanId) {
                   dispatch(subscribe(subscribedPlanId));
                 } else {
@@ -78,6 +80,7 @@ export const loginUser = async (
             },
             () => {
               dispatch(unsubscribe());
+
               dispatch(setCheckingSubscription(false)); 
             }
           );
@@ -129,6 +132,7 @@ export const loginWithGoogle = async (dispatch: AppDispatch) => {
             [uid],
             (txn, results) => {
               if (results.rows.length > 0) {
+
                 const subscribedPlanId = results.rows.item(0).subscribed_plan_id;
                 if (subscribedPlanId) {
                   dispatch(subscribe(subscribedPlanId));
@@ -142,6 +146,7 @@ export const loginWithGoogle = async (dispatch: AppDispatch) => {
             },
             () => {
               dispatch(unsubscribe());
+
               dispatch(setCheckingSubscription(false)); 
             }
           );
@@ -177,7 +182,6 @@ export const logoutUser = async (dispatch: AppDispatch) => {
       dispatch(setUser(null));
       dispatch(unsubscribe());
     }
-
   } catch (error) {
     console.error('Error logging out:', error);
     Alert.alert('Cannot log you out, please try again.');

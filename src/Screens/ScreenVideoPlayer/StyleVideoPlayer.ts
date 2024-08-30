@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
-import colors from '../../utils/Theme'; 
+import colors from '../../utils/Theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     height: hp('25%'),
     marginBottom: hp('2%'),
-    overflow: 'hidden', 
+    overflow: 'hidden',
   },
   detailsContainer: {
     padding: wp('6%'),
@@ -26,8 +26,9 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   watchlistContainer: {
-    width: wp('85%'), 
-    marginBottom: hp('2%'),
+    width: wp('83%'), 
+    marginTop:hp('-3%'),
+    marginBottom: hp('1.5%'),
   },
   watchlistButton: {
     paddingVertical: hp('1.5%'),
@@ -40,7 +41,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: hp('2%'),
-    paddingHorizontal: wp('4%'),
   },
   downloadButton: {
     flexDirection: 'row',
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     width: wp('6%'),
     height: wp('6%'),
     tintColor: '#fff',
+
     marginRight: wp('2%'), 
   },
   descriptionTitle: {

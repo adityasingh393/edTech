@@ -7,6 +7,7 @@ import Wishlist from '../Assets/ImagesData/Watchlist';
 import { AppStackParamList } from '../utils/interfaces/types';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { styles } from './StylesNavbar';
+import Bookmark from '../Assets/ImagesData/BookMark';
 
 type NavigationProp = StackNavigationProp<AppStackParamList>;
 type Route = RouteProp<AppStackParamList>;
@@ -24,17 +25,17 @@ const NavbarComponent: React.FC = () => {
       <TouchableOpacity
         style={styles.iconContainer}
         onPress={() => navigation.navigate('Home')}>
-        <NavbarIconHome stroke={isHomeActive ? 'blue' : '#6177EE'} />
+        <NavbarIconHome stroke={isHomeActive ? 'blue' : '#1b199c'} />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconContainer}
         onPress={() => navigation.navigate('Watchlist')}>
-        <Wishlist stroke={isWishlistActive ? 'blue' : '#6177EE'} /> 
+        <Bookmark stroke={isWishlistActive ? 'blue' : '#1b199c'}  /> 
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconContainer}
         onPress={() => navigation.navigate('Downloads')}>
-        <NavbarDownloadIcon stroke={isDownloadsActive ? 'blue' : '#6177EE'} />
+        <NavbarDownloadIcon stroke={isDownloadsActive ? 'blue' : '#1b199c'} />
       </TouchableOpacity>
     </View>
   );

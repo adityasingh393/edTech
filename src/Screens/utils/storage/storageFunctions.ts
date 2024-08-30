@@ -1,14 +1,16 @@
 import RNFetchBlob from 'rn-fetch-blob';
-import { Alert, DeviceEventEmitter } from 'react-native';
+import {Alert, DeviceEventEmitter} from 'react-native';
 
 const STORAGE_DIR = `${RNFetchBlob.fs.dirs.CacheDir}/MyAppVideos`;
 
-export const checkAvailableStorage = async (requiredSpaceMB: number): Promise<boolean> => {
+export const checkAvailableStorage = async (
+  requiredSpaceMB: number,
+): Promise<boolean> => {
   try {
-    const stat = await RNFetchBlob.fs.df(); 
+    const stat = await RNFetchBlob.fs.df();
 
-    console.log('Disk space information:', stat); 
-    const availableSpaceBytes = parseInt(stat.internal_free, 10); 
+    console.log('Disk space information:', stat);
+    const availableSpaceBytes = parseInt(stat.internal_free, 10);
     if (isNaN(availableSpaceBytes)) {
       Alert.alert('Error', 'Unable to retrieve storage information.');
       return false;
@@ -34,14 +36,16 @@ export const downloadVideo = async (
 
   try {
     const existingData = await fetchDownloadedVideos();
-    const videoAlreadyDownloaded = existingData.some(video => video.contentId === contentId);
+    const videoAlreadyDownloaded = existingData.some(
+      video => video.contentId === contentId,
+    );
     if (videoAlreadyDownloaded) {
       Alert.alert('Info', 'This video has already been downloaded.');
       onDownloadFailed();
       return;
     }
 
-    const hasEnoughSpace = await checkAvailableStorage(2); 
+    const hasEnoughSpace = await checkAvailableStorage(2);
     if (!hasEnoughSpace) {
       Alert.alert('Error', 'Not enough storage available.');
       return;
@@ -50,7 +54,7 @@ export const downloadVideo = async (
       path: videoPath,
     })
       .fetch('GET', videoUrl)
-      .progress({ interval: 100 }, (received, total) => {
+      .progress({interval: 100}, (received, total) => {
         const progress = Math.floor((received / total) * 100);
         DeviceEventEmitter.emit('DownloadProgress', progress);
       })
@@ -70,14 +74,17 @@ const saveDownloadMetadata = async (
   contentId: number,
   title: string,
   thumbnailUrl: string,
-  videoPath: string
+  videoPath: string,
 ) => {
-  const metadata = { contentId, title, thumbnailUrl, videoPath };
+  const metadata = {contentId, title, thumbnailUrl, videoPath};
   const existingData = await fetchDownloadedVideos();
   existingData.push(metadata);
-  await RNFetchBlob.fs.writeFile(`${STORAGE_DIR}/metadata.json`, JSON.stringify(existingData), 'utf8');
+  await RNFetchBlob.fs.writeFile(
+    `${STORAGE_DIR}/metadata.json`,
+    JSON.stringify(existingData),
+    'utf8',
+  );
 };
-
 
 export const fetchDownloadedVideos = async (): Promise<any[]> => {
   const filePath = `${STORAGE_DIR}/metadata.json`;
@@ -97,8 +104,14 @@ export const deleteVideo = async (contentId: string): Promise<void> => {
     await RNFetchBlob.fs.unlink(videoPath);
 
     const existingData = await fetchDownloadedVideos();
-    const updatedData = existingData.filter(item => item.contentId !== contentId);
-    await RNFetchBlob.fs.writeFile(metadataPath, JSON.stringify(updatedData), 'utf8');
+    const updatedData = existingData.filter(
+      item => item.contentId !== contentId,
+    );
+    await RNFetchBlob.fs.writeFile(
+      metadataPath,
+      JSON.stringify(updatedData),
+      'utf8',
+    );
 
     Alert.alert('Success', 'Video deleted successfully.');
   } catch (error) {

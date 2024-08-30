@@ -147,6 +147,7 @@ const WatchlistScreen: React.FC<WatchlistScreenProps> = () => {
         <TouchableOpacity onPress={() => handleRemoveFromWatchlist(item.contentId)}>
           <LinearGradient
             colors={['#C72FF8', '#6177EE', '#6177EE']} 
+            start={{x: 0.9, y: -0.3}}
             style={styles.removeButtonContainer}
           >
             <Text style={styles.removeButtonText}>Remove</Text>

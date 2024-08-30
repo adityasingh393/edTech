@@ -1,8 +1,10 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
+
 } from '../../utils/Dimensions'; 
+
 import colors from '../../utils/Theme';
 export const styles = StyleSheet.create({
   container: {
@@ -15,5 +17,4 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
-  
 });

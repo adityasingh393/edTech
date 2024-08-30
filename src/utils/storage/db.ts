@@ -3,10 +3,8 @@ import SQLite from 'react-native-sqlite-storage';
 export const db = SQLite.openDatabase(
   { name: 'Subscription.db', location: 'default' },
   () => {
-    console.log('Database opened');
+    
     db.executeSql('PRAGMA foreign_keys = ON;', [], 
-      () => console.log('Foreign keys enabled'), 
-      error => console.error('Error enabling foreign keys: ', error)
     );
   },
   error => console.error('Error opening database: ', error),
@@ -47,8 +45,7 @@ export const createTables = () => {
         FOREIGN KEY(subscribed_plan_id) REFERENCES plans(id)
       );`,
       [],
-      () => console.log('Users table created or already exists.'),
-      error => console.error('Error creating users table: ', error),
+      
     );
 
     txn.executeSql(
@@ -64,8 +61,7 @@ export const createTables = () => {
          UNIQUE(user_id, contentId)
       );`,
       [],
-      () => console.log('Watchlist table created or already exists.'),
-      error => console.error('Error creating watchlist table: ', error),
+      
     );
   });
 };

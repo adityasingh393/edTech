@@ -1,12 +1,15 @@
+
 import { StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
 import colors from '../../utils/Theme';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor:colors.White,
+
   },
   scrollContainer: {
     flexGrow: 1,
@@ -66,7 +69,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: '#888',
     shadowOpacity: 0.3,
-    shadowOffset: { width: 0, height: 3 },
+    shadowOffset: {width: 0, height: 3},
     shadowRadius: 5,
     borderWidth: 1,
     borderColor: colors.SapratorColor,

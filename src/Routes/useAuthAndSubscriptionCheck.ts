@@ -1,6 +1,10 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {subscribe, unsubscribe} from '../Screens/ScreenSubscription/redux/subscriptionSlice';
+import {
+  subscribe,
+  unsubscribe,
+} from '../Screens/ScreenSubscription/redux/subscriptionSlice';
+
 import {setUser} from '../Screens/redux/authSlice';
 import {db} from '../utils/storage/db';
 import {RootState} from '../Redux/store';
@@ -8,6 +12,8 @@ import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {User} from '../utils/interfaces/types';
+
+
 
 export const useAuthAndSubscriptionCheck = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +27,7 @@ export const useAuthAndSubscriptionCheck = () => {
         if (token) {
           const currentUser = auth().currentUser;
           const googleUser = await GoogleSignin.getCurrentUser();
-          
+
           let uid: string | null = null;
 
           if (currentUser) {
@@ -31,13 +37,14 @@ export const useAuthAndSubscriptionCheck = () => {
           }
           if (uid) {
             setCheckingSubscription(true);
-            db.transaction((txn) => {
+            db.transaction(txn => {
               txn.executeSql(
                 'SELECT subscribed_plan_id FROM users WHERE uid = ?',
                 [uid],
                 (txn, results) => {
                   if (results.rows.length > 0) {
-                    const subscribedPlanId = results.rows.item(0).subscribed_plan_id;
+                    const subscribedPlanId =
+                      results.rows.item(0).subscribed_plan_id;
                     if (subscribedPlanId) {
                       dispatch(subscribe(subscribedPlanId));
                     } else {
@@ -51,7 +58,7 @@ export const useAuthAndSubscriptionCheck = () => {
                 () => {
                   dispatch(unsubscribe());
                   setCheckingSubscription(false);
-                }
+                },
               );
             });
 
@@ -79,4 +86,3 @@ export const useAuthAndSubscriptionCheck = () => {
 
   return {isLoading, checkingSubscription};
 };
-
