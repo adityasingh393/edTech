@@ -14,6 +14,7 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {User} from '../utils/interfaces/types';
 
 
+
 export const useAuthAndSubscriptionCheck = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [checkingSubscription, setCheckingSubscription] = useState(false);

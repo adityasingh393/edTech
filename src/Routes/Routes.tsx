@@ -18,6 +18,7 @@ import SplashScreen from '../Screens/ScreenSplash/SplashScreen';
 import { createSelector } from 'reselect';
 import { styles } from '../Screens/ScreenSplash/SplashStyle';
 import LottieView from 'lottie-react-native';
+import WatchlistScreen from '../Screens/ScreenWatchlist/WatchlistScreen';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 const AppStack = createStackNavigator<AppStackParamList>();
@@ -35,6 +36,7 @@ const SubscribedNavigator = () => (
   <AppStack.Navigator initialRouteName="Home">
     <AppStack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
     <AppStack.Screen name="Video" component={ScreenVideoPlayer} options={{headerShown: false}} />
+    <AppStack.Screen name='Watchlist' component={WatchlistScreen} options={{headerTitle: 'Watchlist'}}/>
     <AppStack.Screen name="Downloads" component={DownloadedVideosScreen} options={{headerTitle: 'Downloads'}} />
   </AppStack.Navigator>
 );

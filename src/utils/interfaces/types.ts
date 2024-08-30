@@ -24,6 +24,7 @@ export type AppStackParamList = {
     thumbnailUrl: string;
     description: string;
   };
+  Watchlist:undefined;
   Downloads: undefined;
 };
 
@@ -57,6 +58,7 @@ export type WelcomePageProps = StackScreenProps<
   RootStackParamList,
   'WelcomePageSub'
 >;
+export type WatchlistScreenProps =StackScreenProps<AppStackParamList,'Watchlist'>;
 export type SubscriptionPageNavigationProp = StackScreenProps<
   RootStackParamList,
   'ScreenSubscription'
