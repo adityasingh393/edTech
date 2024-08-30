@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 20,
-    height: wp('173.5%'),
+    height: wp('178.5%'),
     marginHorizontal: wp('4.5%'),
     marginBottom: hp('2.5%'),
     width: wp('90.5%'),

@@ -25,6 +25,17 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 10,
   },
+  watchlistContainer: {
+    width: wp('83%'), 
+    marginTop:hp('-3%'),
+    marginBottom: hp('1.5%'),
+  },
+  watchlistButton: {
+    paddingVertical: hp('1.5%'),
+    paddingHorizontal: wp('4%'),
+    borderRadius: wp('7%'),
+    alignItems: 'center',
+  },
   downloadContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -66,12 +77,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  downloadsTouchable: {
-    paddingVertical: hp('1%'),
-    paddingHorizontal: wp('2%'),
-    borderRadius: wp('7%'),
-    marginLeft: wp('30%'),
-  },
 });
-
 export default styles;
