@@ -11,13 +11,6 @@ function App(): React.JSX.Element {
   const [isAppReady, setIsAppReady] = useState(false);
 
   useEffect(() => {
-    GoogleSignin.configure({
-      offlineAccess: true,
-      webClientId: 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
-    });
-  }, []);
-
-  useEffect(() => {
     createTables();
   }, []);
 
