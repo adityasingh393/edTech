@@ -1,11 +1,10 @@
 import React, {useRef, useState} from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 import Video, {OnProgressData} from 'react-native-video';
 import Slider from '@react-native-community/slider';
 import Orientation from 'react-native-orientation-locker';
 import {
   heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
 } from '../../../utils/Dimensions';
 import {
   ForwardButton,
@@ -16,6 +15,8 @@ import {
   FullScreenButton,
 } from '../../../Assets/constants';
 import styles from './StylesMediaPlayer';
+import { VolumeManager } from 'react-native-volume-manager';
+import VerticalSlider from 'rn-vertical-slider-matyno';
 const MediaPlayer: React.FC<{videoUri: string}> = ({videoUri}) => {
   const [clicked, setClicked] = useState<boolean>(false);
   const [paused, setPaused] = useState<boolean>(true);
@@ -26,7 +27,10 @@ const MediaPlayer: React.FC<{videoUri: string}> = ({videoUri}) => {
     currentTime: 0,
     seekableDuration: 0,
   });
+  const [volume, setVolume] = React.useState(0.5);
+  const [videoPressed, setVideoPressed] = useState(false);
   const [fullScreen, setFullScreen] = useState<boolean>(false);
+  const [showVolumeSlider, setShowVolumeSlider] = useState<boolean>(false);
   const videoRef = useRef<any>(null);
 
   const formatTime = (seconds: number): string => {
@@ -50,6 +54,13 @@ const MediaPlayer: React.FC<{videoUri: string}> = ({videoUri}) => {
     videoRef.current?.seek(time);
   };
 
+  const handleVolumeChange = async (value: number) => {
+    VolumeManager.showNativeVolumeUI({ enabled: false });
+    await VolumeManager.setVolume(value);
+    setVolume(value);
+    const { volume: currentVolume } = await VolumeManager.getVolume();
+    console.log(currentVolume);
+};
   const toggleFullScreen = () => {
     if (fullScreen) {
       Orientation.lockToPortrait();
@@ -72,7 +83,7 @@ const MediaPlayer: React.FC<{videoUri: string}> = ({videoUri}) => {
           source={{uri: videoUri}}
           ref={videoRef}
           onProgress={handleProgress}
-          volume={1.0}
+          volume={volume}
           style={[styles.video, {height: fullScreen ? '100%' : hp('25%')}]}
           resizeMode="contain"
         />
@@ -94,6 +105,22 @@ const MediaPlayer: React.FC<{videoUri: string}> = ({videoUri}) => {
                 <Image source={ForwardButton} style={styles.icon} />
               </TouchableOpacity>
             </View>
+            <View style={styles.volumeSlider}>
+                <VerticalSlider
+                    value={volume}
+                    disabled={false}
+                    min={0.1}
+                    max={1}
+                    onChange={handleVolumeChange}
+                    width={3}
+                    height={80}
+                    step={0.1}
+                    borderRadius={2}
+                    minimumTrackTintColor={"white"}
+                    maximumTrackTintColor={"gray"}
+                />
+            </View>
+
             <View style={styles.sliderContainer}>
               <Text style={styles.timeText}>
                 {formatTime(progress.currentTime)}
@@ -111,6 +138,7 @@ const MediaPlayer: React.FC<{videoUri: string}> = ({videoUri}) => {
                 {formatTime(progress.seekableDuration)}
               </Text>
             </View>
+
             <View style={styles.fullScreenToggleContainer}>
               <TouchableOpacity onPress={toggleFullScreen}>
                 <Image

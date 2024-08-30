@@ -68,6 +68,17 @@ const styles = StyleSheet.create({
     top: hp('2%'),
     right: wp('5%'),
   },
+  volumeSlider:{
+    top:hp('7%'),
+    width: '15%',
+    height: '50%',
+    flexDirection: 'column',
+    position: 'absolute',
+    bottom: 120,
+    left: wp('10%'),
+    paddingRight: 60,
+    alignItems: 'center',
+  }
 });
 export default styles;
 
