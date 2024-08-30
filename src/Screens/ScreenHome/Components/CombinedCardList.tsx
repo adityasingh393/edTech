@@ -17,7 +17,6 @@ const CombinedCardList: React.FC = () => {
     loading,
     error,
   } = useSelector((state: RootState) => state.home);
-  const scrollX = React.useRef(new Animated.Value(0)).current;
 
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const [refreshing, setRefreshing] = useState(loading);
@@ -65,31 +64,11 @@ const CombinedCardList: React.FC = () => {
             <RefreshControl
               refreshing={refreshing}
               onRefresh={onRefresh}
-              // colors={['#0000ff']}
+              colors={['#0000ff']}
             />
           }
         />
       )}
-      <ExpandingDot
-        data={cardsData.map((item, index) => ({
-          ...item,
-          fetchedItems: fetchedData.slice(index * 5, index * 5 + 5),
-        }))}
-        scrollX={scrollX}
-        renderItem={({item}) => <CardCourse item={item} />}
-        keyExtractor={(item, index) => index.toString()}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          {
-            useNativeDriver: false,
-          }
-        )}
-        pagingEnabled
-        snapToAlignment="center"
-        decelerationRate="fast"
-      />
        <ExpandingDot
 data={cardsData.map((item, index) => ({
   ...item,

@@ -12,8 +12,6 @@ import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {User} from '../utils/interfaces/types';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {User} from '../utils/interfaces/types';
 
 
 export const useAuthAndSubscriptionCheck = () => {
