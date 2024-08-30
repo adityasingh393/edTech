@@ -42,7 +42,7 @@ const DownloadedVideosScreen: React.FC = () => {
           renderItem={({item}) => (
             <View style={styles.videoItem}>
               <Text style={styles.videoTitle}>{item.title}</Text>
-              <MediaPlayer videoUri={item.videoPath} />
+              <MediaPlayer videoUri={item.videoPath} canDownload={false}/>
               <View style={styles.actionsContainer}>
                 <TouchableOpacity
                   onPress={() => handleDeleteVideo(item.contentId)}>

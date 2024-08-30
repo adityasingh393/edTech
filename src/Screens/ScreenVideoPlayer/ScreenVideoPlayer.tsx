@@ -14,7 +14,6 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
   const { videoUri, title, contentId, thumbnailUrl, description } = route.params;
-  const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [isInWatchlist, setIsInWatchlist] = useState<boolean>(false); 
 
   useEffect(() => {
@@ -53,29 +52,9 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
     checkIfInWatchlist();
   }, [contentId]);
 
+
   const handleDownloadPdf = async () => {
     await downloadPdf();
-  };
-
-  const handleDownloadVideo = async () => {
-    setIsDownloading(true);
-    downloadVideo(
-      contentId,
-      videoUri,
-      title,
-      thumbnailUrl,
-      () => {
-        setIsDownloading(false);
-        Alert.alert('Success', 'Video downloaded successfully.');
-      },
-      () => {
-        setIsDownloading(false);
-        Alert.alert('video has already been downloaded');
-      }
-    ).catch(() => {
-      setIsDownloading(false);
-      Alert.alert('Error', 'Failed to download video.');
-    });
   };
 
   const handleAddToWatchlist = async () => {
@@ -125,12 +104,14 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
       );
     });
   };
-
   return (
     <View style={styles.container}>
       <NavbarComponent />
       <View style={styles.mediaPlayerContainer}>
-        <MediaPlayer videoUri={videoUri} />
+        <MediaPlayer videoUri={videoUri} canDownload={true}
+          contentId={contentId}  
+          title={title}
+          thumbnailUrl={thumbnailUrl} />
       </View>
       <View style={styles.detailsContainer}>
         <View style={styles.watchlistContainer}>
@@ -159,17 +140,7 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
               </View>
             </TouchableOpacity>
           </LinearGradient>
-          <LinearGradient
-            colors={['#C72FF8', '#6177EE', '#6177EE']}
-            start={{ x: 0.9, y: -0.3 }}
-            style={styles.downloadButton}
-          >
-            <TouchableOpacity onPress={handleDownloadVideo} disabled={isDownloading}>
-              <Text style={styles.downloadText}>
-                {isDownloading ? 'Downloading...' : 'Download Video'}
-              </Text>
-            </TouchableOpacity>
-          </LinearGradient>
+
         </View>
         <Text style={styles.descriptionTitle}>About Course</Text>
         <Text style={styles.descriptionText}>{description}</Text>

@@ -78,6 +78,10 @@ const styles = StyleSheet.create({
     left: wp('10%'),
     paddingRight: 60,
     alignItems: 'center',
+  },
+  downloadButton:{
+right:wp('58.5%'),
+    top:hp('-9%')
   }
 });
 export default styles;
