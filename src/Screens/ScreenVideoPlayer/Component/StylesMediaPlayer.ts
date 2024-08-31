@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../../utils/Dimensions';
 import colors from '../../../utils/Theme';
+import { Fonts } from '../../../utils/Fonts';
 const styles = StyleSheet.create({
   container: {
     width: '100%',
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
     height: hp('5%'),
   },
   timeText: {
+    fontFamily:Fonts.PoppinsRegular,
     color: colors.White,
   },
   fullScreenToggleContainer: {

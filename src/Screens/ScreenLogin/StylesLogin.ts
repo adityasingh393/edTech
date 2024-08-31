@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
 import colors from '../../utils/Theme';
+import { Fonts } from '../../utils/Fonts';
 
 export const styles = StyleSheet.create({
   scrollContainer: {
@@ -16,7 +17,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   Headingtext: {
-    fontWeight: '400',
+    fontFamily:Fonts.PoppinsBold,
+    // fontWeight: '400',
     fontSize: wp('11%'),
     color: colors.White,
     position: 'absolute',
@@ -24,6 +26,7 @@ export const styles = StyleSheet.create({
     left: wp('5%'), 
   },
   LoginInput: {
+    fontFamily:Fonts.PoppinsRegular,
     borderRadius: 12,
     borderWidth: 1.5,
     padding: hp('2%'),
@@ -34,6 +37,7 @@ export const styles = StyleSheet.create({
     top: hp('12.8%'), 
   },
   errorText: {
+    fontFamily:Fonts.PoppinsRegular,
     color: colors.ErrorColor,
     bottom: hp('-12%'), 
     marginLeft: wp('7%'),
@@ -47,9 +51,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   LoginbuttonText: {
+    fontFamily:Fonts.PoppinsBold,
     color: colors.White,
     fontSize: wp('5.5%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     textAlign: 'center',
     lineHeight: hp('7.5%'), 
   },
@@ -61,9 +66,10 @@ export const styles = StyleSheet.create({
     top: hp('18%'),
   },
   SignupbuttonText: {
+    fontFamily:Fonts.PoppinsBold,
     color: colors.White,
     fontSize: wp('5.5%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     textAlign: 'center',
     lineHeight: hp('8%'),
   },

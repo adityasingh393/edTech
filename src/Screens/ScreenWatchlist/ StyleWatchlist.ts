@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../utils/Theme';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
+import { Fonts } from '../../utils/Fonts';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,8 +10,9 @@ const styles = StyleSheet.create({
     padding: wp('4.5%'), 
   },
   header: {
+    fontFamily:Fonts.PoppinsBold,
     fontSize: wp('7%'), 
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: colors.HeadingColor,
     marginBottom: hp('3%'), 
   },
@@ -38,17 +40,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
+    fontFamily:Fonts.PoppinsBold,
     fontSize: wp('5%'), 
-    fontWeight: '500',
+    // fontWeight: '500',
     color: colors.HeadingColor,
     marginBottom: hp('0.5%'), 
   },
   removeButton: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('4.5%'), 
     color: colors.DarkBlue,
     marginTop: hp('1%'), 
   },
   emptyMessage: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('5%'), 
     color: colors.HeadingColor,
     textAlign: 'center',
@@ -67,6 +72,7 @@ const styles = StyleSheet.create({
   },
   
   removeButtonText: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('4%'),
     color: colors.White,
   },

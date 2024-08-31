@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../../../utils/Dimensions';
 import colors from "../../../../utils/Theme";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { Fonts } from "../../../../utils/Fonts";
 
 export const styles = StyleSheet.create({
   planButton: {
@@ -27,8 +28,9 @@ export const styles = StyleSheet.create({
     color: colors.HeadingColor,
   },
   planPrice: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('5%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
 
     color: colors.HeadingColor,
     marginVertical: hp('1%'), 
@@ -37,6 +39,7 @@ export const styles = StyleSheet.create({
     marginTop: hp('1.5%'),
   },
   planDetail: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('4.5%'), 
     color: colors.HeadingColor,
     marginVertical: hp('0.5%'),  

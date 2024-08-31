@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../../utils/Dimensions';
 import colors from '../../../utils/Theme';
+import { Fonts } from '../../../utils/Fonts';
 
 export const styles = StyleSheet.create({
 
@@ -45,6 +46,7 @@ export const styles = StyleSheet.create({
       borderRadius: 10,
     },
     closeButtonText: {
+      fontFamily:Fonts.PoppinsRegular,
       color: colors.White,
       fontSize: wp('4%'),
       textAlign: 'center',
