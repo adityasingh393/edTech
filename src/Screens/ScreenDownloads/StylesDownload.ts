@@ -16,9 +16,9 @@ const styles = StyleSheet.create({
   noVideosText: {
     fontFamily:Fonts.PoppinsRegular,
     textAlign: 'center',
-    marginTop: hp('20%'),
+    marginTop: hp('30%'),
     fontSize: wp('5%'),
-    color: colors.TextColor,
+    color: colors.HeadingColor,
   },
   videoItem: {
     backgroundColor: colors.White,
