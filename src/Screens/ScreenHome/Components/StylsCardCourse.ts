@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../../utils/Dimensions';
 import colors from '../../../utils/Theme';
+import { Fonts } from '../../../utils/Fonts';
 
 export const styles = StyleSheet.create({
   CardCoursecontainer: {
@@ -32,10 +33,11 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   CardCourseTitle: {
+    fontFamily:Fonts.PoppinsBold,
     marginLeft: wp('1.25%'),
     marginTop: hp('1.25%'),
     fontSize: wp('5%'),
-    fontWeight: '700',
+    // fontWeight: '700',
     color: colors.HeadingColor,
   },
   separator: {
@@ -50,6 +52,7 @@ export const styles = StyleSheet.create({
     marginBottom: hp('1%'),
   },
   text: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('3.75%'),
     color: colors.TextColor,
     marginBottom: hp('0.5%'),
@@ -60,8 +63,9 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   title: {
+    fontFamily:Fonts.PoppinsBold,
     fontSize: wp('4%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: colors.HeadingColor,
     marginBottom: hp('1%'),
   },
@@ -75,6 +79,7 @@ export const styles = StyleSheet.create({
     marginLeft: wp('1.25%'),
   },
   error: {
+    fontFamily:Fonts.PoppinsRegular,
     color: colors.ErrorColor,
   },
   durationContainer: {

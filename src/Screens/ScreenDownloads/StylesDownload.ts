@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
 import colors from '../../utils/Theme';
+import { Fonts } from '../../utils/Fonts';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,10 +14,11 @@ const styles = StyleSheet.create({
     paddingTop: hp('2%'),
   },
   noVideosText: {
+    fontFamily:Fonts.PoppinsRegular,
     textAlign: 'center',
-    marginTop: hp('20%'),
+    marginTop: hp('30%'),
     fontSize: wp('5%'),
-    color: colors.TextColor,
+    color: colors.HeadingColor,
   },
   videoItem: {
     backgroundColor: colors.White,
@@ -30,6 +32,7 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   videoTitle: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('4.5%'),
     fontWeight: '600',
     color: colors.TextColor,
@@ -41,6 +44,7 @@ const styles = StyleSheet.create({
     marginTop: hp('1%'),
   },
   deleteButton: {
+    fontFamily:Fonts.PoppinsRegular,
     color: colors.Primary,
     fontSize: wp('4%'),
     fontWeight: '600',

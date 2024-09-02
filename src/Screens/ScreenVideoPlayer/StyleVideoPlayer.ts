@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
 import colors from '../../utils/Theme';
+import { Fonts } from '../../utils/Fonts';
 
 const styles = StyleSheet.create({
   container: {
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
     borderRadius: wp('7%'),
   },
   downloadText: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('4%'),
     color: '#fff',
     textAlign: 'center',
@@ -63,12 +65,14 @@ const styles = StyleSheet.create({
     marginRight: wp('2%'), 
   },
   descriptionTitle: {
+    fontFamily:Fonts.PoppinsBold,
     fontSize: wp('5%'),
     color: colors.Secondary,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     marginBottom: hp('1%'),
   },
   descriptionText: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('4%'),
     color: colors.TextColor,
     letterSpacing: 0.5,

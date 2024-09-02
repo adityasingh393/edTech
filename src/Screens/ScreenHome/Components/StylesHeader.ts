@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../../utils/Dimensions';
 import colors from '../../../utils/Theme';
+import { Fonts } from '../../../utils/Fonts';
 
 const styles = StyleSheet.create({
   headerContainer: {
@@ -26,9 +27,10 @@ const styles = StyleSheet.create({
     borderRadius: wp('5%'),
   },
   headerText: {
+    fontFamily:Fonts.PoppinsBold,
     fontSize: wp('5.5%'),
     color: colors.White,
-    fontWeight: '700',
+    // fontWeight: '700',
     marginLeft: wp('3%'),
   },
   logoutButton: {
@@ -41,6 +43,7 @@ const styles = StyleSheet.create({
     marginTop: hp('3%'),
   },
   logoutButtonText: {
+    fontFamily:Fonts.PoppinsRegular,
     color: colors.White,
 
     fontSize: wp('4%'),

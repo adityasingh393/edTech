@@ -114,8 +114,7 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
           thumbnailUrl={thumbnailUrl} />
       </View>
       <View style={styles.detailsContainer}>
-        {/* <View style={styles.watchlistContainer}>
-        </View> */}
+
         <View style={styles.downloadContainer}>
           <LinearGradient
             colors={['#C72FF8', '#6177EE', '#6177EE']}

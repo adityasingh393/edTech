@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
 import colors from '../../utils/Theme';
+import { Fonts } from '../../utils/Fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -24,9 +25,10 @@ export const styles = StyleSheet.create({
     top: hp('7.5%'),
   },
   Headertitle: {
+    fontFamily:Fonts.PoppinsBold,
     top: hp('3.7%'),
     fontSize: wp('12%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     marginBottom: hp('1.2%'),
     textAlign: 'center',
     color: colors.Secondary,
@@ -36,7 +38,7 @@ export const styles = StyleSheet.create({
     height: hp('7.3%'),
     borderRadius: wp('12%'),
     left: wp('9.8%'),
-    top: hp('13.5%'),
+    top: hp('10%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -48,13 +50,15 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
+    fontFamily:Fonts.PoppinsRegular,
     color: colors.White,
     fontSize: wp('5.3%'),
     textAlign: 'center',
   },
   infotext: {
+    fontFamily:Fonts.PoppinsRegular,
     textAlign: 'center',
-    top: hp('7%'),
+    top: hp('4%'),
     lineHeight: hp('3.3%'),
     fontSize: wp('4.7%'),
     color: colors.TextColor,
@@ -66,9 +70,10 @@ export const styles = StyleSheet.create({
     height: hp('35%'),
   },
   BrandHeader: {
-    top: hp('3.7%'),
+    fontFamily:Fonts.PoppinsBold,
+    top: hp('2.6%'),
     fontSize: wp('10%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     marginBottom: hp('1.2%'),
     textAlign: 'center',
     color: colors.Primary,

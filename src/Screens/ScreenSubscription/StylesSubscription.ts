@@ -3,6 +3,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
+import { Fonts } from '../../utils/Fonts';
 
 export const styles = StyleSheet.create({
   safeArea: {
@@ -19,8 +20,9 @@ export const styles = StyleSheet.create({
     paddingVertical: hp('3%'),
   },
   title: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('7%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: '#6177EE',
     marginBottom: hp('3%'),
     textAlign: 'center',

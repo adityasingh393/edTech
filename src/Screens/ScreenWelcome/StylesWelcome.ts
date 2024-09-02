@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../utils/Dimensions';
 import colors from '../../utils/Theme';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Fonts } from '../../utils/Fonts';
 
 
 export const styles = StyleSheet.create({
@@ -16,26 +17,29 @@ export const styles = StyleSheet.create({
   },
   WelcomeContainer: {
     flex: 1,
-    paddingTop: hp('2%'),
-    marginTop: hp('10%'),
+    paddingTop: hp('1%'),
+    marginTop: hp('8%'),
     paddingHorizontal: wp('5%'),
     backgroundColor: colors.White,
     justifyContent: 'center',
   },
   WelcomeTitle: {
+    fontFamily:Fonts.PoppinsBold,
     fontSize: wp('6%'),
     marginBottom: hp('2%'),
     textAlign: 'center',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: colors.HeadingColor,
   },
   WelcomeText: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('4.5%'),
     marginBottom: hp('2%'),
     textAlign: 'center',
     color: colors.HeadingColor,
   },
   subTitle: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('5%'),
     marginBottom: hp('1%'),
     fontWeight: 'bold',
@@ -52,9 +56,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   subscribeButtonText: {
+    fontFamily:Fonts.PoppinsBold,
     color: colors.White,
     fontSize: wp('4%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
   },
   videoCardContainer: {
     flexDirection: 'column',
@@ -78,6 +83,7 @@ export const styles = StyleSheet.create({
     height: hp('20%'),
   },
   videoButtonText: {
+    fontFamily:Fonts.PoppinsRegular,
     fontSize: wp('4%'),
     color: colors.HeadingColor,
     marginLeft: wp('2.5%'),
@@ -102,6 +108,7 @@ export const styles = StyleSheet.create({
     marginBottom: hp('2%'),
   },
   closeButtonText: {
+    fontFamily:Fonts.PoppinsRegular,
     color: colors.White,
     fontWeight: 'bold',
     fontSize: wp('4%'),

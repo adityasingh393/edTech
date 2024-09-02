@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from '../../utils/Dimensions';
 import colors from '../../utils/Theme';
+import { Fonts } from '../../utils/Fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -12,7 +13,8 @@ export const styles = StyleSheet.create({
   },
 
   Headingtext: {
-    fontWeight: '400',
+    fontFamily:Fonts.PoppinsBold,
+    // fontWeight: '400',
     fontSize: wp('11%'),
     color: colors.White,
     position: 'absolute',
@@ -20,6 +22,7 @@ export const styles = StyleSheet.create({
     left: wp('5%'),
   },
   SignupInput: {
+    fontFamily:Fonts.PoppinsRegular,
     borderRadius: 12,
     borderWidth: 1.5,
     padding: hp('2%'),
@@ -30,6 +33,7 @@ export const styles = StyleSheet.create({
     top: hp('17.5%'),
   },
   errorText: {
+    fontFamily:Fonts.PoppinsRegular,
     color: colors.ErrorColor,
     top: hp('17%'),
 
@@ -44,9 +48,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   SignupbuttonText: {
+    fontFamily:Fonts.PoppinsBold,
     color: colors.White,
     fontSize: wp('5.5%'),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     textAlign: 'center',
     lineHeight: hp('8%'),
   },
