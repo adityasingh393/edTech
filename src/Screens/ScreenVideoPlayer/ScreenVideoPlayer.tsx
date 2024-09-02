@@ -114,19 +114,8 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
           thumbnailUrl={thumbnailUrl} />
       </View>
       <View style={styles.detailsContainer}>
-        <View style={styles.watchlistContainer}>
-          <LinearGradient
-            colors={['#C72FF8', '#6177EE', '#6177EE']}
-            start={{ x: 0.9, y: -0.3 }}
-            style={styles.watchlistButton}
-          >
-            <TouchableOpacity onPress={handleAddToWatchlist} disabled={isInWatchlist}>
-              <Text style={styles.downloadText}>
-                {isInWatchlist ? 'Already in Watchlist' : 'Add to Watchlist'}
-              </Text>
-            </TouchableOpacity>
-          </LinearGradient>
-        </View>
+        {/* <View style={styles.watchlistContainer}>
+        </View> */}
         <View style={styles.downloadContainer}>
           <LinearGradient
             colors={['#C72FF8', '#6177EE', '#6177EE']}
@@ -138,6 +127,17 @@ const VideoPlayer: React.FC<VideosScreenProps> = ({ navigation, route }) => {
                 <Image source={DownloadButton} style={styles.downloadIcon} />
                 <Text style={styles.downloadText}>PDF</Text>
               </View>
+            </TouchableOpacity>
+          </LinearGradient>
+          <LinearGradient
+            colors={['#C72FF8', '#6177EE', '#6177EE']}
+            start={{ x: 0.9, y: -0.3 }}
+            style={styles.watchlistButton}
+          >
+            <TouchableOpacity onPress={handleAddToWatchlist} disabled={isInWatchlist}>
+              <Text style={styles.downloadText}>
+                {isInWatchlist ? 'Already in Watchlist' : 'Add to Watchlist'}
+              </Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>

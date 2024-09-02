@@ -78,7 +78,7 @@ data={cardsData.map((item, index) => ({
         dotStyle={styles.dotStyle}
         containerStyle={styles.dotContainer}
         activeDotColor="#6177EE"
-        inActiveDotColor="#ccc"
+        inActiveDotColor="white"
       />
     </View>
   );

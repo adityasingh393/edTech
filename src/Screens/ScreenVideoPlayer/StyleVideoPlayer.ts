@@ -8,7 +8,7 @@ import colors from '../../utils/Theme';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.White,
+    backgroundColor: colors.IconCardColor,
     marginTop: hp('5%'),
   },
   mediaPlayerContainer: {
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     marginBottom: hp('1.5%'),
   },
   watchlistButton: {
+    margin:hp('1%'),
     paddingVertical: hp('1.5%'),
     paddingHorizontal: wp('4%'),
     borderRadius: wp('7%'),

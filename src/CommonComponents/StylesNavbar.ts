@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.White,
     paddingHorizontal: wp('2%'),
     position: 'absolute',
-    bottom: hp('0.3%'),
+    bottom: hp('0.01%'),
     width: wp('100%'),
   },
 
