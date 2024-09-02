@@ -1,11 +1,8 @@
 import {StyleSheet} from 'react-native';
-
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-
-
+import colors from '../../utils/Theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.White,
+    backgroundColor: colors.IconCardColor,
   },
 });

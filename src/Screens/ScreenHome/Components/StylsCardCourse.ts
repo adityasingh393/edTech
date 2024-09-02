@@ -7,7 +7,7 @@ import colors from '../../../utils/Theme';
 
 export const styles = StyleSheet.create({
   CardCoursecontainer: {
-    marginTop: hp('2.5%'),
+    marginTop: hp('1%'),
     backgroundColor: colors.White,
     borderRadius: 12,
     shadowColor: '#000',
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 20,
-    height: wp('178.5%'),
+    height: wp('170.5%'),
     marginHorizontal: wp('4.5%'),
     marginBottom: hp('2.5%'),
     width: wp('90.5%'),
@@ -92,6 +92,7 @@ export const styles = StyleSheet.create({
     height: hp('.7%'),
     borderRadius: 5,
     marginHorizontal: 5,
+    backgroundColor:'white'
   },
   dotContainer: {
     position: 'absolute',
