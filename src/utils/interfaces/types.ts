@@ -9,6 +9,13 @@ export interface AuthState {
   isAuthenticated: boolean;
   user: User | null;
 }
+export interface MediaPlayerProps {
+  videoUri: string;
+  canDownload: boolean;
+  contentId?: number;
+  title?: string;
+  thumbnailUrl?: string;
+}
 
 export type AuthStackParamList = {
   Landing: undefined;
