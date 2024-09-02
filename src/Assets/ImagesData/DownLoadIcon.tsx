@@ -6,7 +6,7 @@ interface IconProps {
 }
 
 const NavbarDownloadIcon: React.FC<IconProps> = ({stroke = '#6177EE'}) => (
-  <Svg width="30px" height="30px" viewBox="0 0 24 24" id="downloads">
+  <Svg width="25px" height="25px" viewBox="0 0 24 24" id="downloads">
     <Rect
       id="Rectangle_3"
       data-name="Rectangle 3"

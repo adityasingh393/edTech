@@ -16,9 +16,9 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 20,
-    height: wp('170.5%'),
+    height: wp('173%'),
     marginHorizontal: wp('4.5%'),
-    marginBottom: hp('2.5%'),
+    // marginBottom: hp('2.5%'),
     width: wp('90.5%'),
     padding: wp('3.75%'),
   },
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
     maxHeight: hp('55%'),
     paddingHorizontal: wp('1.25%'),
 
-    marginBottom: hp('1%'),
+    marginBottom: hp('-2%'),
   },
   text: {
     fontFamily:Fonts.PoppinsRegular,
@@ -101,7 +101,7 @@ export const styles = StyleSheet.create({
   },
   dotContainer: {
     position: 'absolute',
-    bottom: hp('6%'),
+    bottom: hp('4.5%'),
     alignSelf: 'center',
   },
 });

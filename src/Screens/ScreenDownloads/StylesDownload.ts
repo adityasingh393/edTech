@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   videoTitle: {
-    fontFamily:Fonts.PoppinsRegular,
+    fontFamily:Fonts.PoppinsBold,
     fontSize: wp('4.5%'),
-    fontWeight: '600',
+    // fontWeight: '600',
     color: colors.TextColor,
     marginBottom: hp('1%'),
   },
@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
     marginTop: hp('1%'),
   },
   deleteButton: {
-    fontFamily:Fonts.PoppinsRegular,
+    fontFamily:Fonts.PoppinsBold,
     color: colors.Primary,
     fontSize: wp('4%'),
-    fontWeight: '600',
+    // fontWeight: '600',
   },
 });
 

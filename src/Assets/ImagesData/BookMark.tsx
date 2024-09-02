@@ -9,8 +9,8 @@ interface IconProps {
 }
 
 const Bookmark: React.FC<IconProps> = ({
-  width = 30,
-  height = 30,
+  width = 25,
+  height = 25,
   stroke = '#6177EE',
   strokeWidth = 1.5,
 }) => (

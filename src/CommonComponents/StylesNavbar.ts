@@ -10,11 +10,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: hp('5.5%'),
+    height: hp('4%'),
     backgroundColor: colors.White,
     paddingHorizontal: wp('2%'),
     position: 'absolute',
-    bottom: hp('0.01%'),
+    bottom: hp('0.1%'),
     width: wp('100%'),
   },
 
